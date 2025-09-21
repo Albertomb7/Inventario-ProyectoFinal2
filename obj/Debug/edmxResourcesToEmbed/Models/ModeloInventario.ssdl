@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDBodegasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AlertaReposicion">
+    <Key>
+      <PropertyRef Name="IdAlertaReposicion" />
+    </Key>
+    <Property Name="IdAlertaReposicion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductoIdAlertaReposicion" Type="int" Nullable="false" />
+    <Property Name="FechaDeGeneracion" Type="datetime" Nullable="false" />
+    <Property Name="NivelActual" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="Accion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TipoAccion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TablaAfectada" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Comentario" Type="nvarchar" MaxLength="250" />
+    <Property Name="Json1" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Inventario">
+    <Key>
+      <PropertyRef Name="IdInventario" />
+    </Key>
+    <Property Name="IdInventario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductoIdInventario" Type="int" Nullable="false" />
+    <Property Name="UbicacionId" Type="int" Nullable="false" />
+    <Property Name="Stock" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovimientoInventario">
+    <Key>
+      <PropertyRef Name="IdMovimientoInventario" />
+    </Key>
+    <Property Name="IdMovimientoInventario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="ProductoId" Type="int" Nullable="false" />
+    <Property Name="DesdeUbicacionId" Type="int" Nullable="false" />
+    <Property Name="HaciaUbicacionId" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="Observacion" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Permiso">
+    <Key>
+      <PropertyRef Name="IdPermiso" />
+    </Key>
+    <Property Name="IdPermiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombrePermiso" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Marca" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UnidadMedida" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="StockMinimo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreRol" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="RolPermiso">
+    <Key>
+      <PropertyRef Name="IdRolPermiso" />
+    </Key>
+    <Property Name="IdRolPermiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RolId" Type="int" Nullable="false" />
+    <Property Name="PermisoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Ubicacion">
+    <Key>
+      <PropertyRef Name="IdUbicacion" />
+    </Key>
+    <Property Name="IdUbicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar" MaxLength="5" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="HasPassword" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Rol" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Alerta_Reposicion_ProductoId">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="AlertaReposicion" Type="Self.AlertaReposicion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="AlertaReposicion">
+        <PropertyRef Name="ProductoIdAlertaReposicion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bitacora_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Bitacora">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventario_ProductoId">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="Inventario">
+        <PropertyRef Name="ProductoIdInventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventario_UbicacionId">
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="1" />
+    <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Principal>
+      <Dependent Role="Inventario">
+        <PropertyRef Name="UbicacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovimientoInventario_ProductoId">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="MovimientoInventario" Type="Self.MovimientoInventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="MovimientoInventario">
+        <PropertyRef Name="ProductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovimientoInventario_UbicacionId">
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="1" />
+    <End Role="MovimientoInventario" Type="Self.MovimientoInventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Principal>
+      <Dependent Role="MovimientoInventario">
+        <PropertyRef Name="DesdeUbicacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovimientoInventario_UbicaionId">
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="1" />
+    <End Role="MovimientoInventario" Type="Self.MovimientoInventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Principal>
+      <Dependent Role="MovimientoInventario">
+        <PropertyRef Name="HaciaUbicacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovimientoInventario_UsuarioId">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="MovimientoInventario" Type="Self.MovimientoInventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="MovimientoInventario">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolPermiso_Permiso">
+    <End Role="Permiso" Type="Self.Permiso" Multiplicity="1" />
+    <End Role="RolPermiso" Type="Self.RolPermiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permiso">
+        <PropertyRef Name="IdPermiso" />
+      </Principal>
+      <Dependent Role="RolPermiso">
+        <PropertyRef Name="PermisoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolPermiso_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="RolPermiso" Type="Self.RolPermiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="RolPermiso">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDBodegasModelStoreContainer">
+    <EntitySet Name="AlertaReposicion" EntityType="Self.AlertaReposicion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventario" EntityType="Self.Inventario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovimientoInventario" EntityType="Self.MovimientoInventario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permiso" EntityType="Self.Permiso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolPermiso" EntityType="Self.RolPermiso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Alerta_Reposicion_ProductoId" Association="Self.FK_Alerta_Reposicion_ProductoId">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="AlertaReposicion" EntitySet="AlertaReposicion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bitacora_Usuario" Association="Self.FK_Bitacora_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Bitacora" EntitySet="Bitacora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventario_ProductoId" Association="Self.FK_Inventario_ProductoId">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Inventario" EntitySet="Inventario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventario_UbicacionId" Association="Self.FK_Inventario_UbicacionId">
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+      <End Role="Inventario" EntitySet="Inventario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovimientoInventario_ProductoId" Association="Self.FK_MovimientoInventario_ProductoId">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="MovimientoInventario" EntitySet="MovimientoInventario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovimientoInventario_UbicacionId" Association="Self.FK_MovimientoInventario_UbicacionId">
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+      <End Role="MovimientoInventario" EntitySet="MovimientoInventario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovimientoInventario_UbicaionId" Association="Self.FK_MovimientoInventario_UbicaionId">
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+      <End Role="MovimientoInventario" EntitySet="MovimientoInventario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovimientoInventario_UsuarioId" Association="Self.FK_MovimientoInventario_UsuarioId">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="MovimientoInventario" EntitySet="MovimientoInventario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolPermiso_Permiso" Association="Self.FK_RolPermiso_Permiso">
+      <End Role="Permiso" EntitySet="Permiso" />
+      <End Role="RolPermiso" EntitySet="RolPermiso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolPermiso_Rol" Association="Self.FK_RolPermiso_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="RolPermiso" EntitySet="RolPermiso" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

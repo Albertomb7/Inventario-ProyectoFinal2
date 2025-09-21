@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="623569fb629c4192aabc0fa63ae5687b" Name="Diagram1">
+        <EntityTypeShape EntityType="BDBodegasModel.AlertaReposicion" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.Bitacora" Width="1.5" PointX="5.375" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.Inventario" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.MovimientoInventario" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.Permiso" Width="1.5" PointX="10.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.Producto" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.Rol" Width="1.5" PointX="6.875" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.RolPermiso" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.Ubicacion" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.Usuario" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="BDBodegasModel.FK_Alerta_Reposicion_ProductoId" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBodegasModel.FK_Bitacora_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBodegasModel.FK_Inventario_ProductoId" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBodegasModel.FK_Inventario_UbicacionId" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBodegasModel.FK_MovimientoInventario_ProductoId" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBodegasModel.FK_MovimientoInventario_UbicacionId" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBodegasModel.FK_MovimientoInventario_UbicaionId" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBodegasModel.FK_MovimientoInventario_UsuarioId" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBodegasModel.FK_RolPermiso_Permiso" ManuallyRouted="false" />
+        <AssociationConnector Association="BDBodegasModel.FK_RolPermiso_Rol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
