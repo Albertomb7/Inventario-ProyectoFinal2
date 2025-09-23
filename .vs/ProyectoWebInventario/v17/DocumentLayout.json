@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\marvi\\source\\repos\\albertomb7\\inventario-proyectofinal2\\views\\usuarios\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\usuarios\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\marvi\\source\\repos\\albertomb7\\inventario-proyectofinal2\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\recursos\\encript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:recursos\\encript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\recursos\\encript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:recursos\\encript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,11 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "Models\\Usuario.cs",
@@ -71,7 +75,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Usuarios\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuarios\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Usuarios\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Usuarios\\Edit.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-23T04:34:27.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "RouteConfig.cs",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\App_Start\\RouteConfig.cs",
               "RelativeDocumentMoniker": "App_Start\\RouteConfig.cs",
@@ -79,11 +96,12 @@
               "RelativeToolTip": "App_Start\\RouteConfig.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T18:22:16.306Z"
+              "WhenOpened": "2025-09-21T18:22:16.306Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Encript.cs",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Recursos\\Encript.cs",
               "RelativeDocumentMoniker": "Recursos\\Encript.cs",
@@ -91,36 +109,38 @@
               "RelativeToolTip": "Recursos\\Encript.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T18:19:04.531Z"
+              "WhenOpened": "2025-09-21T18:19:04.531Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowCkAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-21T18:13:01.758Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
               "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAoAAAAAAAAAAADwvxsAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-21T17:59:14.825Z"
+              "WhenOpened": "2025-09-21T17:59:14.825Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Usuarios\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuarios\\Create.cshtml",
@@ -132,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Usuarios\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Usuarios\\Index.cshtml",
@@ -144,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "UsuariosController.cs",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\UsuariosController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
@@ -156,7 +176,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -168,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ProductosController.cs",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\ProductosController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductosController.cs",
@@ -180,14 +200,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ModeloInventario.edmx [Diagram1]",
               "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Models\\ModeloInventario.edmx",
               "RelativeDocumentMoniker": "Models\\ModeloInventario.edmx",
-              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Models\\ModeloInventario.edmx [Diagram1]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Models\\ModeloInventario.edmx [Diagram1]",
+              "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Models\\ModeloInventario.edmx [Diagram1]",
+              "RelativeToolTip": "Models\\ModeloInventario.edmx [Diagram1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-09-21T14:21:55.52Z"
+              "WhenOpened": "2025-09-21T14:21:55.52Z",
+              "EditorCaption": " [Diagram1]"
             }
           ]
         }
