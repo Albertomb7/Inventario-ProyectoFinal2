@@ -20,6 +20,7 @@ namespace ProyectoWebInventario.Recursos
                 foreach (byte b in hash)
                     sb.Append(b.ToString("x2"));
 
+
                 return sb.ToString();
             }
         }
