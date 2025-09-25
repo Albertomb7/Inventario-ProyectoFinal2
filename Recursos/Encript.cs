@@ -16,7 +16,6 @@ namespace ProyectoWebInventario.Recursos
                 byte[] bytes = Encoding.UTF8.GetBytes(texto);
                 byte[] hash = sha256.ComputeHash(bytes);
 
-
                 StringBuilder sb = new StringBuilder();
                 foreach (byte b in hash)
                     sb.Append(b.ToString("x2"));
