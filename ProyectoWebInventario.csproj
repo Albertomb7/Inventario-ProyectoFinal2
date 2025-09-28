@@ -130,8 +130,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlertasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\UbicacionesController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -204,6 +206,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\custom-dashboard.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -267,6 +270,16 @@
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Ubicaciones\Create.cshtml" />
+    <Content Include="Views\Ubicaciones\Delete.cshtml" />
+    <Content Include="Views\Ubicaciones\Details.cshtml" />
+    <Content Include="Views\Ubicaciones\Edit.cshtml" />
+    <Content Include="Views\Ubicaciones\Index.cshtml" />
+    <Content Include="Views\Alertas\Create.cshtml" />
+    <Content Include="Views\Alertas\Delete.cshtml" />
+    <Content Include="Views\Alertas\Details.cshtml" />
+    <Content Include="Views\Alertas\Edit.cshtml" />
+    <Content Include="Views\Alertas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

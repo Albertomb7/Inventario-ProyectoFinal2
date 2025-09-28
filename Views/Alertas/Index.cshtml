@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProyectoWebInventario.Models.AlertaReposicion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaDeGeneracion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NivelActual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaDeGeneracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NivelActual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Producto.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdAlertaReposicion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdAlertaReposicion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdAlertaReposicion })
+        </td>
+    </tr>
+}
+
+</table>

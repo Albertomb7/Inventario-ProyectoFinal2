@@ -1,33 +1,67 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Tablero";
+    // NOTA: Idealmente, la lista de productos vendría del controlador.
+    // Esto es solo un ejemplo para que se vea como en la imagen.
+    // Cuando lo conectes, borrarás esta lista y usarás el @Model.
+    var productosEjemplo = new[] {
+        new { Codigo = "P001", Nombre = "Producto A", Categoria = "Categoría 1", Cantidad = 100, Activo = true },
+        new { Codigo = "P002", Nombre = "Producto B", Categoria = "Categoría 2", Cantidad = 200, Activo = true },
+        new { Codigo = "P003", Nombre = "Producto C", Categoria = "Categoría 1", Cantidad = 50, Activo = false },
+        new { Codigo = "P004", Nombre = "Producto D", Categoria = "Categoría 3", Cantidad = 300, Activo = true }
+    };
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+<div class="main-header">
+    <h1>Sistema de Gestión de Inventarios para Almacén</h1>
+</div>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+<div class="summary-section">
+    <h2>Resumen del inventario</h2>
+    <div class="summary-cards">
+        <div class="card">
+            <div class="count">1,250</div> <div class="label">Productos</div>
+        </div>
+        <div class="card">
+            <div class="count">120</div> <div class="label">Ubicaciones</div>
+        </div>
+        <div class="card">
+            <div class="count">25</div> <div class="label">Alertas</div>
+        </div>
     </div>
-</main>
+</div>
+
+<div class="product-list">
+    <h2>Listado de productos</h2>
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Cantidad</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producto in productosEjemplo)
+            {
+                <tr>
+                    <td>@producto.Codigo</td>
+                    <td>@producto.Nombre</td>
+                    <td>@producto.Categoria</td>
+                    <td>@producto.Cantidad</td>
+                    <td>
+                        @if (producto.Activo)
+                        {
+                            <span class="status-badge status-active">Activo</span>
+                        }
+                        else
+                        {
+                            <span class="status-badge status-inactive">Inactivo</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
