@@ -1,14 +1,7 @@
-﻿@{
+﻿@model ProyectoWebInventario.Models.DashboardViewModel
+
+@{
     ViewBag.Title = "Tablero";
-    // NOTA: Idealmente, la lista de productos vendría del controlador.
-    // Esto es solo un ejemplo para que se vea como en la imagen.
-    // Cuando lo conectes, borrarás esta lista y usarás el @Model.
-    var productosEjemplo = new[] {
-        new { Codigo = "P001", Nombre = "Producto A", Categoria = "Categoría 1", Cantidad = 100, Activo = true },
-        new { Codigo = "P002", Nombre = "Producto B", Categoria = "Categoría 2", Cantidad = 200, Activo = true },
-        new { Codigo = "P003", Nombre = "Producto C", Categoria = "Categoría 1", Cantidad = 50, Activo = false },
-        new { Codigo = "P004", Nombre = "Producto D", Categoria = "Categoría 3", Cantidad = 300, Activo = true }
-    };
 }
 
 <div class="main-header">
@@ -19,39 +12,42 @@
     <h2>Resumen del inventario</h2>
     <div class="summary-cards">
         <div class="card">
-            <div class="count">1,250</div> <div class="label">Productos</div>
+            <div class="count">@Model.TotalProductos</div>
+            <div class="label">Productos</div>
         </div>
         <div class="card">
-            <div class="count">120</div> <div class="label">Ubicaciones</div>
+            <div class="count">@Model.TotalUbicaciones</div>
+            <div class="label">Ubicaciones</div>
         </div>
         <div class="card">
-            <div class="count">25</div> <div class="label">Alertas</div>
+            <div class="count">@Model.TotalAlertas</div>
+            <div class="label">Alertas</div>
         </div>
     </div>
 </div>
 
 <div class="product-list">
-    <h2>Listado de productos</h2>
+    <h2>Últimos productos agregados</h2>
     <table class="product-table">
         <thead>
             <tr>
-                <th>Código</th>
                 <th>Nombre</th>
                 <th>Categoría</th>
-                <th>Cantidad</th>
+                <th>Marca</th>
+                <th>Stock Mínimo</th>
                 <th>Estado</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var producto in productosEjemplo)
+            @foreach (var producto in Model.UltimosProductos)
             {
                 <tr>
-                    <td>@producto.Codigo</td>
                     <td>@producto.Nombre</td>
                     <td>@producto.Categoria</td>
-                    <td>@producto.Cantidad</td>
+                    <td>@producto.Marca</td>
+                    <td>@producto.StockMinimo</td>
                     <td>
-                        @if (producto.Activo)
+                        @if (producto.Activo == true)
                         {
                             <span class="status-badge status-active">Activo</span>
                         }

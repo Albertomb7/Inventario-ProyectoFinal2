@@ -144,6 +144,7 @@
     <Compile Include="Models\Bitacora.cs">
       <DependentUpon>ModeloInventario.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\Inventario.cs">
       <DependentUpon>ModeloInventario.tt</DependentUpon>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoWebInventario.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,9 +11,21 @@ namespace ProyectoWebInventario.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
+            // 1. Crear una instancia 
+            var viewModel = new DashboardViewModel();
 
+            // 2. Consultar la base de datos 
+            viewModel.TotalProductos = db.Productoes.Count();
+            viewModel.TotalUbicaciones = db.Ubicacions.Count();
+            viewModel.TotalAlertas = db.AlertaReposicions.Count();
+
+            // Toma los 5 productos más recientes 
+            viewModel.UltimosProductos = db.Productoes.OrderByDescending(p => p.IdProducto).Take(5).ToList();
+
+            // 3. Enviar el ViewModel a la vista
+            return View(viewModel);
+        }
+        private BDBodegasEntities db = new BDBodegasEntities();
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
