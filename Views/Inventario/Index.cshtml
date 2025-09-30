@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ProyectoWebInventario.Models.Inventario>
+
+@{
+    ViewBag.Title = "Movimiento inventario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Inventario actual</h2>
+
+
+<p>
+    @Html.ActionLink("Agregar producto nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ubicacion.Codigo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ubicacion.Codigo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdInventario }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdInventario }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdInventario })
+            </td>
+        </tr>
+    }
+
+</table>

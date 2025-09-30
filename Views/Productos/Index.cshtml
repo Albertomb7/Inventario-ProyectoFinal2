@@ -28,7 +28,7 @@
         <th>@Html.DisplayNameFor(model => model.Marca)</th>
         <th>@Html.DisplayNameFor(model => model.UnidadMedida)</th>
         <th>@Html.DisplayNameFor(model => model.StockMinimo)</th>
-        <th>Stock Actual</th>
+
         <th>@Html.DisplayNameFor(model => model.Activo)</th>
         <th></th>
     </tr>
@@ -42,7 +42,7 @@
             <td>@Html.DisplayFor(modelItem => item.UnidadMedida)</td>
             <td>@Html.DisplayFor(modelItem => item.StockMinimo)</td>
 
-            <td>@item.Inventarios.Sum(i => i.Cantidad)</td>
+
 
             <td>@Html.DisplayFor(modelItem => item.Activo)</td>
             <td>

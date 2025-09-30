@@ -43,6 +43,7 @@
     <Property Name="Cantidad" Type="int" Nullable="false" />
     <Property Name="UsuarioId" Type="int" Nullable="false" />
     <Property Name="Observacion" Type="nvarchar" MaxLength="200" />
+    <Property Name="TipoMovimiento" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Permiso">
     <Key>

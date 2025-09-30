@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<ProyectoWebInventario.Models.MovimientoInventario>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Movimientos del inventario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Movimientos del inventario</h2>
+<a href="@Url.Action("Create", "MovimientoInventarios")" class="btn btn-primary">Registrar nuevo movimiento</a>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -25,10 +23,10 @@
             @Html.DisplayNameFor(model => model.Producto.Nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ubicacion.Codigo)
+            Ubicacion inicial
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ubicacion1.Codigo)
+            Ubicacion destino
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Usuario.NombreUsuario)
@@ -36,35 +34,36 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cantidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Observacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Producto.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ubicacion.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ubicacion1.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario.NombreUsuario)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdMovimientoInventario }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdMovimientoInventario }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdMovimientoInventario })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ubicacion.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ubicacion1.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.NombreUsuario)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdMovimientoInventario }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdMovimientoInventario }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdMovimientoInventario })
+            </td>
+        </tr>
+    }
 
 </table>

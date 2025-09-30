@@ -167,6 +167,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlertasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventarioController.cs" />
     <Compile Include="Controllers\MovimientoInventariosController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\UbicacionesController.cs" />
@@ -322,6 +323,11 @@
     <Content Include="Views\MovimientoInventarios\Details.cshtml" />
     <Content Include="Views\MovimientoInventarios\Edit.cshtml" />
     <Content Include="Views\MovimientoInventarios\Index.cshtml" />
+    <Content Include="Views\Inventario\Create.cshtml" />
+    <Content Include="Views\Inventario\Delete.cshtml" />
+    <Content Include="Views\Inventario\Details.cshtml" />
+    <Content Include="Views\Inventario\Edit.cshtml" />
+    <Content Include="Views\Inventario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

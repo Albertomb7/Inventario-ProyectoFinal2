@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BDBodegasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BDBodegasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AlertaReposicion">
           <Key>
             <PropertyRef Name="IdAlertaReposicion" />
@@ -48,6 +48,7 @@
           <Property Name="Cantidad" Type="int" Nullable="false" />
           <Property Name="UsuarioId" Type="int" Nullable="false" />
           <Property Name="Observacion" Type="nvarchar" MaxLength="200" />
+          <Property Name="TipoMovimiento" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Permiso">
           <Key>
@@ -287,8 +288,7 @@
             <End Role="RolPermiso" EntitySet="RolPermiso" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDBodegasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -343,6 +343,7 @@
           <NavigationProperty Name="Ubicacion" Relationship="Self.FK_MovimientoInventario_UbicacionId" FromRole="MovimientoInventario" ToRole="Ubicacion" />
           <NavigationProperty Name="Ubicacion1" Relationship="Self.FK_MovimientoInventario_UbicaionId" FromRole="MovimientoInventario" ToRole="Ubicacion" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_MovimientoInventario_UsuarioId" FromRole="MovimientoInventario" ToRole="Usuario" />
+          <Property Name="TipoMovimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Permiso">
           <Key>
@@ -637,6 +638,7 @@
           <EntitySetMapping Name="MovimientoInventarios">
             <EntityTypeMapping TypeName="BDBodegasModel.MovimientoInventario">
               <MappingFragment StoreEntitySet="MovimientoInventario">
+                <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
                 <ScalarProperty Name="IdMovimientoInventario" ColumnName="IdMovimientoInventario" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />

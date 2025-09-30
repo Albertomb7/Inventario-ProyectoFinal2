@@ -31,8 +31,8 @@ namespace ProyectoWebInventario.Controllers
         public ActionResult Create()
         {
             ViewBag.ProductoId = new SelectList(db.Productoes, "IdProducto", "Nombre");
-            ViewBag.DesdeUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo");
-            ViewBag.HaciaUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo");
+            ViewBag.DesdeUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Descripcion");
+            ViewBag.HaciaUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Descripcion");
             ViewBag.UsuarioId = new SelectList(db.Usuarios, "IdUsuario", "NombreUsuario");
             return View();
         }
@@ -40,11 +40,12 @@ namespace ProyectoWebInventario.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdMovimientoInventario,Fecha,ProductoId,DesdeUbicacionId,HaciaUbicacionId,Cantidad,UsuarioId,Observacion,TipoMovimiento")] MovimientoInventario movimientoInventario)
+        public ActionResult Create([Bind(Include = "IdMovimientoInventario,Fecha,ProductoId,DesdeUbicacionId,HaciaUbicacionId,Cantidad,UsuarioId,Observacion, TipoMovimiento")] MovimientoInventario movimientoInventario)
         {
             if (ModelState.IsValid)
             {
-                var inventarioAfectado = db.Inventarios.FirstOrDefault(i => i.ProductoId == movimientoInventario.ProductoId);
+                var inventarioAfectado = db.Inventarios.FirstOrDefault(i => i.ProductoIdInventario == movimientoInventario.ProductoId);
+                var Bd = new BDBodegasEntities();
 
                 if (inventarioAfectado != null)
                 {
@@ -52,10 +53,38 @@ namespace ProyectoWebInventario.Controllers
                     if ("Entrada".Equals(movimientoInventario.TipoMovimiento, StringComparison.OrdinalIgnoreCase))
                     {
                         inventarioAfectado.Stock += movimientoInventario.Cantidad;
+
+                        var Reporte = new Bitacora
+                        {
+                            FechaRegistro = DateTime.Now,
+                            UsuarioId = 2,
+                            Accion = "Movimiento inventario",
+                            TipoAccion = "Entrada de producto",
+                            TablaAfectada = "Inventario",
+                            Comentario = movimientoInventario.Observacion,
+                            Json1 = "aaaaaa"
+                        };
+
+                        Bd.Bitacoras.Add(Reporte);
+                        Bd.SaveChanges();
                     }
                     else if ("Salida".Equals(movimientoInventario.TipoMovimiento, StringComparison.OrdinalIgnoreCase))
                     {
                         inventarioAfectado.Stock -= movimientoInventario.Cantidad;
+
+                        var Reporte = new Bitacora
+                        {
+                            FechaRegistro = DateTime.Now,
+                            UsuarioId = 2,
+                            Accion = "Movimiento inventario",
+                            TipoAccion = "Salida de producto",
+                            TablaAfectada = "Inventario",
+                            Comentario = movimientoInventario.Observacion,
+                            Json1 = "aaaaaa"
+                        };
+
+                        Bd.Bitacoras.Add(Reporte);
+                        Bd.SaveChanges();
                     }
                     db.Entry(inventarioAfectado).State = EntityState.Modified;
                 }

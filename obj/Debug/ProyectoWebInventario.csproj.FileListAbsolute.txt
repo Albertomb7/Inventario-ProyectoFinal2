@@ -287,3 +287,22 @@ C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Security.Cry
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\BouncyCastle.Crypto.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\itextsharp.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\itextsharp.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\BouncyCastle.Crypto.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\EPPlus.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\EPPlus.Interfaces.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\itextsharp.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Buffers.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.ComponentModel.Annotations.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Memory.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Numerics.Vectors.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Security.Cryptography.Xml.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\EPPlus.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\itextsharp.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Buffers.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Memory.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Numerics.Vectors.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Security.Cryptography.Xml.xml
