@@ -1,4 +1,7 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -34,7 +37,73 @@ namespace ProyectoWebInventario.Controllers
             }
             return View(ubicacion);
         }
+        public ActionResult ExportarPDF()
+        {
+            List<Ubicacion> listaUbicaciones = db.Ubicacions.ToList();
 
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+                PdfWriter writer = PdfWriter.GetInstance(document, memoryStream);
+                document.Open();
+
+               
+
+                //   fuentes para el diseño
+                var tituloFont = FontFactory.GetFont("Arial", 25, Font.BOLD);
+                var subtituloFont = FontFactory.GetFont("Arial", 18, Font.ITALIC);
+                var textoFont = FontFactory.GetFont("Arial", 14, Font.NORMAL);
+
+                // . Título principal
+                var titulo = new Paragraph("Reporte de Ubicaciones del Almacén Los Pitudos", tituloFont);
+                titulo.Alignment = Element.ALIGN_CENTER;
+                document.Add(titulo);
+
+                //
+                var nombreAlmacen = new Paragraph("Almacén: Los pitudos", subtituloFont);
+                nombreAlmacen.Alignment = Element.ALIGN_CENTER;
+                document.Add(nombreAlmacen);
+
+                //  Fecha y hora de generación 
+                var fecha = new Paragraph($"Generado el: {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}", subtituloFont);
+                fecha.Alignment = Element.ALIGN_CENTER;
+                document.Add(fecha);
+
+                //  Párrafo de descripción
+                var descripcion = new Paragraph("Este documento presenta el listado oficial de las ubicaciones registradas en el sistema, incluyendo su código, descripción y estado actual. Cualquier duda Comunicarse Con mis panas de la Universidad los quiero mucho", textoFont);
+                descripcion.Alignment = Element.ALIGN_JUSTIFIED; 
+                descripcion.SpacingBefore = 10f; 
+                descripcion.SpacingAfter = 10f;  
+                document.Add(descripcion);
+
+                
+
+                // Crear la tabla
+                PdfPTable table = new PdfPTable(4);
+                table.WidthPercentage = 100;
+
+                // Encabezados de la tabla
+                table.AddCell("ID");
+                table.AddCell("Código");
+                table.AddCell("Descripción");
+                table.AddCell("Estado");
+
+                // Llenar la tabla con datos
+                foreach (var ubicacion in listaUbicaciones)
+                {
+                    table.AddCell(ubicacion.IdUbicacion.ToString());
+                    table.AddCell(ubicacion.Codigo);
+                    table.AddCell(ubicacion.Descripcion);
+                    table.AddCell(ubicacion.Activo == true ? "Activo" : "Inactivo");
+                }
+
+                document.Add(table);
+                document.Close();
+
+                string pdfName = $"ReporteUbicaciones-{DateTime.Now.ToString("yyyyMMddHHmmss")}.pdf";
+                return File(memoryStream.ToArray(), "application/pdf", pdfName);
+            }
+        }
         // GET: Ubicacions/Create
         public ActionResult Create()
         {

@@ -33,5 +33,8 @@ namespace ProyectoWebInventario.Models
         public virtual ICollection<MovimientoInventario> MovimientoInventarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovimientoInventario> MovimientoInventarios1 { get; set; }
+        public string Nivel { get; internal set; }
+        public string Estanteria { get; internal set; }
+        public string Observaciones { get; internal set; }
     }
 }

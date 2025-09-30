@@ -1,64 +1,55 @@
 ﻿@model IEnumerable<ProyectoWebInventario.Models.Producto>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listado de Productos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Listado de Productos</h2>
+
+@using (Html.BeginForm("Index", "Productos", FormMethod.Get))
+{
+    <p>
+        Buscar por Nombre: @Html.TextBox("busqueda")
+        <input type="submit" value="Buscar" class="btn btn-info btn-sm" />
+    </p>
+}
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Exportar a Excel", "ExportarExcel", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Exportar a PDF", "ExportarPDF", null, new { @class = "btn btn-danger" })
 </p>
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Marca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UnidadMedida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StockMinimo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Activo)
-        </th>
+        <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+        <th>@Html.DisplayNameFor(model => model.Categoria)</th>
+        <th>@Html.DisplayNameFor(model => model.Marca)</th>
+        <th>@Html.DisplayNameFor(model => model.UnidadMedida)</th>
+        <th>@Html.DisplayNameFor(model => model.StockMinimo)</th>
+        <th>Stock Actual</th>
+        <th>@Html.DisplayNameFor(model => model.Activo)</th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Marca)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnidadMedida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StockMinimo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdProducto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdProducto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdProducto })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+            <td>@Html.DisplayFor(modelItem => item.Categoria)</td>
+            <td>@Html.DisplayFor(modelItem => item.Marca)</td>
+            <td>@Html.DisplayFor(modelItem => item.UnidadMedida)</td>
+            <td>@Html.DisplayFor(modelItem => item.StockMinimo)</td>
 
+            <td>@item.Inventarios.Sum(i => i.Cantidad)</td>
+
+            <td>@Html.DisplayFor(modelItem => item.Activo)</td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdProducto }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.IdProducto }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto })
+            </td>
+        </tr>
+    }
 </table>

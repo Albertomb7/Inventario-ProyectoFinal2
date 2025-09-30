@@ -1,17 +1,17 @@
 ﻿@model ProyectoWebInventario.Models.Producto
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Producto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Editar Producto</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Producto</h4>
         <hr />
@@ -59,6 +59,13 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-md-2">Stock Actual</label>
+            <div class="col-md-10">
+                <p class="form-control-static">@Model.Inventarios.Sum(i => i.Stock)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
@@ -70,14 +77,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a la Lista", "Index")
 </div>
 
 @section Scripts {

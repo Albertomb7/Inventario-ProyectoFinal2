@@ -36,7 +36,5 @@ namespace ProyectoWebInventario.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Ubicacion> Ubicacions { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
-        public object Productos { get; internal set; }
-        public object Alerta_Reposicion { get; internal set; }
     }
 }

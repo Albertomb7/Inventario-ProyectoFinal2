@@ -27,5 +27,6 @@ namespace ProyectoWebInventario.Models
         public virtual Ubicacion Ubicacion { get; set; }
         public virtual Ubicacion Ubicacion1 { get; set; }
         public virtual Usuario Usuario { get; set; }
+        public string TipoMovimiento { get; internal set; }
     }
 }

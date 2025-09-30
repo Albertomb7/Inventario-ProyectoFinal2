@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<ProyectoWebInventario.Models.Ubicacion>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listado de Ubicaciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Listado de Ubicaciones</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Exportar a PDF", "ExportarPDF", null, new { @class = "btn btn-danger" })
 </p>
 <table class="table">
     <tr>
@@ -24,23 +25,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdUbicacion }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdUbicacion }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdUbicacion })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdUbicacion }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.IdUbicacion }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdUbicacion })
+            </td>
+        </tr>
+    }
 
 </table>
