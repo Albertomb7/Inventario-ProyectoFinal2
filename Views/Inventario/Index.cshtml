@@ -1,48 +1,52 @@
 ﻿@model IEnumerable<ProyectoWebInventario.Models.Inventario>
 
 @{
-    ViewBag.Title = "Movimiento inventario";
+    ViewBag.Title = "Inventario Actual";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Inventario actual</h2>
-
+<h2>Inventario Actual</h2>
 
 <p>
-    @Html.ActionLink("Agregar producto nuevo", "Create")
+    @* Convertimos el enlace en un botón principal y mejoramos el texto *@
+    @Html.ActionLink("Agregar Producto a Inventario", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Stock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Producto.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ubicacion.Codigo)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+@* Aplicamos los estilos a la tabla *@
+<table class="table table-hover">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Producto.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ubicacion.Codigo)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IdInventario }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdInventario }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdInventario })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ubicacion.Codigo)
+            </th>
+            <th></th>
         </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ubicacion.Codigo)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdInventario }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.IdInventario }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdInventario })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

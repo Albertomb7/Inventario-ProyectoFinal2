@@ -8,41 +8,50 @@
 <h2>Listado de Ubicaciones</h2>
 
 <p>
-    @Html.ActionLink("Crear Nuevo", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Crear Nueva Ubicación", "Create", null, new { @class = "btn btn-primary" })
     @Html.ActionLink("Exportar a PDF", "ExportarPDF", null, new { @class = "btn btn-danger" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Activo)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table class="table table-hover">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Codigo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Activo)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.IdUbicacion }) |
-                @Html.ActionLink("Detalles", "Details", new { id = item.IdUbicacion }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdUbicacion })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+            <th></th>
         </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @if (item.Activo == true)
+                    {
+                        <span class="label label-success">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="label label-danger">Inactivo</span>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdUbicacion }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.IdUbicacion }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdUbicacion })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

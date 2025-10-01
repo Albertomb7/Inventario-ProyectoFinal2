@@ -11,7 +11,7 @@ using ProyectoWebInventario.Recursos;
 
 namespace ProyectoWebInventario.Controllers
 {
-    public class UsuariosController : Controller
+    public class UsuariosController : BaseController
     {
         private BDBodegasEntities db = new BDBodegasEntities();
 

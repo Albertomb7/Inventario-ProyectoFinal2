@@ -12,7 +12,7 @@ using System;
 
 namespace ProyectoWebInventario.Controllers
 {
-    public class ProductosController : Controller
+    public class ProductosController : BaseController
     {
         private BDBodegasEntities db = new BDBodegasEntities();
 
@@ -192,7 +192,7 @@ namespace ProyectoWebInventario.Controllers
                 Document document = new Document(PageSize.A4, 25, 25, 30, 30);
                 PdfWriter.GetInstance(document, memoryStream);
                 document.Open();
-                document.Add(new Paragraph("Reporte de Productos"));
+                document.Add(new Paragraph("Reporte de Productos del ACortex"));
                 document.Add(Chunk.NEWLINE);
                 PdfPTable table = new PdfPTable(7);
                 table.WidthPercentage = 100;

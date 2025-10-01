@@ -5,36 +5,56 @@
 }
 
 <div class="main-header">
-    <h1>Sistema de Gestión de Inventarios para Almacén</h1>
+    <h1>Sistema de Gestión de Inventarios</h1>
 </div>
 
-<div class="summary-section">
-    <h2>Resumen del inventario</h2>
-    <div class="summary-cards">
-        <div class="card">
-            <div class="count">@Model.TotalProductos</div>
-            <div class="label">Productos</div>
+<div class="row summary-section">
+    <div class="col-md-4">
+        <div class="summary-card">
+            <div class="card-icon icon-products">
+                <i class="fas fa-box-open"></i>
+            </div>
+            <div class="card-info">
+                <div class="card-title">@Model.TotalProductos</div>
+                <div class="card-subtitle">Productos</div>
+            </div>
         </div>
-        <div class="card">
-            <div class="count">@Model.TotalUbicaciones</div>
-            <div class="label">Ubicaciones</div>
+    </div>
+    <div class="col-md-4">
+        <div class="summary-card">
+            <div class="card-icon icon-locations">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="card-info">
+                <div class="card-title">@Model.TotalUbicaciones</div>
+                <div class="card-subtitle">Ubicaciones</div>
+            </div>
         </div>
-        <div class="card">
-            <div class="count">@Model.TotalAlertas</div>
-            <div class="label">Alertas</div>
+    </div>
+    <div class="col-md-4">
+        <div class="summary-card">
+            <div class="card-icon icon-alerts">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="card-info">
+                <div class="card-title">@Model.TotalAlertas</div>
+                <div class="card-subtitle">Alertas</div>
+            </div>
         </div>
     </div>
 </div>
 
+
 <div class="product-list">
     <h2>Últimos productos agregados</h2>
-    <table class="product-table">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Categoría</th>
                 <th>Marca</th>
                 <th>Stock Mínimo</th>
+                <th>Stock Actual</th>
                 <th>Estado</th>
             </tr>
         </thead>
@@ -46,14 +66,15 @@
                     <td>@producto.Categoria</td>
                     <td>@producto.Marca</td>
                     <td>@producto.StockMinimo</td>
+                    <td>@(producto.Inventarios != null ? producto.Inventarios.Sum(i => i.Stock) : 0)</td>
                     <td>
                         @if (producto.Activo == true)
                         {
-                            <span class="status-badge status-active">Activo</span>
+                            <span class="label label-success">Activo</span>
                         }
                         else
                         {
-                            <span class="status-badge status-inactive">Inactivo</span>
+                            <span class="label label-danger">Inactivo</span>
                         }
                     </td>
                 </tr>

@@ -10,7 +10,7 @@ using ProyectoWebInventario.Models;
 
 namespace ProyectoWebInventario.Controllers
 {
-    public class InventarioController : Controller
+    public class InventarioController : BaseController
     {
         private BDBodegasEntities db = new BDBodegasEntities();
 

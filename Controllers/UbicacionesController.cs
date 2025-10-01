@@ -13,7 +13,7 @@ using ProyectoWebInventario.Models;
 
 namespace ProyectoWebInventario.Controllers
 {
-    public class UbicacionesController : Controller
+    public class UbicacionesController : BaseController
     {
         private BDBodegasEntities db = new BDBodegasEntities();
 
@@ -55,12 +55,12 @@ namespace ProyectoWebInventario.Controllers
                 var textoFont = FontFactory.GetFont("Arial", 14, Font.NORMAL);
 
                 // . Título principal
-                var titulo = new Paragraph("Reporte de Ubicaciones del Almacén Los Pitudos", tituloFont);
+                var titulo = new Paragraph("Reporte de Ubicaciones del Almacén Cortex ", tituloFont);
                 titulo.Alignment = Element.ALIGN_CENTER;
                 document.Add(titulo);
 
                 //
-                var nombreAlmacen = new Paragraph("Almacén: Los pitudos", subtituloFont);
+                var nombreAlmacen = new Paragraph("Almacén: Cortex El cerebro de tu Empresa", subtituloFont);
                 nombreAlmacen.Alignment = Element.ALIGN_CENTER;
                 document.Add(nombreAlmacen);
 
@@ -69,8 +69,8 @@ namespace ProyectoWebInventario.Controllers
                 fecha.Alignment = Element.ALIGN_CENTER;
                 document.Add(fecha);
 
-                //  Párrafo de descripción
-                var descripcion = new Paragraph("Este documento presenta el listado oficial de las ubicaciones registradas en el sistema, incluyendo su código, descripción y estado actual. Cualquier duda Comunicarse Con mis panas de la Universidad los quiero mucho", textoFont);
+                //  Párrafo de descripción lo pueden modificar a su gusto
+                var descripcion = new Paragraph("Este documento presenta el listado oficial de las ubicaciones registradas en el sistema, incluyendo su código, descripción y estado actual.", textoFont);
                 descripcion.Alignment = Element.ALIGN_JUSTIFIED; 
                 descripcion.SpacingBefore = 10f; 
                 descripcion.SpacingAfter = 10f;  

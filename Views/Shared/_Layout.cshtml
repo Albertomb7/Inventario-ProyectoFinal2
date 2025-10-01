@@ -5,6 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Sistema de Inventario</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -16,15 +23,27 @@
         <div class="sidebar">
             <h2>Inventario</h2>
             <ul class="sidebar-nav">
-                <li class="active">@Html.ActionLink("Tablero", "Index", "Home")</li>
-                <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
-                <li>@Html.ActionLink("Ubicaciones", "Index", "Ubicaciones")</li>
-
-                <li>@Html.ActionLink("Movimientos", "Index", "MovimientoInventarios")</li>
-
-                <li>@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
-                <li>@Html.ActionLink("Inventario", "Index", "Inventario")</li>
-                <li>@Html.ActionLink("Alertas", "Index", "Alertas")</li>
+                <li class="@(ViewBag.CurrentMenu == "Home" ? "active" : "")">
+                    @Html.ActionLink("Tablero", "Index", "Home")
+                </li>
+                <li class="@(ViewBag.CurrentMenu == "Productos" ? "active" : "")">
+                    @Html.ActionLink("Productos", "Index", "Productos")
+                </li>
+                <li class="@(ViewBag.CurrentMenu == "Ubicaciones" ? "active" : "")">
+                    @Html.ActionLink("Ubicaciones", "Index", "Ubicaciones")
+                </li>
+                <li class="@(ViewBag.CurrentMenu == "MovimientoInventarios" ? "active" : "")">
+                    @Html.ActionLink("Movimientos", "Index", "MovimientoInventarios")
+                </li>
+                <li class="@(ViewBag.CurrentMenu == "Usuarios" ? "active" : "")">
+                    @Html.ActionLink("Usuarios", "Index", "Usuarios")
+                </li>
+                <li class="@(ViewBag.CurrentMenu == "Inventario" ? "active" : "")">
+                    @Html.ActionLink("Inventario", "Index", "Inventario")
+                </li>
+                <li class="@(ViewBag.CurrentMenu == "Alertas" ? "active" : "")">
+                    @Html.ActionLink("Alertas", "Index", "Alertas")
+                </li>
             </ul>
         </div>
         <div class="main-content">

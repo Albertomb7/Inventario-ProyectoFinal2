@@ -178,6 +178,27 @@ C:\Users\marvi\source\repos\Albertomb7\Inventario-ProyectoFinal2\obj\Debug\Proye
 C:\Users\marvi\source\repos\Albertomb7\Inventario-ProyectoFinal2\obj\Debug\Proyecto.9D070C69.Up2Date
 C:\Users\marvi\source\repos\Albertomb7\Inventario-ProyectoFinal2\obj\Debug\ProyectoWebInventario.dll
 C:\Users\marvi\source\repos\Albertomb7\Inventario-ProyectoFinal2\obj\Debug\ProyectoWebInventario.pdb
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\BouncyCastle.Crypto.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\EPPlus.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\EPPlus.Interfaces.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\itextsharp.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Buffers.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.ComponentModel.Annotations.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Memory.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Numerics.Vectors.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Security.Cryptography.Xml.dll
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\EPPlus.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\itextsharp.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Buffers.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Memory.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Numerics.Vectors.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Security.Cryptography.Xml.xml
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\obj\Debug\ProyectoWebInventario.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\obj\Debug\ProyectoWebInventario.csproj.CoreCompileInputs.cache
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\ProyectoWebInventario.dll.config
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\ProyectoWebInventario.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\ProyectoWebInventario.pdb
@@ -231,11 +252,22 @@ C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\roslyn\vbc.rsp
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\roslyn\VBCSCompiler.exe
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\Antlr3.Runtime.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\BouncyCastle.Crypto.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\EntityFramework.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\EntityFramework.SqlServer.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\EPPlus.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\EPPlus.Interfaces.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\itextsharp.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\Microsoft.IO.RecyclableMemoryStream.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\Newtonsoft.Json.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Buffers.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.ComponentModel.Annotations.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Memory.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Numerics.Vectors.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Security.Cryptography.Xml.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Web.Helpers.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Web.Mvc.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Web.Optimization.dll
@@ -246,6 +278,14 @@ C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Web.WebPages
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\WebGrease.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\EntityFramework.xml
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\EntityFramework.SqlServer.xml
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\EPPlus.xml
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\itextsharp.xml
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Buffers.xml
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Memory.xml
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Numerics.Vectors.xml
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Security.Cryptography.Xml.xml
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Web.Helpers.xml
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Web.Mvc.xml
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Web.Optimization.xml
@@ -263,46 +303,6 @@ C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\es\System.Web.Razor
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\es\System.Web.WebPages.resources.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\obj\Debug\ProyectoWebInventario.csproj.AssemblyReference.cache
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\obj\Debug\ProyectoWebInventario.csproj.CoreCompileInputs.cache
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\obj\Debug\Proyecto.9D070C69.Up2Date
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\obj\Debug\ProyectoWebInventario.dll
 C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\obj\Debug\ProyectoWebInventario.pdb
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\EPPlus.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\EPPlus.Interfaces.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\Microsoft.IO.RecyclableMemoryStream.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Buffers.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.ComponentModel.Annotations.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Memory.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Numerics.Vectors.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Security.Cryptography.Xml.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\EPPlus.xml
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\Microsoft.IO.RecyclableMemoryStream.xml
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Buffers.xml
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Memory.xml
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Numerics.Vectors.xml
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\System.Security.Cryptography.Xml.xml
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\BouncyCastle.Crypto.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\itextsharp.dll
-C:\Users\hp\Desktop\Proyecto 2\Inventario-ProyectoFinal2\bin\itextsharp.xml
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\BouncyCastle.Crypto.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\EPPlus.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\EPPlus.Interfaces.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\itextsharp.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\Microsoft.IO.RecyclableMemoryStream.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Buffers.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.ComponentModel.Annotations.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Memory.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Numerics.Vectors.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Security.Cryptography.Xml.dll
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\EPPlus.xml
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\itextsharp.xml
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\Microsoft.IO.RecyclableMemoryStream.xml
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Buffers.xml
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Memory.xml
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Numerics.Vectors.xml
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\Beto\Documents\UMG\Semestre 4\Progra 2\PROYECTO FINAL\ProyectoWebInventario\bin\System.Security.Cryptography.Xml.xml
