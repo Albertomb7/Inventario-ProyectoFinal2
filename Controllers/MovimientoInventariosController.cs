@@ -37,60 +37,114 @@ namespace ProyectoWebInventario.Controllers
             return View();
         }
 
-        
+        // --- ESTE ES EL MÉTODO COMPLETAMENTE CORREGIDO Y FINAL ---
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdMovimientoInventario,Fecha,ProductoId,DesdeUbicacionId,HaciaUbicacionId,Cantidad,UsuarioId,Observacion, TipoMovimiento")] MovimientoInventario movimientoInventario)
         {
+            movimientoInventario.Fecha = DateTime.Now;
+
             if (ModelState.IsValid)
             {
-                var inventarioAfectado = db.Inventarios.FirstOrDefault(i => i.ProductoIdInventario == movimientoInventario.ProductoId);
-                var Bd = new BDBodegasEntities();
+                // Corrección: Usamos 'ProductoIdInventario' que es el nombre correcto en tu modelo.
+                var inventarioOrigen = db.Inventarios.FirstOrDefault(i => i.ProductoIdInventario == movimientoInventario.ProductoId && i.UbicacionId == movimientoInventario.DesdeUbicacionId);
+                var inventarioDestino = db.Inventarios.FirstOrDefault(i => i.ProductoIdInventario == movimientoInventario.ProductoId && i.UbicacionId == movimientoInventario.HaciaUbicacionId);
 
-                if (inventarioAfectado != null)
+                if (movimientoInventario.TipoMovimiento.Equals("Salida", StringComparison.OrdinalIgnoreCase))
                 {
-                    // stok no encontrado no me aparece el error
-                    if ("Entrada".Equals(movimientoInventario.TipoMovimiento, StringComparison.OrdinalIgnoreCase))
+                    if (inventarioOrigen == null || inventarioOrigen.Stock < movimientoInventario.Cantidad)
                     {
-                        inventarioAfectado.Stock += movimientoInventario.Cantidad;
-
-                        var Reporte = new Bitacora
-                        {
-                            FechaRegistro = DateTime.Now,
-                            UsuarioId = 2,
-                            Accion = "Movimiento inventario",
-                            TipoAccion = "Entrada de producto",
-                            TablaAfectada = "Inventario",
-                            Comentario = movimientoInventario.Observacion,
-                            Json1 = "aaaaaa"
-                        };
-
-                        Bd.Bitacoras.Add(Reporte);
-                        Bd.SaveChanges();
+                        ModelState.AddModelError("", "No hay suficiente stock en la ubicación de origen para realizar la salida.");
+                        ViewBag.ProductoId = new SelectList(db.Productoes, "IdProducto", "Nombre", movimientoInventario.ProductoId);
+                        ViewBag.DesdeUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo", movimientoInventario.DesdeUbicacionId);
+                        ViewBag.HaciaUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo", movimientoInventario.HaciaUbicacionId);
+                        ViewBag.UsuarioId = new SelectList(db.Usuarios, "IdUsuario", "NombreUsuario", movimientoInventario.UsuarioId);
+                        return View(movimientoInventario);
                     }
-                    else if ("Salida".Equals(movimientoInventario.TipoMovimiento, StringComparison.OrdinalIgnoreCase))
+                    inventarioOrigen.Stock -= movimientoInventario.Cantidad;
+                }
+                else if (movimientoInventario.TipoMovimiento.Equals("Entrada", StringComparison.OrdinalIgnoreCase))
+                {
+                    if (inventarioDestino == null)
                     {
-                        inventarioAfectado.Stock -= movimientoInventario.Cantidad;
-
-                        var Reporte = new Bitacora
-                        {
-                            FechaRegistro = DateTime.Now,
-                            UsuarioId = 2,
-                            Accion = "Movimiento inventario",
-                            TipoAccion = "Salida de producto",
-                            TablaAfectada = "Inventario",
-                            Comentario = movimientoInventario.Observacion,
-                            Json1 = "aaaaaa"
-                        };
-
-                        Bd.Bitacoras.Add(Reporte);
-                        Bd.SaveChanges();
+                        // Corrección: Usamos 'ProductoIdInventario'
+                        inventarioDestino = new Inventario { ProductoIdInventario = movimientoInventario.ProductoId, UbicacionId = (int)movimientoInventario.HaciaUbicacionId, Stock = movimientoInventario.Cantidad };
+                        db.Inventarios.Add(inventarioDestino);
                     }
-                    db.Entry(inventarioAfectado).State = EntityState.Modified;
+                    else
+                    {
+                        inventarioDestino.Stock += movimientoInventario.Cantidad;
+                    }
+                }
+                else if (movimientoInventario.TipoMovimiento.Equals("Transferencia", StringComparison.OrdinalIgnoreCase))
+                {
+                    if (inventarioOrigen == null || inventarioOrigen.Stock < movimientoInventario.Cantidad)
+                    {
+                        ModelState.AddModelError("", "No hay suficiente stock en la ubicación de origen para realizar la transferencia.");
+                        ViewBag.ProductoId = new SelectList(db.Productoes, "IdProducto", "Nombre", movimientoInventario.ProductoId);
+                        ViewBag.DesdeUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo", movimientoInventario.DesdeUbicacionId);
+                        ViewBag.HaciaUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo", movimientoInventario.HaciaUbicacionId);
+                        ViewBag.UsuarioId = new SelectList(db.Usuarios, "IdUsuario", "NombreUsuario", movimientoInventario.UsuarioId);
+                        return View(movimientoInventario);
+                    }
+                    inventarioOrigen.Stock -= movimientoInventario.Cantidad;
+                    if (inventarioDestino == null)
+                    {
+                        // Corrección: Usamos 'ProductoIdInventario'
+                        inventarioDestino = new Inventario { ProductoIdInventario = movimientoInventario.ProductoId, UbicacionId = (int)movimientoInventario.HaciaUbicacionId, Stock = movimientoInventario.Cantidad };
+                        db.Inventarios.Add(inventarioDestino);
+                    }
+                    else
+                    {
+                        inventarioDestino.Stock += movimientoInventario.Cantidad;
+                    }
                 }
 
+                var reporteBitacora = new Bitacora
+                {
+                    FechaRegistro = DateTime.Now,
+                    UsuarioId = 2, // OJO: Cambiar por ID del usuario logueado
+                    Accion = "Movimiento de inventario: " + movimientoInventario.TipoMovimiento,
+                    TipoAccion = movimientoInventario.TipoMovimiento,
+                    TablaAfectada = "Inventario/MovimientoInventario",
+                    Comentario = movimientoInventario.Observacion
+                };
+                db.Bitacoras.Add(reporteBitacora);
                 db.MovimientoInventarios.Add(movimientoInventario);
                 db.SaveChanges();
+
+                if (!movimientoInventario.TipoMovimiento.Equals("Entrada", StringComparison.OrdinalIgnoreCase))
+                {
+                    var producto = db.Productoes.Find(movimientoInventario.ProductoId);
+                    // Corrección: Usamos 'ProductoIdInventario' y hacemos el Sum más seguro
+                    decimal stockActualTotal = db.Inventarios.Where(i => i.ProductoIdInventario == movimientoInventario.ProductoId).Sum(i => (decimal?)i.Stock) ?? 0;
+                    string mensaje = $"Salida/Transferencia registrada: Se retiraron {movimientoInventario.Cantidad} unidades de '{producto.Nombre}'. Stock total restante: {stockActualTotal}.";
+
+                    decimal stockMinimoNumerico;
+                    if (decimal.TryParse(producto.StockMinimo, out stockMinimoNumerico))
+                    {
+                        if (stockActualTotal <= stockMinimoNumerico)
+                        {
+                            mensaje += " ¡Atención! El stock ha alcanzado o está por debajo del nivel mínimo.";
+                            TempData["NotificationType"] = "warning";
+                        }
+                        else
+                        {
+                            TempData["NotificationType"] = "success";
+                        }
+                    }
+                    else
+                    {
+                        TempData["NotificationType"] = "success";
+                    }
+                    TempData["NotificationMessage"] = mensaje;
+                }
+
+                // Lógica de redirección inteligente
+                if (TempData["NotificationType"] as string == "warning")
+                {
+                    return RedirectToAction("Index", "Alertas");
+                }
                 return RedirectToAction("Index");
             }
 
@@ -147,6 +201,8 @@ namespace ProyectoWebInventario.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
 
         protected override void Dispose(bool disposing)
         {

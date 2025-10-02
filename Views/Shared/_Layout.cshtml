@@ -47,6 +47,18 @@
             </ul>
         </div>
         <div class="main-content">
+
+            @* --- INICIO: SECCIÓN DE NOTIFICACIONES AGREGADA --- *@
+            @if (TempData["NotificationMessage"] != null)
+            {
+                string notificationType = TempData["NotificationType"] as string ?? "info";
+                <div class="alert alert-@notificationType alert-dismissible" role="alert" style="margin-top: 20px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    @TempData["NotificationMessage"]
+                </div>
+            }
+            @* --- FIN: SECCIÓN DE NOTIFICACIONES --- *@
+
             @RenderBody()
         </div>
     </div>
