@@ -154,20 +154,20 @@ namespace ProyectoWebInventario.Controllers
             return View(ubicacion);
         }
 
-        // --- MÉTODO DELETECONFIRMED CORREGIDO Y SEGURO ---
+        // logica de elimianr ubicacion
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            // Verificamos si la ubicación está siendo usada en algún movimiento.
+            // Verifico si la ubicación está siendo usada en algún movimiento
             bool estaEnUsoEnMovimientos = db.MovimientoInventarios.Any(m => m.DesdeUbicacionId == id || m.HaciaUbicacionId == id);
 
-            // Verificamos si la ubicación todavía tiene stock registrado.
+            // Verifico  si la ubicación todavía tiene stock registrado
             bool tieneStockRegistrado = db.Inventarios.Any(i => i.UbicacionId == id && i.Stock > 0);
 
             if (estaEnUsoEnMovimientos || tieneStockRegistrado)
             {
-                // Si está en uso o tiene stock, no permitimos borrar y mandamos un error.
+                // si tiene stok o esta en uso no se puede eliminar
                 string mensajeError = "Error: No se puede eliminar la ubicación porque ";
                 if (estaEnUsoEnMovimientos) mensajeError += "ya ha sido utilizada en el historial de movimientos. ";
                 if (tieneStockRegistrado) mensajeError += "aún tiene stock registrado. ";
@@ -177,15 +177,13 @@ namespace ProyectoWebInventario.Controllers
                 return RedirectToAction("Index");
             }
 
-            // Si pasa las verificaciones, procedemos a eliminar.
-            // Primero, borramos los registros de inventario con stock cero si existen.
             var inventariosAEliminar = db.Inventarios.Where(i => i.UbicacionId == id).ToList();
             if (inventariosAEliminar.Any())
             {
                 db.Inventarios.RemoveRange(inventariosAEliminar);
             }
 
-            // Ahora sí, eliminamos la ubicación.
+            // Ahora sí se puede elinar la ubicaion stok en 0 papa
             Ubicacion ubicacion = db.Ubicacions.Find(id);
             if (ubicacion != null)
             {
