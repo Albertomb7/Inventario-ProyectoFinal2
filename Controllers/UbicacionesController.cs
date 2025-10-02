@@ -47,48 +47,35 @@ namespace ProyectoWebInventario.Controllers
                 PdfWriter writer = PdfWriter.GetInstance(document, memoryStream);
                 document.Open();
 
-               
-
-                //   fuentes para el diseño
                 var tituloFont = FontFactory.GetFont("Arial", 25, Font.BOLD);
                 var subtituloFont = FontFactory.GetFont("Arial", 18, Font.ITALIC);
                 var textoFont = FontFactory.GetFont("Arial", 14, Font.NORMAL);
 
-                // . Título principal
                 var titulo = new Paragraph("Reporte de Ubicaciones del Almacén Cortex ", tituloFont);
                 titulo.Alignment = Element.ALIGN_CENTER;
                 document.Add(titulo);
 
-                //
                 var nombreAlmacen = new Paragraph("Almacén: Cortex El cerebro de tu Empresa", subtituloFont);
                 nombreAlmacen.Alignment = Element.ALIGN_CENTER;
                 document.Add(nombreAlmacen);
 
-                //  Fecha y hora de generación 
                 var fecha = new Paragraph($"Generado el: {DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}", subtituloFont);
                 fecha.Alignment = Element.ALIGN_CENTER;
                 document.Add(fecha);
 
-                //  Párrafo de descripción lo pueden modificar a su gusto
                 var descripcion = new Paragraph("Este documento presenta el listado oficial de las ubicaciones registradas en el sistema, incluyendo su código, descripción y estado actual.", textoFont);
-                descripcion.Alignment = Element.ALIGN_JUSTIFIED; 
-                descripcion.SpacingBefore = 10f; 
-                descripcion.SpacingAfter = 10f;  
+                descripcion.Alignment = Element.ALIGN_JUSTIFIED;
+                descripcion.SpacingBefore = 10f;
+                descripcion.SpacingAfter = 10f;
                 document.Add(descripcion);
 
-                
-
-                // Crear la tabla
                 PdfPTable table = new PdfPTable(4);
                 table.WidthPercentage = 100;
-
-                // Encabezados de la tabla
                 table.AddCell("ID");
                 table.AddCell("Código");
                 table.AddCell("Descripción");
                 table.AddCell("Estado");
 
-                // Llenar la tabla con datos
                 foreach (var ubicacion in listaUbicaciones)
                 {
                     table.AddCell(ubicacion.IdUbicacion.ToString());
@@ -110,9 +97,6 @@ namespace ProyectoWebInventario.Controllers
             return View();
         }
 
-        // POST: Ubicacions/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdUbicacion,Codigo,Descripcion,Activo")] Ubicacion ubicacion)
@@ -142,9 +126,6 @@ namespace ProyectoWebInventario.Controllers
             return View(ubicacion);
         }
 
-        // POST: Ubicacions/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdUbicacion,Codigo,Descripcion,Activo")] Ubicacion ubicacion)
@@ -173,14 +154,48 @@ namespace ProyectoWebInventario.Controllers
             return View(ubicacion);
         }
 
-        // POST: Ubicacions/Delete/5
+        // --- MÉTODO DELETECONFIRMED CORREGIDO Y SEGURO ---
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            // Verificamos si la ubicación está siendo usada en algún movimiento.
+            bool estaEnUsoEnMovimientos = db.MovimientoInventarios.Any(m => m.DesdeUbicacionId == id || m.HaciaUbicacionId == id);
+
+            // Verificamos si la ubicación todavía tiene stock registrado.
+            bool tieneStockRegistrado = db.Inventarios.Any(i => i.UbicacionId == id && i.Stock > 0);
+
+            if (estaEnUsoEnMovimientos || tieneStockRegistrado)
+            {
+                // Si está en uso o tiene stock, no permitimos borrar y mandamos un error.
+                string mensajeError = "Error: No se puede eliminar la ubicación porque ";
+                if (estaEnUsoEnMovimientos) mensajeError += "ya ha sido utilizada en el historial de movimientos. ";
+                if (tieneStockRegistrado) mensajeError += "aún tiene stock registrado. ";
+
+                TempData["NotificationMessage"] = mensajeError;
+                TempData["NotificationType"] = "danger"; // Notificación roja
+                return RedirectToAction("Index");
+            }
+
+            // Si pasa las verificaciones, procedemos a eliminar.
+            // Primero, borramos los registros de inventario con stock cero si existen.
+            var inventariosAEliminar = db.Inventarios.Where(i => i.UbicacionId == id).ToList();
+            if (inventariosAEliminar.Any())
+            {
+                db.Inventarios.RemoveRange(inventariosAEliminar);
+            }
+
+            // Ahora sí, eliminamos la ubicación.
             Ubicacion ubicacion = db.Ubicacions.Find(id);
-            db.Ubicacions.Remove(ubicacion);
-            db.SaveChanges();
+            if (ubicacion != null)
+            {
+                db.Ubicacions.Remove(ubicacion);
+                db.SaveChanges();
+
+                TempData["NotificationMessage"] = "La ubicación ha sido eliminada correctamente.";
+                TempData["NotificationType"] = "success"; // Notificación verde
+            }
+
             return RedirectToAction("Index");
         }
 
