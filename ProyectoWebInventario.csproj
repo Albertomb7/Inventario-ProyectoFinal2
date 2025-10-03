@@ -249,6 +249,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="imagenes login\cortex new.png" />
     <Content Include="Models\ModeloInventario.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModeloInventario.edmx</DependentUpon>
