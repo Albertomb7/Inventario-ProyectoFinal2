@@ -31,7 +31,8 @@ namespace ProyectoWebInventario.Controllers
         public ActionResult Details(int? id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Producto producto = db.Productoes.Find(id);
+            // Corregido para cargar inventario también en Detalles
+            Producto producto = db.Productoes.Include(p => p.Inventarios).FirstOrDefault(p => p.IdProducto == id);
             if (producto == null) return HttpNotFound();
             return View(producto);
         }
@@ -56,7 +57,7 @@ namespace ProyectoWebInventario.Controllers
                 {
                     Inventario inventarioInicial = new Inventario
                     {
-                        Producto = producto,
+                        ProductoIdInventario = producto.IdProducto, // Usar el nombre de propiedad correcto
                         UbicacionId = primeraUbicacion.IdUbicacion,
                         Stock = StockInicial
                     };
@@ -96,14 +97,16 @@ namespace ProyectoWebInventario.Controllers
             return View(productoAEditar);
         }
 
-        // GET: Productos/Delete/5
+        // GET: Productos/Delete/5 -- MÉTODO CORREGIDO --
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Producto producto = db.Productoes.Find(id);
+            // Con este cambio, cargamos el producto Y la información de su inventario asociado.
+            Producto producto = db.Productoes.Include(p => p.Inventarios).FirstOrDefault(p => p.IdProducto == id);
+
             if (producto == null)
             {
                 return HttpNotFound();
@@ -117,7 +120,6 @@ namespace ProyectoWebInventario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            
             Producto productoAEliminar = db.Productoes
                 .Include(p => p.Inventarios)
                 .Include(p => p.MovimientoInventarios)
@@ -129,15 +131,12 @@ namespace ProyectoWebInventario.Controllers
                 return HttpNotFound();
             }
 
-            
-            db.Inventarios.RemoveRange(productoAEliminar.Inventarios.ToList());
-            db.MovimientoInventarios.RemoveRange(productoAEliminar.MovimientoInventarios.ToList());
-            db.AlertaReposicions.RemoveRange(productoAEliminar.AlertaReposicions.ToList());
+            db.AlertaReposicions.RemoveRange(productoAEliminar.AlertaReposicions);
+            db.MovimientoInventarios.RemoveRange(productoAEliminar.MovimientoInventarios);
+            db.Inventarios.RemoveRange(productoAEliminar.Inventarios);
 
-            // 3. Elimina el producto
             db.Productoes.Remove(productoAEliminar);
 
-            
             db.SaveChanges();
 
             return RedirectToAction("Index");
@@ -149,36 +148,63 @@ namespace ProyectoWebInventario.Controllers
             base.Dispose(disposing);
         }
 
-        //  Métodos de Exportación 
+        // Métodos de Exportación 
         public ActionResult ExportarExcel()
         {
             List<Producto> listaProductos = db.Productoes.Include(p => p.Inventarios).ToList();
+
             using (var package = new ExcelPackage())
             {
                 var worksheet = package.Workbook.Worksheets.Add("Productos");
+
+                //  Encabezados de la tabla 
                 worksheet.Cells[1, 1].Value = "ID";
                 worksheet.Cells[1, 2].Value = "Nombre";
                 worksheet.Cells[1, 3].Value = "Categoría";
                 worksheet.Cells[1, 4].Value = "Marca";
-                worksheet.Cells[1, 5].Value = "Stock Mínimo";
-                worksheet.Cells[1, 6].Value = "Stock Actual";
-                worksheet.Cells[1, 7].Value = "Estado";
+                worksheet.Cells[1, 5].Value = "Unidad de Medida";
+                worksheet.Cells[1, 6].Value = "Stock Mínimo";
+                worksheet.Cells[1, 7].Value = "Stock Actual";
+                worksheet.Cells[1, 8].Value = "Estado";
+
+                // Poner encabezados en negrita
+                using (var range = worksheet.Cells["A1:H1"])
+                {
+                    range.Style.Font.Bold = true;
+                }
+
+                // Llenar la tabla con datos 
                 int row = 2;
                 foreach (var producto in listaProductos)
                 {
                     worksheet.Cells[row, 1].Value = producto.IdProducto;
-                    worksheet.Cells[row, 2].Value = producto.Nombre;
-                    worksheet.Cells[row, 3].Value = producto.Categoria;
-                    worksheet.Cells[row, 4].Value = producto.Marca;
-                    worksheet.Cells[row, 5].Value = producto.StockMinimo;
+
+                    //  85
+                    worksheet.Cells[row, 2].Value = producto.Nombre ?? "";
+                    worksheet.Cells[row, 3].Value = producto.Categoria ?? "";
+                    worksheet.Cells[row, 4].Value = producto.Marca ?? "";
+                    worksheet.Cells[row, 5].Value = producto.UnidadMedida ?? "";
+
+                    // StockMinim0
+                    worksheet.Cells[row, 6].Value = producto.StockMinimo != null ? producto.StockMinimo.ToString() : "";
+
+                    //  el Stock Actual
                     decimal stockActual = (producto.Inventarios != null && producto.Inventarios.Any()) ? producto.Inventarios.Sum(i => i.Stock) : 0;
-                    worksheet.Cells[row, 6].Value = stockActual;
-                    worksheet.Cells[row, 7].Value = producto.Activo == true ? "Activo" : "Inactivo";
+                    worksheet.Cells[row, 7].Value = stockActual;
+
+                    worksheet.Cells[row, 8].Value = producto.Activo == true ? "Activo" : "Inactivo";
+
                     row++;
                 }
+
+                // ancho de las columnas
+                worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                
                 var stream = new MemoryStream();
                 package.SaveAs(stream);
                 stream.Position = 0;
+
                 string excelName = $"ReporteProductos-{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
                 return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
             }
@@ -192,10 +218,27 @@ namespace ProyectoWebInventario.Controllers
                 Document document = new Document(PageSize.A4, 25, 25, 30, 30);
                 PdfWriter.GetInstance(document, memoryStream);
                 document.Open();
-                document.Add(new Paragraph("Reporte de Productos del ACortex"));
+
+                //  Encabezado Profesional para que se vea good
+                Font fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16, BaseColor.BLACK);
+                Font fuenteSubtitulo = FontFactory.GetFont(FontFactory.HELVETICA, 12, BaseColor.DARK_GRAY);
+                Font fuenteFecha = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.GRAY);
+                Paragraph nombreEmpresa = new Paragraph("Cortex - El Cerebro de tu Empresa", fuenteTitulo);
+                nombreEmpresa.Alignment = Element.ALIGN_CENTER;
+                document.Add(nombreEmpresa);
+                Paragraph tituloReporte = new Paragraph("Reporte de Productos", fuenteSubtitulo);
+                tituloReporte.Alignment = Element.ALIGN_CENTER;
+                document.Add(tituloReporte);
+                Paragraph fechaReporte = new Paragraph($"Generado el: {DateTime.Now.ToString("dd/MM/yyyy HH:mm")}", fuenteFecha);
+                fechaReporte.Alignment = Element.ALIGN_RIGHT;
+                document.Add(fechaReporte);
                 document.Add(Chunk.NEWLINE);
+                // Fin del Encabezado 
+
                 PdfPTable table = new PdfPTable(7);
                 table.WidthPercentage = 100;
+
+                // Encabezados
                 table.AddCell("ID");
                 table.AddCell("Nombre");
                 table.AddCell("Categoría");
@@ -203,22 +246,31 @@ namespace ProyectoWebInventario.Controllers
                 table.AddCell("Stock Mínimo");
                 table.AddCell("Stock Actual");
                 table.AddCell("Estado");
+
                 foreach (var producto in listaProductos)
                 {
                     table.AddCell(producto.IdProducto.ToString());
-                    table.AddCell(producto.Nombre);
-                    table.AddCell(producto.Categoria);
-                    table.AddCell(producto.Marca);
-                    table.AddCell(producto.StockMinimo.ToString());
+
+                    
+                    table.AddCell(producto.Nombre ?? "");
+                    table.AddCell(producto.Categoria ?? "");
+                    table.AddCell(producto.Marca ?? "");
+
+                    
+                    table.AddCell(producto.StockMinimo != null ? producto.StockMinimo.ToString() : "");
+
                     decimal stockActual = (producto.Inventarios != null && producto.Inventarios.Any()) ? producto.Inventarios.Sum(i => i.Stock) : 0;
                     table.AddCell(stockActual.ToString());
+
                     table.AddCell(producto.Activo == true ? "Activo" : "Inactivo");
                 }
+
                 document.Add(table);
                 document.Close();
+
                 string pdfName = $"ReporteProductos-{DateTime.Now.ToString("yyyyMMddHHmmss")}.pdf";
                 return File(memoryStream.ToArray(), "application/pdf", pdfName);
             }
         }
     }
-}
+}   

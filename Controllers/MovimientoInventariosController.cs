@@ -37,7 +37,7 @@ namespace ProyectoWebInventario.Controllers
             return View();
         }
 
-        // --- ESTE ES EL MÉTODO COMPLETAMENTE CORREGIDO Y FINAL ---
+        // MÉTODo CORREG
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdMovimientoInventario,Fecha,ProductoId,DesdeUbicacionId,HaciaUbicacionId,Cantidad,UsuarioId,Observacion, TipoMovimiento")] MovimientoInventario movimientoInventario)
@@ -46,7 +46,7 @@ namespace ProyectoWebInventario.Controllers
 
             if (ModelState.IsValid)
             {
-                // Corrección: Usamos 'ProductoIdInventario' que es el nombre correcto en tu modelo.
+                //   modelo.
                 var inventarioOrigen = db.Inventarios.FirstOrDefault(i => i.ProductoIdInventario == movimientoInventario.ProductoId && i.UbicacionId == movimientoInventario.DesdeUbicacionId);
                 var inventarioDestino = db.Inventarios.FirstOrDefault(i => i.ProductoIdInventario == movimientoInventario.ProductoId && i.UbicacionId == movimientoInventario.HaciaUbicacionId);
 
@@ -67,7 +67,7 @@ namespace ProyectoWebInventario.Controllers
                 {
                     if (inventarioDestino == null)
                     {
-                        // Corrección: Usamos 'ProductoIdInventario'
+                        
                         inventarioDestino = new Inventario { ProductoIdInventario = movimientoInventario.ProductoId, UbicacionId = (int)movimientoInventario.HaciaUbicacionId, Stock = movimientoInventario.Cantidad };
                         db.Inventarios.Add(inventarioDestino);
                     }
@@ -90,7 +90,7 @@ namespace ProyectoWebInventario.Controllers
                     inventarioOrigen.Stock -= movimientoInventario.Cantidad;
                     if (inventarioDestino == null)
                     {
-                        // Corrección: Usamos 'ProductoIdInventario'
+                        
                         inventarioDestino = new Inventario { ProductoIdInventario = movimientoInventario.ProductoId, UbicacionId = (int)movimientoInventario.HaciaUbicacionId, Stock = movimientoInventario.Cantidad };
                         db.Inventarios.Add(inventarioDestino);
                     }
@@ -103,7 +103,7 @@ namespace ProyectoWebInventario.Controllers
                 var reporteBitacora = new Bitacora
                 {
                     FechaRegistro = DateTime.Now,
-                    UsuarioId = 2, // OJO: Cambiar por ID del usuario logueado
+                    UsuarioId = 2, 
                     Accion = "Movimiento de inventario: " + movimientoInventario.TipoMovimiento,
                     TipoAccion = movimientoInventario.TipoMovimiento,
                     TablaAfectada = "Inventario/MovimientoInventario",
@@ -116,7 +116,7 @@ namespace ProyectoWebInventario.Controllers
                 if (!movimientoInventario.TipoMovimiento.Equals("Entrada", StringComparison.OrdinalIgnoreCase))
                 {
                     var producto = db.Productoes.Find(movimientoInventario.ProductoId);
-                    // Corrección: Usamos 'ProductoIdInventario' y hacemos el Sum más seguro
+                    // CProductoIdInventario' y hacemos el Sum más seguro
                     decimal stockActualTotal = db.Inventarios.Where(i => i.ProductoIdInventario == movimientoInventario.ProductoId).Sum(i => (decimal?)i.Stock) ?? 0;
                     string mensaje = $"Salida/Transferencia registrada: Se retiraron {movimientoInventario.Cantidad} unidades de '{producto.Nombre}'. Stock total restante: {stockActualTotal}.";
 
