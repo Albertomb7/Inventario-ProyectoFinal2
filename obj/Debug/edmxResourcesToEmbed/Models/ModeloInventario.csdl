@@ -51,6 +51,7 @@
     <NavigationProperty Name="Ubicacion" Relationship="Self.FK_MovimientoInventario_UbicacionId" FromRole="MovimientoInventario" ToRole="Ubicacion" />
     <NavigationProperty Name="Ubicacion1" Relationship="Self.FK_MovimientoInventario_UbicaionId" FromRole="MovimientoInventario" ToRole="Ubicacion" />
     <NavigationProperty Name="Usuario" Relationship="Self.FK_MovimientoInventario_UsuarioId" FromRole="MovimientoInventario" ToRole="Usuario" />
+    <Property Name="TipoMovimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Permiso">
     <Key>

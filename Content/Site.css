@@ -11,10 +11,135 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-
+/*codigo que da ASP. NO MODIFICAR*/
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
+}
+
+/*ESTO SI SE PUEDE PODIFIACAFR */
+
+
+/* Estilos personalizados para la barra de navegación */
+.navbar-inverse {
+    background-color: #2c3e50; /* Un tono de azul oscuro */
+    border-color: #1a242f;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #ffffff; /* Color blanco para que contraste LO PUEDEN MODIFICAR  */
+    }
+
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #ecf0f1; /* Un blanco un poco más suave */
+    }
+
+        /* Cambia el color de los enlaces cuando pasas el raton  sobre  los iconos u2u */
+        .navbar-inverse .navbar-nav > li > a:hover {
+            color: #ffffff;
+            background-color: #34495e;
+     
+            
+        }
+.btn-primary {
+    background-color: #2980b9; /* Un azul un poco más brillante que la barra */
+    border-color: #2471a3;
+}
+
+    
+    .btn-primary:hover {
+        background-color: #2471a3;
+        border-color: #1f618d;
+    }
+
+/* Estilos para la cabecera de todas las tablas */
+.table > thead > tr > th {
+    background-color: #34495e; 
+    color: #ffffff; 
+    border-color: #2c3e50;
+}
+
+
+.table-hover > tbody > tr:hover {
+    background-color: #f5f5f5; 
+}
+
+/* ESTILOS PARA LAS TARJETAS DE RESUMEN DEL TABLERO */
+
+.summary-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .summary-card:hover {
+        transform: translateY(-5px); 
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+.card-icon {
+    font-size: 36px;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    color: #ffffff;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*  cada tarjeta */
+.icon-products {
+    background-color: #3498db;
+}
+/* Azul */
+.icon-locations {
+    background-color: #2ecc71;
+}
+/* Verde */
+.icon-alerts {
+    background-color: #f1c40f;
+}
+/* Amarillo */
+
+.card-info .card-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.card-info .card-subtitle {
+    font-size: 14px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+}
+
+/* ESTILOS PARA LAS ETIQUETAS DE MOVIMIENTOS    */
+
+.movement-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-entrada {
+    background-color: #27ae60; /* Verde */
+}
+
+.status-salida {
+    background-color: #e67e22; /* Anaranjado */
 }

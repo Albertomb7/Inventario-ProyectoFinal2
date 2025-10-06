@@ -1,0 +1,43 @@
+﻿@model ProyectoWebInventario.Models.AlertaReposicion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AlertaReposicion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDeGeneracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDeGeneracion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NivelActual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NivelActual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdAlertaReposicion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

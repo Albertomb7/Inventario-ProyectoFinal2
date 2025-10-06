@@ -1,52 +1,56 @@
 ﻿@model IEnumerable<ProyectoWebInventario.Models.Usuario>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listado de Usuarios";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Listado de Usuarios</h2>
 
 <p>
-    @Html.ActionLink("Crear nuevo usuario", "Create")
+    @Html.ActionLink("Crear Nuevo Usuario", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreUsuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HasPassword)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rol)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Activo)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreUsuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HasPassword)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rol)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdUsuario }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdUsuario }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdUsuario })
-        </td>
-    </tr>
-}
-
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rol)
+                </td>
+                <td>
+                    @if (item.Activo == true)
+                    {
+                        <span class="label label-success">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="label label-danger">Inactivo</span>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdUsuario }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.IdUsuario }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdUsuario })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

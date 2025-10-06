@@ -38,6 +38,7 @@
     <EntitySetMapping Name="MovimientoInventarios">
       <EntityTypeMapping TypeName="BDBodegasModel.MovimientoInventario">
         <MappingFragment StoreEntitySet="MovimientoInventario">
+          <ScalarProperty Name="TipoMovimiento" ColumnName="TipoMovimiento" />
           <ScalarProperty Name="IdMovimientoInventario" ColumnName="IdMovimientoInventario" />
           <ScalarProperty Name="Fecha" ColumnName="Fecha" />
           <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />

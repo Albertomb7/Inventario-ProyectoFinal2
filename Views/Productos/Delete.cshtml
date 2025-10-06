@@ -1,13 +1,14 @@
 ﻿@model ProyectoWebInventario.Models.Producto
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar Producto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Estás seguro de que quieres eliminar este producto?</h3>
+<p class="text-danger">Esta acción también eliminará todo el historial de movimientos y el stock asociado a este producto de forma permanente.</p>
 <div>
     <h4>Producto</h4>
     <hr />
@@ -52,22 +53,38 @@
             @Html.DisplayFor(model => model.StockMinimo)
         </dd>
 
+        @* --- CÓDIGO CORREGIDO AQUÍ --- *@
+        <dt>
+            Stock Actual
+        </dt>
+        <dd>
+            @Model.Inventarios.Sum(i => i.Stock)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Activo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Activo)
+            @if (Model.Activo == true)
+            {
+                <span class="label label-success">Activo</span>
+            }
+            else
+            {
+                <span class="label label-danger">Inactivo</span>
+            }
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Eliminar Definitivamente" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la Lista", "Index")
         </div>
     }
 </div>

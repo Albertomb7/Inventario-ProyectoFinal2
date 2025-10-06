@@ -1,74 +1,319 @@
 ﻿@model ProyectoWebInventario.Models.Usuario
 
 @{
-    Layout = null; // Quitamos cualquier menú o plantilla
+    Layout = null; // Vista de login sin layout
 }
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login</title>
 
-    <!-- Bootstrap CSS local -->
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap 4.1.3 (CSS) -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+
+
+
+
+    <!-- (Opcional) Font Awesome para user/llave -->
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+          crossorigin="anonymous">
+
+    <!-- (Opcional) Bootstrap Icons para el ojo -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+ 
 
     <style>
+        /* Fondo */
+        html, body {
+            height: 100%;
+        }
+
         body {
-            background: #f0f2f5;
-            font-family: Arial, sans-serif;
+            background: #0a2540 !important;
         }
 
-        .login-container {
-            max-width: 400px;
-            margin: 100px auto;
-            padding: 30px;
-            background: #fff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-            border-radius: 10px;
+        html {
+            margin: 0;
+            padding: 0;
+            background: #0a2540 !important;
         }
 
-            .login-container h2 {
-                text-align: center;
-                margin-bottom: 20px;
-                color: #333;
+        /* Tarjeta */
+        .user_card {
+            /* height: 400px; / / quitamos altura fija */
+            min-height: 400px; /* deja crecer si hay errores */
+            width: 350px;
+            margin-top: auto;
+            margin-bottom: auto;
+            background: #3A506B;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 24px; /* + aire */
+            box-shadow: 0 12px 30px rgba(0,0,0,.35);
+            border-radius: 14px;
+        }
+
+        /* Logo */
+        .brand_logo_container {
+            position: absolute;
+            height: 170px;
+            width: 170px;
+            top: -68px; /* estaba -75: lo acercamos un poco */
+            border-radius: 50%;
+            background: #2563EB; /* aro azul (déjalo si te gusta) */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .brand_logo {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        /* Formulario dentro del card */
+        .form_container {
+            margin-top: 30px;
+        }
+            /* ↓ de 100px -> sube los campos */
+            .form_container .input-group {
+                margin-bottom: 12px;
             }
 
-        .btn-primary {
-            width: 100%;
+        .login_container {
+            padding: 0 2rem;
+            margin-top: 12px;
         }
 
-        .validation-summary-errors li{
-            list-style: none;
-            padding-left: 0;
+        /* Botón */
+        .login_btn {
+            width: 100%;
+            background: #2563EB !important;
+            color: #fff !important;
+            transition: filter .15s ease, transform .05s ease;
+        }
+
+            .login_btn:hover {
+                filter: brightness(.95);
+            }
+
+            .login_btn:active {
+                transform: translateY(1px);
+            }
+
+            .login_btn:focus {
+                box-shadow: none !important;
+                outline: 0 !important;
+            }
+
+        /* Addons de inputs + ojo */
+        .input-group-text {
+            background: #2563EB !important; /* aqui esta perroooooo*/
+            color: #fff !important;
+            border: 0 !important;
+        }
+
+        .input-group-prepend .input-group-text {
+            border-radius: .25rem 0 0 .25rem !important;
+        }
+
+        .input-group-append .input-group-text {
+            border-radius: 0 .25rem .25rem 0 !important;
+        }
+
+        /* Ojo mostrar/ocultar (derecha) */
+        .toggle-password {
+            background: #2563EB !important;
+            color: #fff !important;
+            border: 0 !important;
+            cursor: pointer;
+            user-select: none;
+            min-width: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: filter .15s ease;
+        }
+
+            .toggle-password:hover {
+                filter: brightness(1.05);
+            }
+
+        /* Uniones visuales para que no se vea doble borde */
+        .input-group .input-group-text + .form-control {
+            border-left: 0 !important;
+        }
+
+        .input-group .form-control + .input-group-append .input-group-text {
+            border-left: 0 !important;
+        }
+
+        /* Inputs */
+        .input_user, .input_pass:focus {
+            box-shadow: none !important;
+            outline: 0 !important;
+        }
+
+        .form-control:focus {
+            border-color: #2563EB;
+            box-shadow: 0 0 0 .2rem rgba(37,99,235,.25);
+            outline: 0;
+        }
+
+        /* Checkbox marcado */
+        .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: #c0392b !important;
+        }
+
+        /* Errores MVC */
+        .validation-summary-errors {
+            color: #fff;
+            background: #2563EB; /* gfyfgyufyufyufuyfy*/
+            border: 1px solid #f5c6cb;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            margin-bottom: 12px;
+        }
+
+            .validation-summary-errors ul {
+                margin: 0;
+                padding-left: 18px;
+            }
+
+        .field-validation-error {
+            color: #dc3545;
+            display: block;
+            margin-top: .25rem;
         }
     </style>
+
+
+
 </head>
 <body>
-    <div class="login-container">
-        <h2>Iniciar sesión</h2>
-        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-        {
-            <div class="mb-3">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="container h-100">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="user_card">
+                <div class="d-flex justify-content-center">
+                    <div class="brand_logo_container">
+                        <img src="~/imagenes login/cortex new.png"
+                             class="brand_logo" alt="Logo">
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center form_container">
+                    <form method="post" action="@Url.Action("Login","Account")" class="w-100">
+                        @Html.AntiForgeryToken()
+
+                        <!-- Resumen de errores del modelo -->
+                        @Html.ValidationSummary(true, "", new { @class = "validation-summary-errors mb-3" })
+
+                        <!-- Usuario -->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text"
+                                   name="NombreUsuario"
+                                   class="form-control input_user"
+                                   placeholder="Usuario"
+                                   autocomplete="Usuario" />
+                        </div>
+                        @Html.ValidationMessage("NombreUsuario", "", new { @class = "field-validation-error" })
+
+                        <!-- Password con ojo -->
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+
+                            <input type="password"
+                                   name="HasPassword"
+                                   id="HasPassword"
+                                   class="form-control input_pass"
+                                   placeholder="Contraseña"
+                                   autocomplete="current-password" />
+
+                            <div class="input-group-append">
+                                <!-- Botón ojo: intenta mostrar ícono, si no hay fuente, muestra emoji -->
+                                <span class="input-group-text toggle-password"
+                                      role="button" tabindex="0" title="Mostrar/Ocultar">
+                                    <i class="bi bi-eye" aria-hidden="true"></i>
+                                    <span class="eye-fallback" aria-hidden="true" style="margin-left:4px;">👁</span>
+                                </span>
+                            </div>
+                        </div>
+                        @Html.ValidationMessage("HasPassword", "", new { @class = "field-validation-error" })
+
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                            <button type="submit" class="btn login_btn">Iniciar Sesión</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="mb-3">
-                @Html.LabelFor(m => m.NombreUsuario, new { @class = "form-label" })
-                @Html.TextBoxFor(m => m.NombreUsuario, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.NombreUsuario, "", new { @class = "text-danger" })
-            </div>
-            <div class="mb-3">
-                @Html.LabelFor(m => m.HasPassword, new { @class = "form-label" })
-                @Html.PasswordFor(m => m.HasPassword, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.HasPassword, "", new { @class = "text-danger" })
-            </div>
-            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-        }
+        </div>
     </div>
 
-    <!-- Bootstrap JS local -->
-    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS (no dependemos de jQuery para el ojo) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+    <!-- Script del ojo: JS puro (sin jQuery) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var pwd = document.getElementById('HasPassword');
+            var toggles = document.querySelectorAll('.toggle-password');
+
+            // Si el ícono de Bootstrap Icons cargó, escondemos el fallback emoji
+            var biLoaded = !!document.querySelector('.bi');
+            if (biLoaded) {
+                document.querySelectorAll('.eye-fallback').forEach(function (el) { el.style.display = 'none'; });
+            }
+
+            toggles.forEach(function (t) {
+                var handler = function (e) {
+                    var show = pwd.type === 'password';
+                    pwd.type = show ? 'text' : 'password';
+
+                    // Alternar iconos si existen
+                    var icon = t.querySelector('i');
+                    if (icon && icon.classList.contains('bi')) {
+                        icon.classList.toggle('bi-eye');
+                        icon.classList.toggle('bi-eye-slash');
+                    } else if (icon && (icon.classList.contains('fa') || icon.classList.contains('fas'))) {
+                        icon.classList.toggle('fa-eye');
+                        icon.classList.toggle('fa-eye-slash');
+                    } else {
+                        // Fallback: alterna emoji
+                        var fb = t.querySelector('.eye-fallback');
+                        if (fb) fb.textContent = (pwd.type === 'text') ? '🙈' : '👁';
+                    }
+                    if (e) e.preventDefault();
+                };
+
+                t.addEventListener('click', handler);
+                t.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') handler(e);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
 

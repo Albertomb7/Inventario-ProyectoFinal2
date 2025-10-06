@@ -22,6 +22,7 @@ namespace ProyectoWebInventario.Models
         public int Cantidad { get; set; }
         public int UsuarioId { get; set; }
         public string Observacion { get; set; }
+        public string TipoMovimiento { get; set; }
     
         public virtual Producto Producto { get; set; }
         public virtual Ubicacion Ubicacion { get; set; }

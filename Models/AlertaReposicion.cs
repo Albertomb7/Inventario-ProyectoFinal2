@@ -20,5 +20,7 @@ namespace ProyectoWebInventario.Models
         public int NivelActual { get; set; }
     
         public virtual Producto Producto { get; set; }
+        public int ProductoId { get; internal set; }
+        public decimal UMBRAL { get; internal set; }
     }
 }

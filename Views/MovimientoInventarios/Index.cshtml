@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProyectoWebInventario.Models.MovimientoInventario>
+
+@{
+    ViewBag.Title = "Movimientos del Inventario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movimientos del Inventario</h2>
+
+<p>
+    @Html.ActionLink("Registrar Nuevo Movimiento", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Producto</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+            <th>Ubicación Origen</th>
+            <th>Ubicación Destino</th>
+            <th>Usuario</th>
+            <th>Observación</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+                <td>@Html.DisplayFor(modelItem => item.Producto.Nombre)</td>
+                <td>
+                    @if (item.TipoMovimiento != null && item.TipoMovimiento.Equals("Entrada", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <span class="movement-badge status-entrada">@item.TipoMovimiento</span>
+                    }
+                    else
+                    {
+                        <span class="movement-badge status-salida">@(item.TipoMovimiento ?? "Salida")</span>
+                    }
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ubicacion.Codigo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ubicacion1.Codigo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Usuario.NombreUsuario)</td>
+                <td>@Html.DisplayFor(modelItem => item.Observacion)</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdMovimientoInventario }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.IdMovimientoInventario }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdMovimientoInventario })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
