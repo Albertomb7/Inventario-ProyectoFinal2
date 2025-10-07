@@ -16,6 +16,7 @@ namespace ProyectoWebInventario.Controllers
     {
         private BDBodegasEntities db = new BDBodegasEntities();
 
+
         // GET: Productos
         public ActionResult Index(string busqueda)
         {

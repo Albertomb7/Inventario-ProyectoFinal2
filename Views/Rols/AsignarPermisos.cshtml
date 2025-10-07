@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "AsignarPermisos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AsignarPermisos a @Model.NombreRol</h2>
+
+<form method="post">
+    <input type="hidden" name="IdRol" value="@Model.IdRol" />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Permiso</th>
+                <th>Autorizado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Permisos)
+            {
+                <tr>
+                    <td>@p.Nombre</td>
+                    <td>
+                        <input type="checkbox" name="permisosAutorizados" value="@p.IdPermiso" @(p.Autorizado ? "checked" : "") />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

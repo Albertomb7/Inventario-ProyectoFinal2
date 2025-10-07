@@ -54,6 +54,9 @@
                 <li class="@(ViewBag.CurrentMenu == "Alertas" ? "active" : "")">
                     @Html.ActionLink("Alertas", "Index", "Alertas")
                 </li>
+                <li class="@(ViewBag.CurrentMenu == "Rols" ? "active" : "")">
+                    @Html.ActionLink("Crear y Asignar Rol", "Index", "Rols")
+                </li>
             </ul>
         </div>
         <div class="main-content">
