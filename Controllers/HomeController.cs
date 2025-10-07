@@ -9,6 +9,13 @@ namespace ProyectoWebInventario.Controllers
 {
     public class HomeController : BaseController
     {
+        //  Acceso Denegado
+        public ActionResult AccesoDenegado()
+        {
+            return View();
+        }
+
+
         public ActionResult Index()
         {
             // 1. Crear una instancia 
