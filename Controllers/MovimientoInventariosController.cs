@@ -84,14 +84,15 @@ namespace ProyectoWebInventario.Controllers
 
                         if (decimal.TryParse(producto.StockMinimo, out stockMinimoNumerico))
                         {
+                            if(inventarioDestino.Stock > stockMinimoNumerico) { 
 
-                            var alerta = db.AlertaReposicions.FirstOrDefault(a => a.ProductoIdAlertaReposicion == producto.IdProducto);
-                            if (alerta != null)
-                            {
-                                alerta.Activo = false;
-                                db.SaveChanges();
+                                var alerta = db.AlertaReposicions.FirstOrDefault(a => a.ProductoIdAlertaReposicion == producto.IdProducto && a.Activo == true);
+                                if (alerta != null)
+                                 {
+                                     alerta.Activo = false;
+                                     db.SaveChanges();
+                                 }
                             }
-
                         }
                     }
                 }
