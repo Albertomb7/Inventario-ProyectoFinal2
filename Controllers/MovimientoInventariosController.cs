@@ -1,12 +1,14 @@
-﻿using System;
+﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
+using ProyectoWebInventario.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProyectoWebInventario.Models;
 
 namespace ProyectoWebInventario.Controllers
 {
@@ -16,7 +18,7 @@ namespace ProyectoWebInventario.Controllers
 
         public ActionResult Index()
         {
-            var movimientoInventarios = db.MovimientoInventarios.Include(m => m.Producto).Include(m => m.Ubicacion).Include(m => m.Ubicacion1).Include(m => m.Usuario);
+            var movimientoInventarios = db.MovimientoInventarios.Include(m => m.Producto).Include(m => m.Ubicacion).Include(m => m.Ubicacion1).Include(m => m.Usuario).OrderByDescending(m => m.IdMovimientoInventario); ;
             return View(movimientoInventarios.ToList());
         }
 
@@ -42,8 +44,8 @@ namespace ProyectoWebInventario.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdMovimientoInventario,Fecha,ProductoId,DesdeUbicacionId,HaciaUbicacionId,Cantidad,UsuarioId,Observacion, TipoMovimiento")] MovimientoInventario movimientoInventario)
         {
-            movimientoInventario.Fecha = DateTime.Now;
-
+            movimientoInventario.Fecha = DateTime.Today;
+            
             if (ModelState.IsValid)
             {
                 //   modelo.
@@ -52,6 +54,7 @@ namespace ProyectoWebInventario.Controllers
 
                 if (movimientoInventario.TipoMovimiento.Equals("Salida", StringComparison.OrdinalIgnoreCase))
                 {
+                    //VALIDACION PARA MOSTRAR QUE NO HAY SUFICIENTE STOCK - B
                     if (inventarioOrigen == null || inventarioOrigen.Stock < movimientoInventario.Cantidad)
                     {
                         ModelState.AddModelError("", "No hay suficiente stock en la ubicación de origen para realizar la salida.");
@@ -74,8 +77,25 @@ namespace ProyectoWebInventario.Controllers
                     else
                     {
                         inventarioDestino.Stock += movimientoInventario.Cantidad;
+
+                        //aaaaaaaaaaaaaa
+                        var producto = db.Productoes.Find(movimientoInventario.ProductoId);
+                        decimal stockMinimoNumerico;
+
+                        if (decimal.TryParse(producto.StockMinimo, out stockMinimoNumerico))
+                        {
+
+                            var alerta = db.AlertaReposicions.FirstOrDefault(a => a.ProductoIdAlertaReposicion == producto.IdProducto);
+                            if (alerta != null)
+                            {
+                                alerta.Activo = false;
+                                db.SaveChanges();
+                            }
+
+                        }
                     }
                 }
+
                 else if (movimientoInventario.TipoMovimiento.Equals("Transferencia", StringComparison.OrdinalIgnoreCase))
                 {
                     if (inventarioOrigen == null || inventarioOrigen.Stock < movimientoInventario.Cantidad)
@@ -87,6 +107,7 @@ namespace ProyectoWebInventario.Controllers
                         ViewBag.UsuarioId = new SelectList(db.Usuarios, "IdUsuario", "NombreUsuario", movimientoInventario.UsuarioId);
                         return View(movimientoInventario);
                     }
+
                     inventarioOrigen.Stock -= movimientoInventario.Cantidad;
                     if (inventarioDestino == null)
                     {
@@ -120,11 +141,23 @@ namespace ProyectoWebInventario.Controllers
                     decimal stockActualTotal = db.Inventarios.Where(i => i.ProductoIdInventario == movimientoInventario.ProductoId).Sum(i => (decimal?)i.Stock) ?? 0;
                     string mensaje = $"Salida/Transferencia registrada: Se retiraron {movimientoInventario.Cantidad} unidades de '{producto.Nombre}'. Stock total restante: {stockActualTotal}.";
 
+
+
+                    //MUESTRA LA ALERTA DE STOCK MINIMO - B
                     decimal stockMinimoNumerico;
                     if (decimal.TryParse(producto.StockMinimo, out stockMinimoNumerico))
                     {
                         if (stockActualTotal <= stockMinimoNumerico)
                         {
+                            db.AlertaReposicions.Add(new AlertaReposicion
+                            {
+                                ProductoIdAlertaReposicion = movimientoInventario.ProductoId,
+                                FechaDeGeneracion = DateTime.Now,
+                                NivelActual = Convert.ToInt32(stockActualTotal),
+                                Activo = true
+                            }); 
+                            db.SaveChanges();
+
                             mensaje += " ¡Atención! El stock ha alcanzado o está por debajo del nivel mínimo.";
                             TempData["NotificationType"] = "warning";
                         }
@@ -143,7 +176,7 @@ namespace ProyectoWebInventario.Controllers
                 // Lógica de redirección inteligente
                 if (TempData["NotificationType"] as string == "warning")
                 {
-                    return RedirectToAction("Index", "Alertas");
+                    return RedirectToAction("Index", "MovimientoInventarios");
                 }
                 return RedirectToAction("Index");
             }

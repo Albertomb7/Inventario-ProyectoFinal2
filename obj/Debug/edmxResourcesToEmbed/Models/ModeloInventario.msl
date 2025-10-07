@@ -4,6 +4,7 @@
     <EntitySetMapping Name="AlertaReposicions">
       <EntityTypeMapping TypeName="BDBodegasModel.AlertaReposicion">
         <MappingFragment StoreEntitySet="AlertaReposicion">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="IdAlertaReposicion" ColumnName="IdAlertaReposicion" />
           <ScalarProperty Name="ProductoIdAlertaReposicion" ColumnName="ProductoIdAlertaReposicion" />
           <ScalarProperty Name="FechaDeGeneracion" ColumnName="FechaDeGeneracion" />

@@ -21,6 +21,5 @@ namespace ProyectoWebInventario.Models
     
         public virtual Producto Producto { get; set; }
         public virtual Ubicacion Ubicacion { get; set; }
-        public int ProductoId { get; internal set; }
     }
 }

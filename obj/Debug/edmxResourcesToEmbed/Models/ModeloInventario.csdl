@@ -9,6 +9,7 @@
     <Property Name="FechaDeGeneracion" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="NivelActual" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Producto" Relationship="Self.FK_Alerta_Reposicion_ProductoId" FromRole="AlertaReposicion" ToRole="Producto" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Bitacora">
     <Key>
@@ -71,7 +72,7 @@
     <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UnidadMedida" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="StockMinimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StockMinimo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
     <Property Name="Activo" Type="Boolean" />
     <NavigationProperty Name="AlertaReposicions" Relationship="Self.FK_Alerta_Reposicion_ProductoId" FromRole="Producto" ToRole="AlertaReposicion" />
     <NavigationProperty Name="Inventarios" Relationship="Self.FK_Inventario_ProductoId" FromRole="Producto" ToRole="Inventario" />

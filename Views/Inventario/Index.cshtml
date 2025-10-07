@@ -23,7 +23,7 @@
                 @Html.DisplayNameFor(model => model.Producto.Nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ubicacion.Codigo)
+                @Html.DisplayNameFor(model => model.Ubicacion.Descripcion)
             </th>
             <th></th>
         </tr>
@@ -39,7 +39,7 @@
                     @Html.DisplayFor(modelItem => item.Producto.Nombre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Ubicacion.Codigo)
+                    @Html.DisplayFor(modelItem => item.Ubicacion.Descripcion)
                 </td>
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.IdInventario }) |

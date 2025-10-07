@@ -7,43 +7,36 @@
 
 <h2>Listado de Alertas</h2>
 
-<p>
-    @Html.ActionLink("Crear Nueva Alerta", "Create", null, new { @class = "btn btn-primary" })
-</p>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NivelActual)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaDeGeneracion)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Producto.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NivelActual)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaDeGeneracion)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.IdAlertaReposicion }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.IdAlertaReposicion }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdAlertaReposicion })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<style>
+    .alert-custom-warning {
+        border-left: 6px solid #ffc107;
+    }
+
+    .icono-alerta {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: #ffc107;
+        color: white;
+        font-size: 24px;
+    }
+</style>
+
+
+@foreach (var item in Model)
+{
+
+    <div class="alert alert-warning d-flex align-items-center shadow-sm alert-custom-warning mb-3" role="alert">
+        <i class="bi bi-exclamation-triangle-fill d-flex justify-content-center align-items-center me-3 icono-alerta"></i>
+        <div>
+            <h5 class="mb-1">¡Atención!</h5>
+            <p class="mb-0">El stock ha alcanzado o está por debajo del nivel mínimo.</p>
+            <p class="mb-0">Producto: <strong>@Html.DisplayFor(modelItem => item.Producto.Nombre)</strong></p>
+            <p class="mb-0">Unidades disponibles: <strong>@Html.DisplayFor(modelItem => item.NivelActual)</strong></p>
+            <small class="text-muted">Fecha de generación: @Html.DisplayFor(modelItem => item.FechaDeGeneracion)</small>
+        </div>
+
+    </div>
+
+
+}

@@ -17,7 +17,7 @@ namespace ProyectoWebInventario.Controllers
             // 2. Consultar la base de datos 
             viewModel.TotalProductos = db.Productoes.Count();
             viewModel.TotalUbicaciones = db.Ubicacions.Count();
-            viewModel.TotalAlertas = db.AlertaReposicions.Count();
+            viewModel.TotalAlertas = db.AlertaReposicions.Count(a => a.Activo == true);
 
             // Toma los 5 productos más recientes 
             viewModel.UltimosProductos = db.Productoes.OrderByDescending(p => p.IdProducto).Take(5).ToList();

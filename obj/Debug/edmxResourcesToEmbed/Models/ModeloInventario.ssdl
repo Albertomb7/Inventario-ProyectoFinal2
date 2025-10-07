@@ -8,6 +8,7 @@
     <Property Name="ProductoIdAlertaReposicion" Type="int" Nullable="false" />
     <Property Name="FechaDeGeneracion" Type="datetime" Nullable="false" />
     <Property Name="NivelActual" Type="int" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Bitacora">
     <Key>
@@ -62,7 +63,7 @@
     <Property Name="Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Marca" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="UnidadMedida" Type="nvarchar" MaxLength="15" Nullable="false" />
-    <Property Name="StockMinimo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StockMinimo" Type="nvarchar" MaxLength="1" />
     <Property Name="Activo" Type="bit" />
   </EntityType>
   <EntityType Name="Rol">

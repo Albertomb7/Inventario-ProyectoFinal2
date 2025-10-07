@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
+using ProyectoWebInventario.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,7 +8,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProyectoWebInventario.Models;
 
 namespace ProyectoWebInventario.Controllers
 {
@@ -15,10 +16,11 @@ namespace ProyectoWebInventario.Controllers
         private BDBodegasEntities db = new BDBodegasEntities();
 
         // GET: AlertaReposicions
-        public ActionResult Index()
+        public ActionResult Index(string busqueda)
         {
-            var alertaReposicions = db.AlertaReposicions.Include(a => a.Producto);
+            var alertaReposicions = db.AlertaReposicions.Where(a => a.Activo == true);
             return View(alertaReposicions.ToList());
+            
         }
 
         // GET: AlertaReposicions/Details/5

@@ -1,82 +1,62 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\",
+  "WorkspaceRootPath": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\eddy\\source\\repos\\albertomb7\\inventario-proyectofinal2\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\beto\\documents\\umg\\semestre 4\\progra 2\\proyecto final\\proyectowebinventario\\views\\movimientoinventarios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\movimientoinventarios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\recursos\\encript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:recursos\\encript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\beto\\documents\\umg\\semestre 4\\progra 2\\proyecto final\\proyectowebinventario\\views\\inventario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\inventario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\beto\\documents\\umg\\semestre 4\\progra 2\\proyecto final\\proyectowebinventario\\controllers\\movimientoinventarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\movimientoinventarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\controllers\\inventariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\inventariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\views\\usuarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\usuarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\models\\modeloinventario.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\models\\modeloinventario.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
       "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:models\\modeloinventario.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\models\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:models\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\beto\\documents\\umg\\semestre 4\\progra 2\\proyecto final\\proyectowebinventario\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\controllers\\alertascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\alertascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\controllers\\ubicacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\ubicacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\views\\alertas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\alertas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\views\\productos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\productos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\models\\inventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:models\\inventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\views\\ubicaciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\ubicaciones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\scripts\\bootstrap.esm.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:scripts\\bootstrap.esm.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\views\\usuarios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\usuarios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -89,246 +69,181 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Models\\Usuario.cs",
-              "RelativeToolTip": "Models\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T18:44:06.228Z",
-              "IsPinned": true
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\AccountController.cs*",
-              "RelativeToolTip": "Controllers\\AccountController.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAkAAAAAAAAAA==",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Views\\MovimientoInventarios\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\MovimientoInventarios\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Views\\MovimientoInventarios\\Create.cshtml",
+              "RelativeToolTip": "Views\\MovimientoInventarios\\Create.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-07T03:59:18.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Views\\Inventario\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Inventario\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Views\\Inventario\\Index.cshtml",
+              "RelativeToolTip": "Views\\Inventario\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-07T03:56:05.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T18:13:01.758Z",
-              "IsPinned": true,
+              "WhenOpened": "2025-10-07T03:21:16.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-05T17:24:20.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Views\\Alertas\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Alertas\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Views\\Alertas\\Index.cshtml",
+              "RelativeToolTip": "Views\\Alertas\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-05T15:52:20.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ModeloInventario.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Models\\ModeloInventario.edmx",
+              "RelativeDocumentMoniker": "Models\\ModeloInventario.edmx",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Models\\ModeloInventario.edmx [Diagram1]",
+              "RelativeToolTip": "Models\\ModeloInventario.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-10-05T14:51:32.241Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAApwCIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T23:16:31.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AlertasController.cs",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\AlertasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AlertasController.cs",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\AlertasController.cs",
+              "RelativeToolTip": "Controllers\\AlertasController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T14:31:54.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MovimientoInventariosController.cs",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\MovimientoInventariosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MovimientoInventariosController.cs",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\MovimientoInventariosController.cs",
+              "RelativeToolTip": "Controllers\\MovimientoInventariosController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowC4AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T02:09:54.78Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UsuariosController.cs",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\UsuariosController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\UsuariosController.cs",
-              "RelativeToolTip": "Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAUwIIAAAAAAAAAAAAAAA==",
+              "Title": "InventarioController.cs",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\InventarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\InventarioController.cs",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\InventarioController.cs",
+              "RelativeToolTip": "Controllers\\InventarioController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T14:54:51.194Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAAACMAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-21T17:59:14.825Z",
-              "IsPinned": true,
+              "WhenOpened": "2025-09-30T02:07:01.229Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "DashboardViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Models\\DashboardViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\DashboardViewModel.cs",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Models\\DashboardViewModel.cs",
-              "RelativeToolTip": "Models\\DashboardViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-02T08:18:25.344Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "BundleConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\App_Start\\BundleConfig.cs",
-              "RelativeDocumentMoniker": "App_Start\\BundleConfig.cs",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\App_Start\\BundleConfig.cs",
-              "RelativeToolTip": "App_Start\\BundleConfig.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T04:28:42.084Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ModeloInventario.edmx [Diagram1]",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Models\\ModeloInventario.edmx",
-              "RelativeDocumentMoniker": "Models\\ModeloInventario.edmx",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Models\\ModeloInventario.edmx [Diagram1]",
-              "RelativeToolTip": "Models\\ModeloInventario.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-09-21T14:21:55.52Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FilterConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\App_Start\\FilterConfig.cs",
-              "RelativeDocumentMoniker": "App_Start\\FilterConfig.cs",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\App_Start\\FilterConfig.cs",
-              "RelativeToolTip": "App_Start\\FilterConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T05:29:50.18Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "Views\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-01T00:06:12.237Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UbicacionesController.cs",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\UbicacionesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UbicacionesController.cs",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\UbicacionesController.cs",
-              "RelativeToolTip": "Controllers\\UbicacionesController.cs",
-              "ViewState": "AgIAALQAAAAAAAAAAAAIwLoAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T05:30:01.138Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "ProductosController.cs",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\ProductosController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductosController.cs",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Controllers\\ProductosController.cs",
               "RelativeToolTip": "Controllers\\ProductosController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwBMAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T14:31:06.304Z"
+              "WhenOpened": "2025-09-30T02:55:54.286Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-21T14:38:16.929Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Productos\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Productos\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Productos\\Create.cshtml",
-              "RelativeToolTip": "Views\\Productos\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T05:26:13.056Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Ubicaciones\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Ubicaciones\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Ubicaciones\\Index.cshtml",
-              "RelativeToolTip": "Views\\Ubicaciones\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAFAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Views\\Productos\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Productos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Views\\Productos\\Index.cshtml",
+              "RelativeToolTip": "Views\\Productos\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T05:29:04.629Z"
+              "WhenOpened": "2025-09-30T03:08:31.11Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "bootstrap.esm.min.js",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Scripts\\bootstrap.esm.min.js",
-              "RelativeDocumentMoniker": "Scripts\\bootstrap.esm.min.js",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Scripts\\bootstrap.esm.min.js",
-              "RelativeToolTip": "Scripts\\bootstrap.esm.min.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-09-23T04:28:23.381Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "RouteConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\App_Start\\RouteConfig.cs",
-              "RelativeDocumentMoniker": "App_Start\\RouteConfig.cs",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\App_Start\\RouteConfig.cs",
-              "RelativeToolTip": "App_Start\\RouteConfig.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "Inventario.cs",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Models\\Inventario.cs",
+              "RelativeDocumentMoniker": "Models\\Inventario.cs",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Models\\Inventario.cs",
+              "RelativeToolTip": "Models\\Inventario.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T18:22:16.306Z"
+              "WhenOpened": "2025-09-30T02:45:38.832Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Encript.cs",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Recursos\\Encript.cs",
-              "RelativeDocumentMoniker": "Recursos\\Encript.cs",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Recursos\\Encript.cs",
-              "RelativeToolTip": "Recursos\\Encript.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\Beto\\Documents\\UMG\\Semestre 4\\Progra 2\\PROYECTO FINAL\\ProyectoWebInventario\\Models\\Producto.cs",
+              "RelativeToolTip": "Models\\Producto.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwB0AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T18:19:04.531Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Usuarios\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Usuarios\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Usuarios\\Create.cshtml",
-              "RelativeToolTip": "Views\\Usuarios\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-21T15:44:33.679Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Usuarios\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Usuarios\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Eddy\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Usuarios\\Index.cshtml",
-              "RelativeToolTip": "Views\\Usuarios\\Index.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-21T14:57:51.929Z"
+              "WhenOpened": "2025-10-01T04:31:06.233Z"
             }
           ]
         }

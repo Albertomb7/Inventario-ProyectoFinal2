@@ -13,6 +13,7 @@
           <Property Name="ProductoIdAlertaReposicion" Type="int" Nullable="false" />
           <Property Name="FechaDeGeneracion" Type="datetime" Nullable="false" />
           <Property Name="NivelActual" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Bitacora">
           <Key>
@@ -67,7 +68,7 @@
           <Property Name="Categoria" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Marca" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="UnidadMedida" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="StockMinimo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StockMinimo" Type="nvarchar" MaxLength="1" />
           <Property Name="Activo" Type="bit" />
         </EntityType>
         <EntityType Name="Rol">
@@ -301,6 +302,7 @@
           <Property Name="FechaDeGeneracion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="NivelActual" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Producto" Relationship="Self.FK_Alerta_Reposicion_ProductoId" FromRole="AlertaReposicion" ToRole="Producto" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Bitacora">
           <Key>
@@ -363,7 +365,7 @@
           <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UnidadMedida" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="StockMinimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StockMinimo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
           <Property Name="Activo" Type="Boolean" />
           <NavigationProperty Name="AlertaReposicions" Relationship="Self.FK_Alerta_Reposicion_ProductoId" FromRole="Producto" ToRole="AlertaReposicion" />
           <NavigationProperty Name="Inventarios" Relationship="Self.FK_Inventario_ProductoId" FromRole="Producto" ToRole="Inventario" />
@@ -604,6 +606,7 @@
           <EntitySetMapping Name="AlertaReposicions">
             <EntityTypeMapping TypeName="BDBodegasModel.AlertaReposicion">
               <MappingFragment StoreEntitySet="AlertaReposicion">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="IdAlertaReposicion" ColumnName="IdAlertaReposicion" />
                 <ScalarProperty Name="ProductoIdAlertaReposicion" ColumnName="ProductoIdAlertaReposicion" />
                 <ScalarProperty Name="FechaDeGeneracion" ColumnName="FechaDeGeneracion" />

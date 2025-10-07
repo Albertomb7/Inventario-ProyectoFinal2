@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="623569fb629c4192aabc0fa63ae5687b" Name="Diagram1">
-        <EntityTypeShape EntityType="BDBodegasModel.AlertaReposicion" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDBodegasModel.AlertaReposicion" Width="2.25" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDBodegasModel.Bitacora" Width="1.5" PointX="5.375" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BDBodegasModel.Inventario" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BDBodegasModel.MovimientoInventario" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
