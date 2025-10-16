@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProyectoWebInventario.Filters;
+using ProyectoWebInventario.Models;
+using ProyectoWebInventario.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,8 +9,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProyectoWebInventario.Models;
-using ProyectoWebInventario.ViewModels;
 
 namespace ProyectoWebInventario.Controllers
 {
@@ -16,11 +17,8 @@ namespace ProyectoWebInventario.Controllers
         private BDBodegasEntities db = new BDBodegasEntities();
 
 
-        /// ******************************************************************************************
-        /// 
-
-
         // GET: Rol/AsignarPermisos/5
+        [PermisoAttributes("AsignarRols")]
         public ActionResult AsignarPermisos(int id)
         {
             var rol = db.Rols.Find(id);
@@ -47,7 +45,7 @@ namespace ProyectoWebInventario.Controllers
             return View(modelo);
 
         }
-
+        [PermisoAttributes("AsignarRols")]
         [HttpPost]
         public ActionResult AsignarPermisos(int IdRol, int[] permisosAutorizados)
         {
@@ -72,17 +70,8 @@ namespace ProyectoWebInventario.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-
-
-        /// <summary>
-        /// //////////////////////
-        /// </summary>
-        /// <returns></returns>
-
-
         // GET: Rols
+        [PermisoAttributes("VerRols")]
         public ActionResult Index()
         {
             return View(db.Rols.ToList());
@@ -104,6 +93,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Rols/Create
+        [PermisoAttributes("CrearRols")]
         public ActionResult Create()
         {
             return View();
@@ -112,6 +102,7 @@ namespace ProyectoWebInventario.Controllers
         // POST: Rols/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [PermisoAttributes("CrearRols")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdRol,NombreRol,Descripcion")] Rol rol)
@@ -127,6 +118,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Rols/Edit/5
+        [PermisoAttributes("EditarRols")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -144,6 +136,7 @@ namespace ProyectoWebInventario.Controllers
         // POST: Rols/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [PermisoAttributes("EditarRols")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdRol,NombreRol,Descripcion")] Rol rol)
@@ -158,6 +151,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Rols/Delete/5
+        [PermisoAttributes("EliminarRols")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

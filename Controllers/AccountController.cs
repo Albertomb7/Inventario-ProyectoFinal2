@@ -46,6 +46,7 @@ namespace ProyectoWebInventario.Controllers
 
             // Guarda en sesión
             Session["Usuario"] = usuario.NombreUsuario;
+            Session["IdUsuario"] = usuario.IdUsuario;
             Session["Rol"] = usuario.Rol;
 
             var returnUrl = Request.QueryString["returnUrl"];

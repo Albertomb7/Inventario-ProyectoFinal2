@@ -1,4 +1,5 @@
-﻿using ProyectoWebInventario.Models;
+﻿using ProyectoWebInventario.Filters;
+using ProyectoWebInventario.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace ProyectoWebInventario.Controllers
             return View();
         }
 
-
+        [PermisoAttributes("VerHome")]
         public ActionResult Index()
         {
             // 1. Crear una instancia 

@@ -175,6 +175,7 @@
     <Compile Include="Controllers\RolsController.cs" />
     <Compile Include="Controllers\UbicacionesController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Filters\PermisoAttributes.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

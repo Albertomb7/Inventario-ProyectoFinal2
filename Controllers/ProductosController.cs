@@ -1,14 +1,15 @@
-﻿using System.Data.Entity;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using OfficeOpenXml;
+using ProyectoWebInventario.Filters;
+using ProyectoWebInventario.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using ProyectoWebInventario.Models;
-using System.Collections.Generic;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using OfficeOpenXml;
-using System.IO;
-using System;
 
 namespace ProyectoWebInventario.Controllers
 {
@@ -18,6 +19,7 @@ namespace ProyectoWebInventario.Controllers
 
 
         // GET: Productos
+        [PermisoAttributes("VerProductos")]
         public ActionResult Index(string busqueda)
         {
             var productos = db.Productoes.Include(p => p.Inventarios);
@@ -39,12 +41,14 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Productos/Create
+        [PermisoAttributes("CrearProductos")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Productos/Create
+        [PermisoAttributes("CrearProductos")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Nombre,Categoria,Marca,UnidadMedida,StockMinimo,Activo")] Producto producto, int StockInicial = 0)
@@ -72,6 +76,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Productos/Edit/5
+        [PermisoAttributes("EditarProductos")]
         public ActionResult Edit(int? id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,6 +86,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // POST: Productos/Edit/5
+        [PermisoAttributes("EditarProductos")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id)
@@ -99,6 +105,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Productos/Delete/5 -- MÉTODO CORREGIDO --
+        [PermisoAttributes("EliminarProductos")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

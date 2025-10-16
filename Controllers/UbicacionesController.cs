@@ -1,15 +1,16 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System.IO;
+using ProyectoWebInventario.Filters;
+using ProyectoWebInventario.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProyectoWebInventario.Models;
 
 namespace ProyectoWebInventario.Controllers
 {
@@ -18,6 +19,7 @@ namespace ProyectoWebInventario.Controllers
         private BDBodegasEntities db = new BDBodegasEntities();
 
         // GET: Ubicaciones
+        [PermisoAttributes("VerUbicaciones")]
         public ActionResult Index()
         {
             return View(db.Ubicacions.ToList());
@@ -92,11 +94,13 @@ namespace ProyectoWebInventario.Controllers
             }
         }
         // GET: Ubicacions/Create
+        [PermisoAttributes("CrearUbicaciones")]
         public ActionResult Create()
         {
             return View();
         }
 
+        [PermisoAttributes("CrearUbicaciones")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdUbicacion,Codigo,Descripcion,Activo")] Ubicacion ubicacion)
@@ -112,6 +116,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Ubicacions/Edit/5
+        [PermisoAttributes("EditarUbicaciones")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -126,6 +131,7 @@ namespace ProyectoWebInventario.Controllers
             return View(ubicacion);
         }
 
+        [PermisoAttributes("EditarUbicaciones")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdUbicacion,Codigo,Descripcion,Activo")] Ubicacion ubicacion)
@@ -140,6 +146,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Ubicacions/Delete/5
+        [PermisoAttributes("EliminarUbicaciones")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

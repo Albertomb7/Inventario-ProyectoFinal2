@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProyectoWebInventario.Filters;
+using ProyectoWebInventario.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,7 +8,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProyectoWebInventario.Models;
 
 namespace ProyectoWebInventario.Controllers
 {
@@ -15,6 +16,7 @@ namespace ProyectoWebInventario.Controllers
         private BDBodegasEntities db = new BDBodegasEntities();
 
         // GET: Inventario
+        [PermisoAttributes("VerInventario")]
         public ActionResult Index()
         {
             var inventarios = db.Inventarios.Include(i => i.Producto).Include(i => i.Ubicacion);
@@ -37,6 +39,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Inventario/Create
+        [PermisoAttributes("CrearInventario")]
         public ActionResult Create()
         {
             ViewBag.ProductoIdInventario = new SelectList(db.Productoes, "IdProducto", "Nombre");
@@ -47,6 +50,7 @@ namespace ProyectoWebInventario.Controllers
         // POST: Inventario/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [PermisoAttributes("CrearInventario")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdInventario,ProductoIdInventario,UbicacionId,Stock")] Inventario inventario)
@@ -64,6 +68,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Inventario/Edit/5
+        [PermisoAttributes("EditarInventario")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,6 +88,7 @@ namespace ProyectoWebInventario.Controllers
         // POST: Inventario/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [PermisoAttributes("EditarInventario")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdInventario,ProductoIdInventario,UbicacionId,Stock")] Inventario inventario)
@@ -99,6 +105,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Inventario/Delete/5
+        [PermisoAttributes("EliminarInventario")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

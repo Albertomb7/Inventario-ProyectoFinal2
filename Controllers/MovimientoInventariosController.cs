@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
+using ProyectoWebInventario.Filters;
 using ProyectoWebInventario.Models;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace ProyectoWebInventario.Controllers
     {
         private BDBodegasEntities db = new BDBodegasEntities();
 
+        [PermisoAttributes("VerMovimientoInventarios")]
         public ActionResult Index()
         {
             var movimientoInventarios = db.MovimientoInventarios.Include(m => m.Producto).Include(m => m.Ubicacion).Include(m => m.Ubicacion1).Include(m => m.Usuario).OrderByDescending(m => m.IdMovimientoInventario); ;
@@ -29,7 +31,7 @@ namespace ProyectoWebInventario.Controllers
             if (movimientoInventario == null) return HttpNotFound();
             return View(movimientoInventario);
         }
-
+        [PermisoAttributes("CrearMovimientoInventarios")]
         public ActionResult Create()
         {
             ViewBag.ProductoId = new SelectList(db.Productoes, "IdProducto", "Nombre");
@@ -40,6 +42,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // MÉTODo CORREG
+        [PermisoAttributes("CrearMovimientoInventarios")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdMovimientoInventario,Fecha,ProductoId,DesdeUbicacionId,HaciaUbicacionId,Cantidad,UsuarioId,Observacion, TipoMovimiento")] MovimientoInventario movimientoInventario)
@@ -189,6 +192,7 @@ namespace ProyectoWebInventario.Controllers
             return View(movimientoInventario);
         }
 
+        [PermisoAttributes("EditarMovimientoInventarios")]
         public ActionResult Edit(int? id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -201,6 +205,7 @@ namespace ProyectoWebInventario.Controllers
             return View(movimientoInventario);
         }
 
+        [PermisoAttributes("VerMovimientoInventarios")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdMovimientoInventario,Fecha,ProductoId,DesdeUbicacionId,HaciaUbicacionId,Cantidad,UsuarioId,Observacion")] MovimientoInventario movimientoInventario)
@@ -218,6 +223,7 @@ namespace ProyectoWebInventario.Controllers
             return View(movimientoInventario);
         }
 
+        [PermisoAttributes("EliminarMovimientoInventarios")]
         public ActionResult Delete(int? id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

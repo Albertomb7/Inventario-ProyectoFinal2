@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProyectoWebInventario.Filters;
+using ProyectoWebInventario.Models;
+using ProyectoWebInventario.Recursos;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,8 +9,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProyectoWebInventario.Models;
-using ProyectoWebInventario.Recursos;
 
 namespace ProyectoWebInventario.Controllers
 {
@@ -16,6 +17,7 @@ namespace ProyectoWebInventario.Controllers
         private BDBodegasEntities db = new BDBodegasEntities();
 
         // GET: Usuarios
+        [PermisoAttributes("VerUsuarios")]
         public ActionResult Index()
         {
             return View(db.Usuarios.ToList());
@@ -37,6 +39,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Usuarios/Create
+        [PermisoAttributes("CrearUsuarios")]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +48,7 @@ namespace ProyectoWebInventario.Controllers
         // POST: Usuarios/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [PermisoAttributes("CrearUsuarios")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdUsuario,NombreUsuario,HasPassword,Rol,Activo")] Usuario usuario)
@@ -62,6 +66,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Usuarios/Edit/5
+        [PermisoAttributes("EditarUsuarios")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +84,7 @@ namespace ProyectoWebInventario.Controllers
         // POST: Usuarios/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [PermisoAttributes("EditarUsuarios")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdUsuario,NombreUsuario,HasPassword,Rol,Activo")] Usuario usuario)
@@ -93,6 +99,7 @@ namespace ProyectoWebInventario.Controllers
         }
 
         // GET: Usuarios/Delete/5
+        [PermisoAttributes("EliminarUsuarios")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
