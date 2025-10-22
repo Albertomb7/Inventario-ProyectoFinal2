@@ -7,53 +7,52 @@
 
 <h2>Editar Producto</h2>
 
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Producto</h4>
+        <h4>Información del Producto</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.IdProducto)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Nombre, "Nombre del Producto", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese el nombre del producto" } })
                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Categoria, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Categoria, "Categoría", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Categoria, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Categoria, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese la categoría" } })
                 @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Marca, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Marca, "Marca", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Marca, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Marca, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese la marca" } })
                 @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UnidadMedida, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.UnidadMedida, "Unidad de Medida", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UnidadMedida, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.UnidadMedida, new { htmlAttributes = new { @class = "form-control", placeholder = "Ejemplo: Unidad, Caja, Litro..." } })
                 @Html.ValidationMessageFor(model => model.UnidadMedida, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StockMinimo, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StockMinimo, "Stock Mínimo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StockMinimo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.StockMinimo, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese el stock mínimo permitido" } })
                 @Html.ValidationMessageFor(model => model.StockMinimo, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -66,7 +65,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Activo, "Estado Activo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Activo)
@@ -77,15 +76,11 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
+                <div class="btn-group" role="group">
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Volver a la Lista", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
