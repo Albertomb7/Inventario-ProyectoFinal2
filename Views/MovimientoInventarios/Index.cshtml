@@ -8,7 +8,9 @@
 <h2>Movimientos del Inventario</h2>
 
 <p>
-    @Html.ActionLink("Registrar Nuevo Movimiento", "Create", null, new { @class = "btn btn-primary" })
+    <a href="@Url.Action("Create")" class="btn btn-primary">
+        <i class="fas fa-exchange-alt"></i> Registrar Nuevo Movimiento
+    </a>
 </p>
 
 <table class="table table-hover">
@@ -47,10 +49,16 @@
                 <td>@Html.DisplayFor(modelItem => item.Usuario.NombreUsuario)</td>
                 <td>@Html.DisplayFor(modelItem => item.Observacion)</td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.IdMovimientoInventario }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.IdMovimientoInventario }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdMovimientoInventario })
+                    <div class="btn-group" role="group">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IdMovimientoInventario },
+                            new { @class = "btn btn-sm btn-primary me-1" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.IdMovimientoInventario },
+                            new { @class = "btn btn-sm btn-warning me-1 text-white" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdMovimientoInventario },
+                            new { @class = "btn btn-sm btn-danger" })
+                    </div>
                 </td>
+
             </tr>
         }
     </tbody>

@@ -1,51 +1,38 @@
 ﻿@model ProyectoWebInventario.Models.Usuario
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles del Usuario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalles del Usuario</h2>
 
 <div>
-    <h4>Usuario</h4>
+
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NombreUsuario)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.NombreUsuario)</dt>
+        <dd>@Html.DisplayFor(model => model.NombreUsuario)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NombreUsuario)
-        </dd>
+        <dt>Contraseña</dt>
+        <dd>@Html.DisplayFor(model => model.HasPassword)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HasPassword)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.Rol)</dt>
+        <dd>@Html.DisplayFor(model => model.Rol)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.HasPassword)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rol)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rol)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Activo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Activo)
-        </dd>
-
+        <dt>@Html.DisplayNameFor(model => model.Activo)</dt>
+        <dd>@Html.DisplayFor(model => model.Activo)</dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdUsuario }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="form-actions no-color">
+    <a href="@Url.Action("Edit", new { id = Model.IdUsuario })"
+       class="btn btn-primary btn-rounded btn-elevate"
+       style="margin-right:10px;">
+        Editar
+    </a>
+    <a href="@Url.Action("Index")"
+       class="btn btn-warning text-white btn-rounded btn-elevate">
+        Volver a la Lista
+    </a>
+</div>

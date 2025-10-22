@@ -1,17 +1,22 @@
 ﻿@model ProyectoWebInventario.Models.Inventario
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Inventario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<style>
+    #Botones {
+        margin-top: 15px;
+    }
+</style>
 
+<h2>Editar Inventario</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Inventario</h4>
         <hr />
@@ -19,7 +24,7 @@
         @Html.HiddenFor(model => model.IdInventario)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductoIdInventario, "ProductoIdInventario", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ProductoIdInventario, "Producto", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("ProductoIdInventario", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ProductoIdInventario, "", new { @class = "text-danger" })
@@ -27,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UbicacionId, "UbicacionId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.UbicacionId, "Ubicación", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("UbicacionId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.UbicacionId, "", new { @class = "text-danger" })
@@ -35,24 +40,28 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Stock, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Stock, "Stock", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Stock, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        <!-- Botones -->
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-10" id="Botones">
+                <input type="submit"
+                       value="Guardar Cambios"
+                       class="btn btn-primary btn-rounded btn-elevate"
+                       style="margin-right:10px;" />
+                <a href="@Url.Action("Index")"
+                   class="btn btn-warning text-white btn-rounded btn-elevate">
+                    Volver a la Lista
+                </a>
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

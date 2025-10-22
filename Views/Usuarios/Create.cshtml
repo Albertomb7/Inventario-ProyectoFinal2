@@ -1,40 +1,39 @@
 ﻿@model ProyectoWebInventario.Models.Usuario
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Crear Usuario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Crear Usuario</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Usuario</h4>
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
         <div class="form-group">
-            @Html.LabelFor(model => model.NombreUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NombreUsuario, "Nombre de Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.PasswordFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        
         <div class="form-group">
-            @Html.LabelFor(model => model.HasPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.HasPassword, "Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HasPassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.HasPassword, new { @class = "form-control", type = "password" })
                 @Html.ValidationMessageFor(model => model.HasPassword, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Rol, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Rol, "Rol del Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
@@ -42,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Activo, "Activo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Activo)
@@ -51,17 +50,21 @@
             </div>
         </div>
 
+        <!-- Botones -->
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit"
+                       value="Crear Usuario"
+                       class="btn btn-primary btn-rounded btn-elevate"
+                       style="margin-right:10px;" />
+                <a href="@Url.Action("Index")"
+                   class="btn btn-warning text-white btn-rounded btn-elevate">
+                    Volver a la Lista
+                </a>
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

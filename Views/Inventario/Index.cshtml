@@ -7,24 +7,18 @@
 
 <h2>Inventario Actual</h2>
 
-<p>
-    @* Convertimos el enlace en un botón principal y mejoramos el texto *@
-    @Html.ActionLink("Agregar Producto a Inventario", "Create", null, new { @class = "btn btn-primary" })
-</p>
+@*<p>
+        @Html.ActionLink("Agregar Producto a Inventario", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+*@
 
-@* Aplicamos los estilos a la tabla *@
+
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Stock)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ubicacion.Descripcion)
-            </th>
+            <th>@Html.DisplayNameFor(model => model.Stock)</th>
+            <th>@Html.DisplayNameFor(model => model.Producto.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Ubicacion.Descripcion)</th>
             <th></th>
         </tr>
     </thead>
@@ -32,19 +26,15 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>@Html.DisplayFor(modelItem => item.Stock)</td>
+                <td>@Html.DisplayFor(modelItem => item.Producto.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ubicacion.Descripcion)</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Stock)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Producto.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ubicacion.Descripcion)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.IdInventario }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.IdInventario }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdInventario })
+                    <div class="btn-group" role="group">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IdInventario }, new { @class = "btn btn-sm btn-primary me-1" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.IdInventario }, new { @class = "btn btn-sm btn-warning me-1 text-white" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdInventario }, new { @class = "btn btn-sm btn-danger" })
+                    </div>
                 </td>
             </tr>
         }

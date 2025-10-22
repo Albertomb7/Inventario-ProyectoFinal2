@@ -5,38 +5,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Listado de Alertas</h2>
+@*@<h2>Listado de Alertas</h2>*@
 
-<style>
-    .alert-custom-warning {
-        border-left: 6px solid #ffc107;
-    }
-
-    .icono-alerta {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background-color: #ffc107;
-        color: white;
-        font-size: 24px;
-    }
-</style>
-
-
-@foreach (var item in Model)
+@if (Model == null || !Model.Any())
 {
-
-    <div class="alert alert-warning d-flex align-items-center shadow-sm alert-custom-warning mb-3" role="alert">
-        <i class="bi bi-exclamation-triangle-fill d-flex justify-content-center align-items-center me-3 icono-alerta"></i>
-        <div>
-            <h5 class="mb-1">¡Atención!</h5>
-            <p class="mb-0">El stock ha alcanzado o está por debajo del nivel mínimo.</p>
-            <p class="mb-0">Producto: <strong>@Html.DisplayFor(modelItem => item.Producto.Nombre)</strong></p>
-            <p class="mb-0">Unidades disponibles: <strong>@Html.DisplayFor(modelItem => item.NivelActual)</strong></p>
-            <small class="text-muted">Fecha de generación: @Html.DisplayFor(modelItem => item.FechaDeGeneracion)</small>
+    <!-- Estado vacío cuando no hay alertas -->
+    <div class="empty-state">
+        <div class="empty-card">
+            <div class="empty-illustration">
+                <img src="@Url.Content("~/Content/img/SinAlertas.png")" alt="Sin alertas" />
+            </div>
+            <h3 class="empty-title">¡No hay alertas por ahora!</h3>
+            <p class="empty-subtitle">
+                Aquí aparecerán las alertas cuando el stock esté bajo o se cumplan tus reglas.
+            </p>
         </div>
-
     </div>
-
-
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <div class="alert alert-warning d-flex align-items-center shadow-sm alert-custom-warning mb-3" role="alert">
+            <i class="bi bi-exclamation-triangle-fill d-flex justify-content-center align-items-center me-3 icono-alerta"></i>
+            <div>
+                <h5 class="mb-1">¡Atención!</h5>
+                <p class="mb-0">El stock ha alcanzado o está por debajo del nivel mínimo.</p>
+                <p class="mb-0">Producto: <strong>@Html.DisplayFor(modelItem => item.Producto.Nombre)</strong></p>
+                <p class="mb-0">Unidades disponibles: <strong>@Html.DisplayFor(modelItem => item.NivelActual)</strong></p>
+                <small class="text-muted">Fecha de generación: @Html.DisplayFor(modelItem => item.FechaDeGeneracion)</small>
+            </div>
+        </div>
+    }
 }

@@ -1,35 +1,32 @@
 ﻿@model ProyectoWebInventario.Models.Permiso
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles del Permiso";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalles del Permiso</h2>
 
 <div>
-    <h4>Permiso</h4>
+
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NombrePermiso)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.NombrePermiso)</dt>
+        <dd>@Html.DisplayFor(model => model.NombrePermiso)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NombrePermiso)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-
+        <dt>@Html.DisplayNameFor(model => model.Descripcion)</dt>
+        <dd>@Html.DisplayFor(model => model.Descripcion)</dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPermiso }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="form-actions no-color">
+    <a href="@Url.Action("Edit", new { id = Model.IdPermiso })"
+       class="btn btn-primary btn-rounded btn-elevate"
+       style="margin-right:10px;">
+        Editar
+    </a>
+    <a href="@Url.Action("Index")"
+       class="btn btn-warning text-white btn-rounded btn-elevate">
+        Volver a la Lista
+    </a>
+</div>

@@ -1,58 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\marvi\\source\\repos\\albertomb7\\inventario-proyectofinal2\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\marvi\\source\\repos\\albertomb7\\inventario-proyectofinal2\\filters\\permisoattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:filters\\permisoattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\salas\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsuariosController.cs",
-              "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\UsuariosController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
-              "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\UsuariosController.cs",
-              "RelativeToolTip": "Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAuwIgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T04:23:28.958Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PermisoAttributes.cs",
-              "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Filters\\PermisoAttributes.cs",
-              "RelativeDocumentMoniker": "Filters\\PermisoAttributes.cs",
-              "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Filters\\PermisoAttributes.cs",
-              "RelativeToolTip": "Filters\\PermisoAttributes.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T03:16:51.796Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

@@ -74,9 +74,14 @@
             </div>
         </div>
 
+        <!-- Botones -->
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <div class="btn-group" role="group">
+                <div class="btn-group mt-3" role="group">
+                    <input type="submit" value="Guardar Cambios" class="btn btn-primary btn-rounded btn-elevate me-2" />
+                    <a href="@Url.Action("Index")" class="btn btn-warning text-white btn-rounded btn-elevate me-2">Volver a la Lista</a>
+                    <a href="@Url.Action("Delete", new { id = Model.IdProducto })" class="btn btn-danger btn-rounded btn-elevate">Eliminar Producto</a>
+                </div>
             </div>
         </div>
     </div>

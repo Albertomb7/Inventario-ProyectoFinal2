@@ -1,75 +1,47 @@
 ﻿@model ProyectoWebInventario.Models.MovimientoInventario
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles del Movimiento";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalles del Movimiento</h2>
 
 <div>
-    <h4>MovimientoInventario</h4>
+
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.Fecha)</dt>
+        <dd>@Html.DisplayFor(model => model.Fecha)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Cantidad)</dt>
+        <dd>@Html.DisplayFor(model => model.Cantidad)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cantidad)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.Observacion)</dt>
+        <dd>@Html.DisplayFor(model => model.Observacion)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cantidad)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Producto.Nombre)</dt>
+        <dd>@Html.DisplayFor(model => model.Producto.Nombre)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Observacion)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.Ubicacion.Codigo)</dt>
+        <dd>@Html.DisplayFor(model => model.Ubicacion.Codigo)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Observacion)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Ubicacion1.Codigo)</dt>
+        <dd>@Html.DisplayFor(model => model.Ubicacion1.Codigo)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Producto.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Producto.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ubicacion.Codigo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ubicacion.Codigo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ubicacion1.Codigo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ubicacion1.Codigo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario.NombreUsuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Usuario.NombreUsuario)
-        </dd>
-
+        <dt>@Html.DisplayNameFor(model => model.Usuario.NombreUsuario)</dt>
+        <dd>@Html.DisplayFor(model => model.Usuario.NombreUsuario)</dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdMovimientoInventario }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="form-actions no-color">
+    <a href="@Url.Action("Edit", new { id = Model.IdMovimientoInventario })"
+       class="btn btn-primary btn-rounded btn-elevate"
+       style="margin-right:10px;">
+        Editar
+    </a>
+    <a href="@Url.Action("Index")"
+       class="btn btn-warning text-white btn-rounded btn-elevate">
+        Volver a la Lista
+    </a>
+</div>

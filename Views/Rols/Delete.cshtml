@@ -1,41 +1,38 @@
 ﻿@model ProyectoWebInventario.Models.Rol
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar Rol";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar Rol</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Estás seguro de que deseas eliminar este rol?</h3>
+
 <div>
-    <h4>Rol</h4>
+
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NombreRol)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.NombreRol)</dt>
+        <dd>@Html.DisplayFor(model => model.NombreRol)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NombreRol)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-
+        <dt>@Html.DisplayNameFor(model => model.Descripcion)</dt>
+        <dd>@Html.DisplayFor(model => model.Descripcion)</dd>
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit"
+                   value="Eliminar Definitivamente"
+                   class="btn btn-danger btn-rounded btn-elevate"
+                   style="margin-right:10px;" />
+            <a href="@Url.Action("Index")"
+               class="btn btn-warning text-white btn-rounded btn-elevate">
+                Volver a la Lista
+            </a>
         </div>
     }
 </div>

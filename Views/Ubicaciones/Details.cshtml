@@ -1,43 +1,29 @@
 ﻿@model ProyectoWebInventario.Models.Ubicacion
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles de Ubicación";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalles de la Ubicación</h2>
 
 <div>
-    <h4>Ubicacion</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Codigo)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.Codigo)</dt>
+        <dd>@Html.DisplayFor(model => model.Codigo)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Codigo)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Descripcion)</dt>
+        <dd>@Html.DisplayFor(model => model.Descripcion)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Activo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Activo)
-        </dd>
-
+        <dt>@Html.DisplayNameFor(model => model.Activo)</dt>
+        <dd>@Html.DisplayFor(model => model.Activo)</dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdUbicacion }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="btn-group mt-3" role="group">
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdUbicacion },
+        new { @class = "btn btn-primary btn-rounded btn-elevate me-2" })
+    @Html.ActionLink("Volver a la Lista", "Index", null,
+        new { @class = "btn btn-warning text-white btn-rounded btn-elevate" })
+</div>

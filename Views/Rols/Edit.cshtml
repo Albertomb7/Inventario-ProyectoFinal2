@@ -1,25 +1,30 @@
 ﻿@model ProyectoWebInventario.Models.Rol
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Rol";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<style>
+    #Botones {
+        margin-top: 15px;
+    }
+</style>
 
+<h2>Editar Rol</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Rol</h4>
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.IdRol)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NombreRol, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NombreRol, "Nombre del Rol", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NombreRol, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NombreRol, "", new { @class = "text-danger" })
@@ -27,24 +32,28 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Descripcion, "Descripción", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        <!-- Botones -->
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-10" id="Botones">
+                <input type="submit"
+                       value="Guardar Cambios"
+                       class="btn btn-primary btn-rounded btn-elevate"
+                       style="margin-right:10px;" />
+                <a href="@Url.Action("Index")"
+                   class="btn btn-warning text-white btn-rounded btn-elevate">
+                    Volver a la Lista
+                </a>
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -5,66 +5,34 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Eliminar</h2>
+<h2>Eliminar Producto</h2>
 
 <h3>¿Estás seguro de que quieres eliminar este producto?</h3>
 <p class="text-danger">Esta acción también eliminará todo el historial de movimientos y el stock asociado a este producto de forma permanente.</p>
+
 <div>
-    <h4>Producto</h4>
+    
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.Nombre)</dt>
+        <dd>@Html.DisplayFor(model => model.Nombre)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Categoria)</dt>
+        <dd>@Html.DisplayFor(model => model.Categoria)</dd>
+        
+        <dt>@Html.DisplayNameFor(model => model.Marca)</dt>
+        <dd>@Html.DisplayFor(model => model.Marca)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Categoria)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.UnidadMedida)</dt>
+        <dd>@Html.DisplayFor(model => model.UnidadMedida)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Categoria)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.StockMinimo)</dt>
+        <dd>@Html.DisplayFor(model => model.StockMinimo)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Marca)
-        </dt>
+        <dt>Stock Actual</dt>
+        <dd>@Model.Inventarios.Sum(i => i.Stock)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Marca)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UnidadMedida)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UnidadMedida)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StockMinimo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StockMinimo)
-        </dd>
-
-        @* --- CÓDIGO CORREGIDO AQUÍ --- *@
-        <dt>
-            Stock Actual
-        </dt>
-        <dd>
-            @Model.Inventarios.Sum(i => i.Stock)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Activo)
-        </dt>
-
+        <dt>@Html.DisplayNameFor(model => model.Activo)</dt>
         <dd>
             @if (Model.Activo == true)
             {
@@ -75,16 +43,17 @@
                 <span class="label label-danger">Inactivo</span>
             }
         </dd>
-
     </dl>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Eliminar Definitivamente" class="btn btn-danger" /> |
-            @Html.ActionLink("Volver a la Lista", "Index")
+        <div class="form-actions no-color mt-3">
+            <div class="btn-group" role="group">
+                <input type="submit" value="Eliminar Definitivamente" class="btn btn-danger btn-rounded btn-elevate me-2" />
+                @Html.ActionLink("Cancelar y Volver", "Index", null, new { @class = "btn btn-warning text-white btn-rounded btn-elevate" })
+            </div>
         </div>
     }
 </div>

@@ -1,40 +1,41 @@
 ﻿@model IEnumerable<ProyectoWebInventario.Models.Permiso>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listado de Permisos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Listado de Permisos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create")" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Crear Nuevo Permiso
+    </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombrePermiso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombrePermiso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdPermiso }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdPermiso }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdPermiso })
-        </td>
-    </tr>
-}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.NombrePermiso)</th>
+            <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+            <th></th>
+        </tr>
+    </thead>
 
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NombrePermiso)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IdPermiso }, new { @class = "btn btn-sm btn-primary me-1" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.IdPermiso }, new { @class = "btn btn-sm btn-warning me-1 text-white" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdPermiso }, new { @class = "btn btn-sm btn-danger" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

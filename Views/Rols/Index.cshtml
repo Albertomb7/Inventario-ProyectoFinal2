@@ -1,47 +1,45 @@
 ﻿@model IEnumerable<ProyectoWebInventario.Models.Rol>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listado de Roles";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Listado de Roles</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create")" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Crear Nuevo Rol
+    </a>
+    <a href="@Url.Action("Index", "Permisos")" class="btn btn-warning text-white" style="margin-left:8px;">
+        <i class="fas fa-key"></i> Crear un Permiso
+    </a>
 </p>
-<p>
-    @Html.ActionLink("Crear un Permiso", "Index", "Permisos", null, new { @class = "btn btn-primary" })
-</p>
 
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreRol)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table class="table table-hover">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreRol)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IdRol }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdRol }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdRol })|
-                @Html.ActionLink("Asignar Permisos", "AsignarPermisos", new { id = item.IdRol })
-            </td>
+            <th>@Html.DisplayNameFor(model => model.NombreRol)</th>
+            <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+            <th></th>
         </tr>
-    }
+    </thead>
 
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NombreRol)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IdRol }, new { @class = "btn btn-sm btn-primary me-1" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.IdRol }, new { @class = "btn btn-sm btn-warning me-1 text-white" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdRol }, new { @class = "btn btn-sm btn-danger me-1" })
+                        @Html.ActionLink("Asignar Permisos", "AsignarPermisos", new { id = item.IdRol }, new { @class = "btn btn-sm btn-info" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

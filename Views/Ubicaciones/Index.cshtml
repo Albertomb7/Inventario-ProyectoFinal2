@@ -8,21 +8,20 @@
 <h2>Listado de Ubicaciones</h2>
 
 <p>
-    @Html.ActionLink("Crear Nueva Ubicación", "Create", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Exportar a PDF", "ExportarPDF", null, new { @class = "btn btn-danger" })
+    <a href="@Url.Action("Create")" class="btn btn-primary btn-rounded btn-elevate me-2">
+        <i class="fas fa-plus"></i> Crear Nueva Ubicación
+    </a>
+    <a href="@Url.Action("ExportarPDF")" class="btn btn-danger btn-rounded btn-elevate">
+        <i class="fas fa-file-pdf"></i> Exportar a PDF
+    </a>
 </p>
+
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Codigo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Activo)
-            </th>
+            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+            <th>@Html.DisplayNameFor(model => model.Activo)</th>
             <th></th>
         </tr>
     </thead>
@@ -30,12 +29,8 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Codigo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>
+                <td>@Html.DisplayFor(modelItem => item.Codigo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
                 <td>
                     @if (item.Activo == true)
                     {
@@ -47,9 +42,14 @@
                     }
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.IdUbicacion }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.IdUbicacion }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdUbicacion })
+                    <div class="btn-group" role="group">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IdUbicacion },
+                            new { @class = "btn btn-sm btn-primary btn-rounded btn-elevate me-1" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.IdUbicacion },
+                            new { @class = "btn btn-sm btn-warning text-white btn-rounded btn-elevate me-1" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdUbicacion },
+                            new { @class = "btn btn-sm btn-danger btn-rounded btn-elevate" })
+                    </div>
                 </td>
             </tr>
         }

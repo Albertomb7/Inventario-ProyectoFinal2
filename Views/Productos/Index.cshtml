@@ -7,14 +7,20 @@
 
 <h2>Listado de Productos</h2>
 
-@* Buscador con estilo mejorado *@
+@* Buscador con icono y botón a la par *@
 @using (Html.BeginForm("Index", "Productos", FormMethod.Get, new { @class = "form-inline" }))
 {
-    <div class="form-group">
+    <div style="display:inline-block; max-width:420px; width:100%;">
         @Html.TextBox("busqueda", null, new { @class = "form-control", placeholder = "Buscar por Nombre..." })
     </div>
-    <button type="submit" class="btn btn-default">Buscar</button>
+    <button type="submit" class="btn btn-primary"
+            title="Buscar"
+            style="width:40px; height:40px; padding:0; margin-left: -140px;
+                   display:inline-flex; align-items:center; justify-content:center;">
+        <i class="fas fa-search"></i>
+    </button>
 }
+
 <hr />
 
 @* Botones con iconos y estilo mejorado *@
@@ -68,9 +74,11 @@
                     }
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.IdProducto }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.IdProducto }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto })
+                    <div class="btn-group" role="group">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IdProducto }, new { @class = "btn btn-sm btn-primary me-1" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.IdProducto }, new { @class = "btn btn-sm btn-warning me-1 text-white" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto }, new { @class = "btn btn-sm btn-danger" })
+                    </div>
                 </td>
             </tr>
         }

@@ -1,145 +1,272 @@
-﻿/* Set padding to keep content from hitting the edges */
+﻿/*  Layout base*/
 .body-content {
-    margin-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+  margin-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-/*codigo que da ASP. NO MODIFICAR*/
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
+/* Evitar truncados en dl-horizontal */
+.dl-horizontal dt { white-space: normal; }
 
-/*ESTO SI SE PUEDE PODIFIACAFR */
+/* Inputs por defecto */
+input, select, textarea { max-width: 280px; }
 
-
-/* Estilos personalizados para la barra de navegación */
+/* Top navbar */
 .navbar-inverse {
-    background-color: #2c3e50; /* Un tono de azul oscuro */
-    border-color: #1a242f;
+  background-color: #2c3e50;
+  border-color: #1a242f;
+}
+.navbar-inverse .navbar-brand { color: #fff; }
+.navbar-inverse .navbar-nav > li > a { color: #ecf0f1; }
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #fff;
+  background-color: #34495e;
 }
 
-    .navbar-inverse .navbar-brand {
-        color: #ffffff; /* Color blanco para que contraste LO PUEDEN MODIFICAR  */
-    }
-
-
-    .navbar-inverse .navbar-nav > li > a {
-        color: #ecf0f1; /* Un blanco un poco más suave */
-    }
-
-        /* Cambia el color de los enlaces cuando pasas el raton  sobre  los iconos u2u */
-        .navbar-inverse .navbar-nav > li > a:hover {
-            color: #ffffff;
-            background-color: #34495e;
-     
-            
-        }
+/*  Botón primario base (bootstrap)*/
 .btn-primary {
-    background-color: #2980b9; /* Un azul un poco más brillante que la barra */
-    border-color: #2471a3;
+  background-color: #2980b9;
+  border-color: #2471a3;
+}
+.btn-primary:hover {
+  background-color: #2471a3;
+  border-color: #1f618d;
 }
 
-    
-    .btn-primary:hover {
-        background-color: #2471a3;
-        border-color: #1f618d;
-    }
-
-/* Estilos para la cabecera de todas las tablas */
+/* Tablas (base)*/
 .table > thead > tr > th {
-    background-color: #34495e; 
-    color: #ffffff; 
-    border-color: #2c3e50;
+  background-color: #34495e;
+  color: #fff;
+  border-color: #2c3e50;
 }
+.table-hover > tbody > tr:hover { background-color: #f5f5f5; }
 
-
-.table-hover > tbody > tr:hover {
-    background-color: #f5f5f5; 
-}
-
-/* ESTILOS PARA LAS TARJETAS DE RESUMEN DEL TABLERO */
-
+/* Tarjetas del tablero */
 .summary-card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.05);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-
-    .summary-card:hover {
-        transform: translateY(-5px); 
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    }
-
+.summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,.1);
+}
 .card-icon {
-    font-size: 36px;
-    padding: 20px;
-    margin-right: 20px;
-    border-radius: 50%;
-    color: #ffffff;
-    width: 75px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-size: 36px;
+  padding: 20px;
+  margin-right: 20px;
+  border-radius: 50%;
+  color: #fff;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-/*  cada tarjeta */
-.icon-products {
-    background-color: #3498db;
-}
-/* Azul */
-.icon-locations {
-    background-color: #2ecc71;
-}
-/* Verde */
-.icon-alerts {
-    background-color: #f1c40f;
-}
-/* Amarillo */
+/* colores de icono en cards */
+.icon-products { background-color: #3498db; }
+.icon-locations { background-color: #2ecc71; }
+.icon-alerts   { background-color: #f1c40f; }
 
 .card-info .card-title {
-    font-size: 32px;
-    font-weight: bold;
-    color: #2c3e50;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2c3e50;
 }
-
 .card-info .card-subtitle {
-    font-size: 14px;
-    color: #7f8c8d;
-    text-transform: uppercase;
+  font-size: 14px;
+  color: #7f8c8d;
+  text-transform: uppercase;
 }
 
-/* ESTILOS PARA LAS ETIQUETAS DE MOVIMIENTOS    */
-
+/* Badges de movimientos*/
 .movement-badge {
-    padding: 5px 10px;
-    border-radius: 15px;
+  display: inline-block;
+  width: 90px;                 /* mismo ancho  */
+  text-align: center;
+  padding: 4px 10px;           /* más delgado */
+  line-height: 1.2;
+  border-radius: 9999px;       /* píldora */
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  border: none;
+  box-shadow: none;
+}
+.status-entrada { background-color: #28a745; color: #fff; }
+.status-salida  { background-color: #d32f2f; color: #fff; }
+
+/*  Botones personalizados (lista/acciones)*/
+.btn.btn-primary {
+  background-color: #003366 !important;
+  border-color: #00264d !important;
+  color: #fff !important;
+  border-radius: 8px;
+  transition: all .2s ease;
+}
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary:active {
+  background-color: #00264d !important;
+  border-color: #001f3d !important;
+}
+
+/* Detalles */
+.btn.btn-warning {
+  background-color: #f39c12 !important;
+  border-color: #d68910 !important;
+  color: #fff !important;
+  border-radius: 8px;
+  transition: all .2s ease;
+}
+.btn.btn-warning:hover,
+.btn.btn-warning:focus,
+.btn.btn-warning:active {
+  background-color: #d68910 !important;
+  border-color: #b9770e !important;
+}
+
+/* Eliminar */
+.btn.btn-danger {
+  background-color: #b33939 !important;
+  border-color: #96281b !important;
+  border-radius: 8px;
+  transition: all .2s ease;
+}
+.btn.btn-danger:hover,
+.btn.btn-danger:focus,
+.btn.btn-danger:active {
+  background-color: #96281b !important;
+  border-color: #6e2c00 !important;
+}
+
+/* Botón de búsqueda (lupa compacta) */
+.input-group .btn {
+  width: 42px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Sidebar negro + cabeceras de tabla negras + hover suave*/
+
+/*sidebar (menú izquierdo) – usa el selector que aplique en layout */
+#sidebar, .sidebar, .left-menu, .side-nav, .menu-lateral {
+    background-color: #000000 !important; /* negro */
+    color: #ffffff !important;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+#sidebar .brand, .sidebar .brand { color: #ffffff !important; }
+
+#sidebar .nav > li > a,
+.sidebar .nav > li > a,
+.left-menu .nav > li > a,
+.side-nav .nav > li > a,
+.menu-lateral .nav > li > a {
+  color: #cfd8e3 !important;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 2px 6px;
+  text-decoration: none;
+}
+#sidebar .nav > li > a:hover,
+.sidebar .nav > li > a:hover,
+.left-menu .nav > li > a:hover,
+.side-nav .nav > li > a:hover,
+.menu-lateral .nav > li > a:hover,
+#sidebar .nav > li.active > a,
+.sidebar .nav > li.active > a,
+.left-menu .nav > li.active > a,
+.side-nav .nav > li.active > a,
+.menu-lateral .nav > li.active > a {
+  background-color: #133354 !important;
+  color: #ffffff !important;
+}
+
+/* 2) Cabecera de tablas (Nombre, Categoría…) */
+.table > thead > tr > th {
+    background-color: #000000 !important; /* negro */
+    color: #ffffff !important;
+    border-color: #0b3a61 !important;
+    font-weight: 600;
+}
+
+/* 3) Hover de filas más suave y claro */
+.table.table-hover > tbody > tr:hover {
+  background-color: #f4f7fb !important;
+}
+
+/*Alertas: estilos*/
+
+/* Tarjeta de alerta amarilla */
+.alert-custom-warning {
+    border-left: 6px solid #ffc107;
+}
+
+/* Icono circular amarillo a la izquierda */
+.icono-alerta {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #ffc107;
     color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 24px;
 }
 
-.status-entrada {
-    background-color: #27ae60; /* Verde */
+/* Estado vacío */
+.empty-state {
+    min-height: 55vh;
+    display: grid;
+    place-items: center; /* centra todo */
 }
 
-.status-salida {
-    background-color: #e67e22; /* Anaranjado */
+.empty-card {
+    text-align: center;
+    max-width: 620px;
+    padding: 32px 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+/* Contenedor de la imagen (PNG sin fondo) */
+.empty-illustration {
+    width: 180px;
+    height: auto;
+    margin: 0 auto 16px;
+    display: grid;
+    place-items: center;
+    background: transparent;
+}
+
+    .empty-illustration img {
+        width: 220%;
+        height: auto;
+        max-width: 500px; /* Evita que crezca más de esto */
+        object-fit: contain;
+        display: block;
+    }
+
+.empty-title {
+    font-size: 26px;
+    margin: 6px 0 8px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.empty-subtitle {
+    color: #475569;
+    margin: 0 auto 8px;
+    line-height: 1.5;
 }

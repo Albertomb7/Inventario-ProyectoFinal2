@@ -1,43 +1,35 @@
 ﻿@model ProyectoWebInventario.Models.Inventario
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles del Inventario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalles del Inventario</h2>
 
 <div>
     <h4>Inventario</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Stock)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.Stock)</dt>
+        <dd>@Html.DisplayFor(model => model.Stock)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Stock)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Producto.Nombre)</dt>
+        <dd>@Html.DisplayFor(model => model.Producto.Nombre)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Producto.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Producto.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ubicacion.Codigo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ubicacion.Codigo)
-        </dd>
-
+        <dt>@Html.DisplayNameFor(model => model.Ubicacion.Codigo)</dt>
+        <dd>@Html.DisplayFor(model => model.Ubicacion.Codigo)</dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdInventario }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="form-actions no-color">
+    <a href="@Url.Action("Edit", new { id = Model.IdInventario })"
+       class="btn btn-primary btn-rounded btn-elevate"
+       style="margin-right:10px;">
+        Editar
+    </a>
+    <a href="@Url.Action("Index")"
+       class="btn btn-warning text-white btn-rounded btn-elevate">
+        Volver a la Lista
+    </a>
+</div>

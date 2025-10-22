@@ -1,25 +1,24 @@
 ﻿@model ProyectoWebInventario.Models.Usuario
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Usuario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
-
+<h2>Editar Información de Usuario</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Usuario</h4>
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.IdUsuario)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NombreUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NombreUsuario, "Nombre de Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" })
@@ -27,15 +26,15 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.HasPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.HasPassword, "Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-               @Html.TextBoxFor(model => model.HasPassword, new { @class = "form-control", type = "password", value = Model.HasPassword })
+                @Html.TextBoxFor(model => model.HasPassword, new { @class = "form-control", type = "password", value = Model.HasPassword })
                 @Html.ValidationMessageFor(model => model.HasPassword, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Rol, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Rol, "Rol del Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
@@ -43,26 +42,28 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Activo)
-                    @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
-                </div>
+            @Html.LabelFor(model => model.Activo, "Estado Activo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 checkbox">
+                @Html.EditorFor(model => model.Activo)
+                @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        <!-- Botones con estilo y separación -->
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit"
+                       value="Guardar Cambios"
+                       class="btn btn-primary btn-rounded btn-elevate"
+                       style="margin-right:10px;" />
+                <a href="@Url.Action("Index")"
+                   class="btn btn-warning text-white btn-rounded btn-elevate">
+                    Volver a la Lista
+                </a>
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
