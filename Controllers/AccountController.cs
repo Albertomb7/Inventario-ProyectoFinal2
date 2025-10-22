@@ -57,11 +57,16 @@ namespace ProyectoWebInventario.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [HttpGet]
+       
+        // [HttpGet] 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
             Session.Clear();
-            return RedirectToAction("Login");
+            Session.Abandon(); 
+            return RedirectToAction("Login", "Account");
         }
+        
     }
 }

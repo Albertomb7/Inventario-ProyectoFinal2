@@ -25,7 +25,7 @@
     @* ANIMACIONES *@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    @Styles.Render("~/Content/css")   @* incluye bootstrap y site.css *@
+    @Styles.Render("~/Content/css")    @* incluye bootstrap y site.css *@
     <link href="~/Content/custom-dashboard.css?v=2" rel="stylesheet" />
 
 
@@ -59,6 +59,22 @@
                 <li class="@(ViewBag.CurrentMenu == "Rols" ? "active" : "")">
                     @Html.ActionLink("Crear y Asignar Rol", "Index", "Rols")
                 </li>
+
+                @if (Session["Usuario"] != null)
+                {
+                    <li style="margin-top: 20px; background-color: #dc3545; border-radius: 5px;">
+                        @* Esto crea el formulario POST que llama al AccountController *@
+                        @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @* Este es el enlace que activa el formulario *@
+                            <a href="javascript:document.getElementById('logoutForm').submit()" style="color: white; font-weight: bold;">
+                                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                            </a>
+                        }
+                    </li>
+                }
             </ul>
         </div>
         <div class="main-content">
