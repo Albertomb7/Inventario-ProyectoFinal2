@@ -16,6 +16,8 @@ namespace ProyectoWebInventario.Controllers
             return View();
         }
 
+        //GGGGGG
+
         [PermisoAttributes("VerHome")]
         public ActionResult Index()
         {
