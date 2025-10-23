@@ -18,10 +18,51 @@ namespace ProyectoWebInventario.Controllers
         private BDBodegasEntities db = new BDBodegasEntities();
 
         [PermisoAttributes("VerMovimientoInventarios")]
-        public ActionResult Index()
+        public ActionResult Index(string busqueda, int page = 1)
         {
-            var movimientoInventarios = db.MovimientoInventarios.Include(m => m.Producto).Include(m => m.Ubicacion).Include(m => m.Ubicacion1).Include(m => m.Usuario).OrderByDescending(m => m.IdMovimientoInventario); ;
-            return View(movimientoInventarios.ToList());
+            const int pageSize = 7;
+
+            // Base query (incluidos) y en modo componible
+            IQueryable<MovimientoInventario> q = db.MovimientoInventarios
+                .Include(m => m.Producto)
+                .Include(m => m.Ubicacion)
+                .Include(m => m.Ubicacion1)
+                .Include(m => m.Usuario);
+
+            // Filtro de búsqueda (aplicado a la MISMA q)
+            if (!string.IsNullOrWhiteSpace(busqueda))
+            {
+                q = q.Where(m =>
+                    (m.Observacion ?? "").Contains(busqueda) ||
+                    (m.Producto.Nombre ?? "").Contains(busqueda) ||
+                    (m.Usuario.NombreUsuario ?? "").Contains(busqueda)
+                // agrega más campos si quieres
+                );
+            }
+
+            // Orden estable ANTES de paginar
+            q = q.OrderByDescending(m => m.Fecha)   // si tienes Fecha
+                 .ThenByDescending(m => m.IdMovimientoInventario);
+
+            // Paginación
+            var totalItems = q.Count();
+            var totalPages = Math.Max(1, (int)Math.Ceiling(totalItems / (double)pageSize));
+            if (page < 1) page = 1;
+            if (page > totalPages) page = totalPages;
+
+            var movimientosPaginados = q
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            // ViewBags para tu vista actual
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalItems = totalItems;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.Page = page;
+            ViewBag.Busqueda = busqueda;
+
+            return View(movimientosPaginados);
         }
 
         public ActionResult Details(int? id)

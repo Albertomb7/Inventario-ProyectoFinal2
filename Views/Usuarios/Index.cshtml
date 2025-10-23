@@ -3,7 +3,90 @@
 @{
     ViewBag.Title = "Listado de Usuarios";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var page = (int)(ViewBag.Page ?? 1);
+    var totalPages = (int)(ViewBag.TotalPages ?? 1);
+    var totalItems = (int)(ViewBag.TotalItems ?? 0);
+    var pageSize = (int)(ViewBag.PageSize ?? 10);
+    string busqueda = ViewBag.Busqueda as string;
 }
+
+<style>
+
+    /* PAGINACIÓN NEGRA ELEGANTE */
+    .pager {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 14px;
+        flex-wrap: wrap;
+    }
+
+        .pager a, .pager span {
+            padding: 6px 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,.3);
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.7);
+            transition: all 0.3s ease;
+        }
+
+            .pager a:hover {
+                background: rgba(255, 255, 255, 0.2);
+                border-color: rgba(255,255,255,.5);
+                transform: translateY(-1px);
+            }
+
+            /* ✅ ESTILOS PARA LINKS VISITADOS/ACTIVOS */
+            .pager a:visited,
+            .pager a:active,
+            .pager a:focus {
+                color: #ffffff !important;
+                background: rgba(0, 0, 0, 0.7) !important;
+                text-decoration: none !important;
+            }
+
+        .pager .active {
+            background: #000000;
+            border-color: #ffffff;
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+        }
+
+        /* ✅ ESTILO ESPECIAL PARA BOTONES DESHABILITADOS */
+        .pager .disabled {
+            opacity: .4;
+            pointer-events: none;
+            background: rgba(0, 0, 0, 0.4);
+            border-color: rgba(255,255,255,.2);
+            color: #ffffff !important; /* ← Asegura texto blanco */
+        }
+
+    /* Información de paginación */
+    .pagination-info {
+        text-align: center;
+        color: rgba(255,255,255,.8);
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    /* Esto evita que los links se pongan feos al hacer clic */
+    .pager a:visited,
+    .pager a:active,
+    .pager a:focus {
+        color: #ffffff !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        text-decoration: none !important;
+    }
+
+    /* Esto asegura que los botones deshabilitados se vean bien */
+    .pager .disabled {
+        color: #ffffff !important;
+    }
+</style>
 
 <h2>Listado de Usuarios</h2>
 
@@ -49,3 +132,29 @@
         }
     </tbody>
 </table>
+<nav class="pager" aria-label="Paginación de usuarios">
+    @{
+        var prevDisabled = page <= 1 ? "disabled" : "";
+        var nextDisabled = page >= totalPages ? "disabled" : "";
+        Func<int, string> link = p => Url.Action("Index", "Usuarios", new { page = p, busqueda = busqueda });
+    }
+    <a class="@prevDisabled" href="@(page > 1 ? link(page - 1) : "#")">« Anterior</a>
+
+    @for (int i = 1; i <= totalPages; i++)
+    {
+        if (i == page)
+        {
+            <span class="active">@i</span>
+        }
+        else
+        {
+            <a href="@link(i)">@i</a>
+        }
+    }
+
+    <a class="@nextDisabled" href="@(page < totalPages ? link(page + 1) : "#")">Siguiente »</a>
+</nav>
+
+<div class="pagination-info">
+    Página @page de @totalPages — Mostrando @Model.Count() de @totalItems usuarios
+</div>

@@ -16,6 +16,36 @@ namespace ProyectoWebInventario.Controllers
     {
         private BDBodegasEntities db = new BDBodegasEntities();
 
+        [PermisoAttributes("VerRols")]
+
+        [PermisoAttributes("VerRols")]
+        public ActionResult Index(int page = 1)
+        {
+            const int pageSize = 7; // cámbialo si querés (7, 8, 15, etc.)
+            if (page < 1) page = 1;
+
+            // Orden estable antes de paginar
+            var q = db.Rols
+                .AsNoTracking()
+                .OrderBy(r => r.NombreRol)
+                .ThenBy(r => r.IdRol);
+
+            var totalItems = q.Count();
+            var totalPages = Math.Max(1, (int)Math.Ceiling(totalItems / (double)pageSize));
+            if (page > totalPages) page = totalPages;
+
+            var roles = q.Skip((page - 1) * pageSize)
+                         .Take(pageSize)
+                         .ToList();
+
+            ViewBag.Page = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.TotalItems = totalItems;
+            ViewBag.PageSize = pageSize;
+
+            return View(roles);
+        }
+
 
         // GET: Rol/AsignarPermisos/5
         [PermisoAttributes("AsignarRols")]
@@ -72,10 +102,7 @@ namespace ProyectoWebInventario.Controllers
 
         // GET: Rols
         [PermisoAttributes("VerRols")]
-        public ActionResult Index()
-        {
-            return View(db.Rols.ToList());
-        }
+       
 
         // GET: Rols/Details/5
         public ActionResult Details(int? id)

@@ -17,11 +17,53 @@ namespace ProyectoWebInventario.Controllers
 
         // GET: Inventario
         [PermisoAttributes("VerInventario")]
-        public ActionResult Index()
+       
+        public ActionResult Index(string busqueda, int page = 1)
         {
-            var inventarios = db.Inventarios.Include(i => i.Producto).Include(i => i.Ubicacion);
-            return View(inventarios.ToList());
+            const int pageSize = 8; // 👈 puedes cambiar la cantidad por página
+
+            if (page < 1) page = 1;
+
+            // 1️⃣ Base query: incluye Producto y Ubicación como antes
+            var q = db.Inventarios
+                .Include(i => i.Producto)
+                .Include(i => i.Ubicacion)
+                .AsQueryable();
+
+            // 2️⃣ Filtro opcional de búsqueda
+            if (!string.IsNullOrWhiteSpace(busqueda))
+            {
+                q = q.Where(i =>
+                    (i.Producto.Nombre ?? "").Contains(busqueda) ||
+                    (i.Ubicacion.Codigo ?? "").Contains(busqueda));
+            }
+
+            // 3️⃣ Orden estable (por nombre de producto y luego por Id)
+            q = q.OrderBy(i => i.Producto.Nombre)
+                 .ThenBy(i => i.IdInventario);
+
+            // 4️⃣ Cálculo de totales
+            var totalItems = q.Count();
+            var totalPages = Math.Max(1, (int)Math.Ceiling(totalItems / (double)pageSize));
+            if (page > totalPages) page = totalPages;
+
+            // 5️⃣ Aplica paginación
+            var inventarios = q
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            // 6️⃣ ViewBags para la vista
+            ViewBag.Page = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.TotalItems = totalItems;
+            ViewBag.PageSize = pageSize;
+            ViewBag.Busqueda = busqueda;
+
+            return View(inventarios);
         }
+
+
 
         // GET: Inventario/Details/5
         public ActionResult Details(int? id)

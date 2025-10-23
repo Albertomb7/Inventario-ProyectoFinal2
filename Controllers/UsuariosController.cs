@@ -18,10 +18,48 @@ namespace ProyectoWebInventario.Controllers
 
         // GET: Usuarios
         [PermisoAttributes("VerUsuarios")]
-        public ActionResult Index()
+    
+        public ActionResult Index(string busqueda, int page = 1)
         {
-            return View(db.Usuarios.ToList());
+            const int pageSize = 7; // puedes cambiarlo a 7/8/lo que quieras
+
+            if (page < 1) page = 1;
+
+            IQueryable<Usuario> q = db.Usuarios.AsNoTracking();
+
+            // Filtro de búsqueda (opcional)
+            if (!string.IsNullOrWhiteSpace(busqueda))
+            {
+                q = q.Where(u =>
+                    (u.NombreUsuario ?? "").Contains(busqueda) ||
+                    (u.Rol ?? "").Contains(busqueda));
+            }
+
+            // Orden estable antes de paginar (desempate por Id)
+            q = q.OrderBy(u => u.NombreUsuario)
+                 .ThenBy(u => u.IdUsuario);
+
+            // Totales
+            var totalItems = q.Count();
+            var totalPages = Math.Max(1, (int)Math.Ceiling(totalItems / (double)pageSize));
+            if (page > totalPages) page = totalPages;
+
+            // Página actual
+            var usuarios = q.Skip((page - 1) * pageSize)
+                            .Take(pageSize)
+                            .ToList();
+
+            // ViewBags para la vista
+            ViewBag.Page = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.TotalItems = totalItems;
+            ViewBag.PageSize = pageSize;
+            ViewBag.Busqueda = busqueda;
+
+            return View(usuarios);
         }
+
+
 
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)

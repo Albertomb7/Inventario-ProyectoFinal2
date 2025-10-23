@@ -20,9 +20,43 @@ namespace ProyectoWebInventario.Controllers
 
         // GET: Ubicaciones
         [PermisoAttributes("VerUbicaciones")]
-        public ActionResult Index()
+        // GET: Ubicaciones
+        [PermisoAttributes("VerUbicaciones")]
+        public ActionResult Index(string busqueda, int page = 1)
         {
-            return View(db.Ubicacions.ToList());
+            const int pageSize = 7;
+
+            // LÓGICA DE BÚSQUEDA
+            var ubicaciones = db.Ubicacions.AsQueryable();
+            if (!string.IsNullOrEmpty(busqueda))
+            {
+                ubicaciones = ubicaciones.Where(u => u.Codigo.Contains(busqueda) || u.Descripcion.Contains(busqueda));
+            }
+
+            // ORDENAR
+            ubicaciones = ubicaciones.OrderBy(u => u.Codigo);
+
+            // CÁLCULOS DE PAGINACIÓN
+            var totalItems = ubicaciones.Count();
+            var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+            if (totalPages == 0) totalPages = 1;
+            if (page < 1) page = 1;
+            if (page > totalPages) page = totalPages;
+
+            // APLICAR PAGINACIÓN
+            var ubicacionesPaginadas = ubicaciones
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            // VIEWBAGS
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalItems = totalItems;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.Page = page;
+            ViewBag.Busqueda = busqueda;
+
+            return View(ubicacionesPaginadas);
         }
 
         // GET: Ubicacions/Details/5

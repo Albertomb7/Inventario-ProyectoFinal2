@@ -18,12 +18,42 @@ namespace ProyectoWebInventario.Controllers
 
         // GET: AlertaReposicions
         [PermisoAttributes("VerAlertas")]
-        public ActionResult Index(string busqueda)
+        public ActionResult Index(string busqueda, int page = 1)
         {
-            var alertaReposicions = db.AlertaReposicions.Where(a => a.Activo == true);
-            return View(alertaReposicions.ToList());
-            
+            const int pageSize = 3;
+            if (page < 1) page = 1;
+
+            var q = db.AlertaReposicions
+                .AsNoTracking()
+                .Where(a => a.Activo == true)
+                .Include(a => a.Producto);
+
+            if (!string.IsNullOrWhiteSpace(busqueda))
+            {
+                q = q.Where(a =>
+                    (a.Producto.Nombre ?? "").Contains(busqueda) ||
+                    (a.FechaDeGeneracion != null && a.FechaDeGeneracion.ToString().Contains(busqueda))
+                );
+            }
+
+            q = q.OrderByDescending(a => (DateTime?)a.FechaDeGeneracion ?? DateTime.MinValue)
+                 .ThenByDescending(a => a.IdAlertaReposicion);
+
+            var totalItems = q.Count();
+            var totalPages = Math.Max(1, (int)Math.Ceiling(totalItems / (double)pageSize));
+            if (page > totalPages) page = totalPages;
+
+            var alertas = q.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewBag.Page = page;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalItems = totalItems;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.Busqueda = busqueda;
+
+            return View(alertas);
         }
+
 
         // GET: AlertaReposicions/Details/5
         public ActionResult Details(int? id)

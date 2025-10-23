@@ -3,84 +3,201 @@
 @{
     ViewBag.Title = "Listado de Productos";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int page = ViewBag.Page ?? 1;
+    int totalPages = ViewBag.TotalPages ?? 1;
+    string busqueda = ViewBag.Busqueda as string;
+
 }
-
-<h2>Listado de Productos</h2>
-
-@* Buscador con icono y botón a la par *@
-@using (Html.BeginForm("Index", "Productos", FormMethod.Get, new { @class = "form-inline" }))
-{
-    <div style="display:inline-block; max-width:420px; width:100%;">
-        @Html.TextBox("busqueda", null, new { @class = "form-control", placeholder = "Buscar por Nombre..." })
-    </div>
-    <button type="submit" class="btn btn-primary"
-            title="Buscar"
-            style="width:40px; height:40px; padding:0; margin-left: -140px;
-                   display:inline-flex; align-items:center; justify-content:center;">
-        <i class="fas fa-search"></i>
-    </button>
-}
-
-<hr />
-
-@* Botones con iconos y estilo mejorado *@
-<p>
-    <a href="@Url.Action("Create")" class="btn btn-primary">
-        <i class="fas fa-plus"></i> Crear Nuevo
-    </a>
-    <a href="@Url.Action("ExportarExcel")" class="btn btn-success">
-        <i class="fas fa-file-excel"></i> Exportar a Excel
-    </a>
-    <a href="@Url.Action("ExportarPDF")" class="btn btn-danger">
-        <i class="fas fa-file-pdf"></i> Exportar a PDF
-    </a>
-</p>
-
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
-            <th>@Html.DisplayNameFor(model => model.Categoria)</th>
-            <th>@Html.DisplayNameFor(model => model.Marca)</th>
-            <th>@Html.DisplayNameFor(model => model.UnidadMedida)</th>
-            <th>Stock Mínimo</th>
-            <th>Stock Actual</th>
-            <th>@Html.DisplayNameFor(model => model.Activo)</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
-                <td>@Html.DisplayFor(modelItem => item.Categoria)</td>
-                <td>@Html.DisplayFor(modelItem => item.Marca)</td>
-                <td>@Html.DisplayFor(modelItem => item.UnidadMedida)</td>
-                <td>@Html.DisplayFor(modelItem => item.StockMinimo)</td>
-                <td>
-                    @*  Stock Actual desde la tabla Inventario *@
-                    @(item.Inventarios != null ? item.Inventarios.Sum(i => i.Stock) : 0)
-                </td>
-                <td>
-                    @* Lógica para mostrar la etiqueta de color para el estado Activo/Inactivo *@
-                    @if (item.Activo == true)
-                    {
-                        <span class="label label-success">Activo</span>
-                    }
-                    else
-                    {
-                        <span class="label label-danger">Inactivo</span>
-                    }
-                </td>
-                <td>
-                    <div class="btn-group" role="group">
-                        @Html.ActionLink("Editar", "Edit", new { id = item.IdProducto }, new { @class = "btn btn-sm btn-primary me-1" })
-                        @Html.ActionLink("Detalles", "Details", new { id = item.IdProducto }, new { @class = "btn btn-sm btn-warning me-1 text-white" })
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto }, new { @class = "btn btn-sm btn-danger" })
-                    </div>
-                </td>
-            </tr>
+<stile>
+    <style>
+        /* PAGINACIÓN NEGRA ELEGANTE */
+        .pager {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 14px;
+            flex-wrap: wrap;
         }
-    </tbody>
-</table>
+
+            .pager a, .pager span {
+                padding: 6px 10px;
+                border-radius: 8px;
+                text-decoration: none;
+                border: 1px solid rgba(255,255,255,.3);
+                color: #ffffff;
+                background: rgba(0, 0, 0, 0.7);
+                transition: all 0.3s ease;
+            }
+
+                .pager a:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    border-color: rgba(255,255,255,.5);
+                    transform: translateY(-1px);
+                }
+
+                /* ✅ ESTILOS PARA LINKS VISITADOS/ACTIVOS */
+                .pager a:visited,
+                .pager a:active,
+                .pager a:focus {
+                    color: #ffffff !important;
+                    background: rgba(0, 0, 0, 0.7) !important;
+                    text-decoration: none !important;
+                }
+
+            .pager .active {
+                background: #000000;
+                border-color: #ffffff;
+                color: #ffffff;
+                font-weight: 600;
+                box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+            }
+
+            /* ✅ ESTILO ESPECIAL PARA BOTONES DESHABILITADOS */
+            .pager .disabled {
+                opacity: .4;
+                pointer-events: none;
+                background: rgba(0, 0, 0, 0.4);
+                border-color: rgba(255,255,255,.2);
+                color: #ffffff !important; /* ← Asegura texto blanco */
+            }
+
+        /* Información de paginación */
+        .pagination-info {
+            text-align: center;
+            color: rgba(255,255,255,.8);
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Esto evita que los links se pongan feos al hacer clic */
+        .pager a:visited,
+        .pager a:active,
+        .pager a:focus {
+            color: #ffffff !important;
+            background: rgba(0, 0, 0, 0.7) !important;
+            text-decoration: none !important;
+        }
+
+        /* Esto asegura que los botones deshabilitados se vean bien */
+        .pager .disabled {
+            color: #ffffff !important;
+
+        }
+
+
+    </style>
+    <h2>Listado de Productos</h2>
+
+    @* Buscador con icono y botón a la par *@
+    @using (Html.BeginForm("Index", "Productos", FormMethod.Get, new { @class = "form-inline" }))
+    {
+        <div style="display:inline-block; max-width:420px; width:100%;">
+            @Html.TextBox("busqueda", null, new { @class = "form-control", placeholder = "Buscar por Nombre..." })
+        </div>
+        <button type="submit" class="btn btn-primary"
+                title="Buscar"
+                style="width:40px; height:40px; padding:0; margin-left: -140px;
+                   display:inline-flex; align-items:center; justify-content:center;">
+            <i class="fas fa-search"></i>
+        </button>
+    }
+
+    <hr />
+
+    @* Botones con iconos y estilo mejorado *@
+    <p>
+        <a href="@Url.Action("Create")" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Crear Nuevo
+        </a>
+        <a href="@Url.Action("ExportarExcel")" class="btn btn-success">
+            <i class="fas fa-file-excel"></i> Exportar a Excel
+        </a>
+        <a href="@Url.Action("ExportarPDF")" class="btn btn-danger">
+            <i class="fas fa-file-pdf"></i> Exportar a PDF
+        </a>
+    </p>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.Categoria)</th>
+                <th>@Html.DisplayNameFor(model => model.Marca)</th>
+                <th>@Html.DisplayNameFor(model => model.UnidadMedida)</th>
+                <th>Stock Mínimo</th>
+                <th>Stock Actual</th>
+                <th>@Html.DisplayNameFor(model => model.Activo)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Categoria)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Marca)</td>
+                    <td>@Html.DisplayFor(modelItem => item.UnidadMedida)</td>
+                    <td>@Html.DisplayFor(modelItem => item.StockMinimo)</td>
+                    <td>
+                        @*  Stock Actual desde la tabla Inventario *@
+                        @(item.Inventarios != null ? item.Inventarios.Sum(i => i.Stock) : 0)
+                    </td>
+                    <td>
+                        @* Lógica para mostrar la etiqueta de color para el estado Activo/Inactivo *@
+                        @if (item.Activo == true)
+                        {
+                            <span class="label label-success">Activo</span>
+                        }
+                        else
+                        {
+                            <span class="label label-danger">Inactivo</span>
+                        }
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            @Html.ActionLink("Editar", "Edit", new { id = item.IdProducto }, new { @class = "btn btn-sm btn-primary me-1" })
+                            @Html.ActionLink("Detalles", "Details", new { id = item.IdProducto }, new { @class = "btn btn-sm btn-warning me-1 text-white" })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto }, new { @class = "btn btn-sm btn-danger" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!-- PAGINACIÓN NEGRA -->
+    @if (totalPages > 1)
+    {
+        <nav class="pager" aria-label="Paginación de productos">
+            @{
+                var prevDisabled = page <= 1 ? "disabled" : "";
+                var nextDisabled = page >= totalPages ? "disabled" : "";
+
+                Func<int, string> link = p => Url.Action("Index", "Productos",
+                    new { page = p, busqueda = busqueda });
+            }
+
+            <a class="@prevDisabled" href="@(page > 1 ? link(page - 1) : "#")">« Anterior</a>
+
+            @for (int i = 1; i <= totalPages; i++)
+            {
+                if (i == page)
+                {
+                    <span class="active">@i</span>
+                }
+                else
+                {
+                    <a href="@link(i)">@i</a>
+                }
+            }
+
+            <a class="@nextDisabled" href="@(page < totalPages ? link(page + 1) : "#")">Siguiente »</a>
+        </nav>
+    }
+
+    <!-- INFORMACIÓN -->
+    <div class="pagination-info">
+        Página @page de @totalPages
+    </div>

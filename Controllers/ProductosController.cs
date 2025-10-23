@@ -20,14 +20,41 @@ namespace ProyectoWebInventario.Controllers
 
         // GET: Productos
         [PermisoAttributes("VerProductos")]
-        public ActionResult Index(string busqueda)
+        public ActionResult Index(string busqueda, int page = 1)
         {
+            const int pageSize = 7;
+
+            // TU LÓGICA DE BÚSQUEDA PRIMERO
             var productos = db.Productoes.Include(p => p.Inventarios);
             if (!string.IsNullOrEmpty(busqueda))
             {
                 productos = productos.Where(p => p.Nombre.Contains(busqueda));
             }
-            return View(productos.ToList());
+
+            // ORDENAR
+            productos = productos.OrderBy(p => p.Nombre);
+
+            // CÁLCULOS DE PAGINACIÓN
+            var totalItems = productos.Count();
+            var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+            if (totalPages == 0) totalPages = 1;
+            if (page < 1) page = 1;
+            if (page > totalPages) page = totalPages;
+
+            // APLICAR PAGINACIÓN
+            var productosPaginados = productos
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            // VIEWBAGS (TODOS JUNTOS AL FINAL)
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalItems = totalItems;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.Page = page;
+            ViewBag.Busqueda = busqueda;
+
+            return View(productosPaginados);
         }
 
         // GET: Productos/Details/5
