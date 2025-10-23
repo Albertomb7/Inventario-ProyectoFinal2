@@ -1,6 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using OfficeOpenXml;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using ProyectoWebInventario.Filters;
 using ProyectoWebInventario.Models;
 using System;
@@ -95,7 +96,16 @@ namespace ProyectoWebInventario.Controllers
                     };
                     db.Inventarios.Add(inventarioInicial);
                 }
-
+                var reporteBitacora = new Bitacora
+                {
+                    FechaRegistro = DateTime.Now,
+                    UsuarioId = 2,
+                    Accion = "Agregar Prodcto: " + producto.Nombre,
+                    TipoAccion = "Nuevo producto",
+                    TablaAfectada = "Producto",
+                    Comentario = $"Se agrego el producto: {producto.Nombre}"
+                };
+                db.Bitacoras.Add(reporteBitacora);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -125,9 +135,22 @@ namespace ProyectoWebInventario.Controllers
 
             if (TryUpdateModel(productoAEditar, "", camposPermitidos) && ModelState.IsValid)
             {
+                var reporteBitacora = new Bitacora
+                {
+                    FechaRegistro = DateTime.Now,
+                    UsuarioId = 2,
+                    Accion = "Editar producto",
+                    TipoAccion = "Editar",
+                    TablaAfectada = "Productos",
+                    Comentario = $"Se edito el producto: {productoAEditar.Nombre}"
+                };
+                db.Bitacoras.Add(reporteBitacora);
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            
             return View(productoAEditar);
         }
 
@@ -172,6 +195,16 @@ namespace ProyectoWebInventario.Controllers
 
             db.Productoes.Remove(productoAEliminar);
 
+            var reporteBitacora = new Bitacora
+            {
+                FechaRegistro = DateTime.Now,
+                UsuarioId = 2,
+                Accion = "Eliminar Producto",
+                TipoAccion = "Eliminar",
+                TablaAfectada = "Productos",
+                Comentario = $"Se elimino el producto: {productoAEliminar.Nombre}"
+            };
+            db.Bitacoras.Add(reporteBitacora);
             db.SaveChanges();
 
             return RedirectToAction("Index");
