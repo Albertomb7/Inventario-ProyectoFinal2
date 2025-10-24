@@ -73,74 +73,110 @@ namespace ProyectoWebInventario.Controllers
             return View(movimientoInventario);
         }
         [PermisoAttributes("CrearMovimientoInventarios")]
+        // GET: MovimientoInventarios/Create
         public ActionResult Create()
         {
+            // Validar sesión
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Cuenta");
+            }
+
+            var movimientoInventario = new MovimientoInventario
+            {
+                // Asignar automáticamente el ID del usuario que inició sesión
+                UsuarioId = Convert.ToInt32(Session["IdUsuario"])
+            };
+
+            // Guardar el nombre del usuario para mostrarlo en la vista
+            ViewBag.NombreUsuario = Session["Usuario"];
+
+            // Llenar combos de productos y ubicaciones
             ViewBag.ProductoId = new SelectList(db.Productoes, "IdProducto", "Nombre");
             ViewBag.DesdeUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Descripcion");
             ViewBag.HaciaUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Descripcion");
-            ViewBag.UsuarioId = new SelectList(db.Usuarios, "IdUsuario", "NombreUsuario");
-            return View();
+
+            // Ya NO cargues ViewBag.UsuarioId con todos los usuarios
+            return View(movimientoInventario);
         }
+
 
         // MÉTODo CORREG
         [PermisoAttributes("CrearMovimientoInventarios")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdMovimientoInventario,Fecha,ProductoId,DesdeUbicacionId,HaciaUbicacionId,Cantidad,UsuarioId,Observacion, TipoMovimiento")] MovimientoInventario movimientoInventario)
+        public ActionResult Create([Bind(Include = "IdMovimientoInventario,Fecha,ProductoId,DesdeUbicacionId,HaciaUbicacionId,Cantidad,UsuarioId,Observacion,TipoMovimiento")] MovimientoInventario movimientoInventario)
         {
             movimientoInventario.Fecha = DateTime.Today;
-            
+
+            // Asignar automáticamente el usuario que inició sesión
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Login", "Cuenta");
+            }
+            movimientoInventario.UsuarioId = Convert.ToInt32(Session["IdUsuario"]);
+
             if (ModelState.IsValid)
             {
-                //   modelo.
                 var inventarioOrigen = db.Inventarios.FirstOrDefault(i => i.ProductoIdInventario == movimientoInventario.ProductoId && i.UbicacionId == movimientoInventario.DesdeUbicacionId);
                 var inventarioDestino = db.Inventarios.FirstOrDefault(i => i.ProductoIdInventario == movimientoInventario.ProductoId && i.UbicacionId == movimientoInventario.HaciaUbicacionId);
 
-                if (movimientoInventario.TipoMovimiento.Equals("Salida", StringComparison.OrdinalIgnoreCase))
+                // ===== MOVIMIENTOS =====
+                if (movimientoInventario.TipoMovimiento.Equals("Salida", StringComparison.OrdinalIgnoreCase) ||
+    movimientoInventario.TipoMovimiento.Equals("Transferencia", StringComparison.OrdinalIgnoreCase))
                 {
-                    //VALIDACION PARA MOSTRAR QUE NO HAY SUFICIENTE STOCK - B
                     if (inventarioOrigen == null || inventarioOrigen.Stock < movimientoInventario.Cantidad)
                     {
-                        ModelState.AddModelError("", "No hay suficiente stock en la ubicación de origen para realizar la salida.");
+                        ModelState.AddModelError("", "No hay suficiente stock en la ubicación de origen para realizar la salida/transferencia.");
                         ViewBag.ProductoId = new SelectList(db.Productoes, "IdProducto", "Nombre", movimientoInventario.ProductoId);
                         ViewBag.DesdeUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo", movimientoInventario.DesdeUbicacionId);
                         ViewBag.HaciaUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo", movimientoInventario.HaciaUbicacionId);
-                        ViewBag.UsuarioId = new SelectList(db.Usuarios, "IdUsuario", "NombreUsuario", movimientoInventario.UsuarioId);
+                        ViewBag.NombreUsuario = Session["Usuario"];
                         return View(movimientoInventario);
                     }
+
+                    // Restar del inventario de origen
                     inventarioOrigen.Stock -= movimientoInventario.Cantidad;
+
+                    // Sumar al inventario de destino
+                    if (inventarioDestino == null)
+                    {
+                        inventarioDestino = new Inventario
+                        {
+                            ProductoIdInventario = movimientoInventario.ProductoId,
+                            UbicacionId = (int)movimientoInventario.HaciaUbicacionId,
+                            Stock = movimientoInventario.Cantidad
+                        };
+                        db.Inventarios.Add(inventarioDestino);
+                    }
+                    else
+                    {
+                        inventarioDestino.Stock += movimientoInventario.Cantidad;
+                    }
                 }
+
                 else if (movimientoInventario.TipoMovimiento.Equals("Entrada", StringComparison.OrdinalIgnoreCase))
                 {
                     if (inventarioDestino == null)
                     {
-                        
                         inventarioDestino = new Inventario { ProductoIdInventario = movimientoInventario.ProductoId, UbicacionId = (int)movimientoInventario.HaciaUbicacionId, Stock = movimientoInventario.Cantidad };
                         db.Inventarios.Add(inventarioDestino);
                     }
                     else
                     {
                         inventarioDestino.Stock += movimientoInventario.Cantidad;
-
-                        //aaaaaaaaaaaaaa
                         var producto = db.Productoes.Find(movimientoInventario.ProductoId);
-                        decimal stockMinimoNumerico;
-
-                        if (decimal.TryParse(producto.StockMinimo, out stockMinimoNumerico))
+                        if (decimal.TryParse(producto.StockMinimo, out decimal stockMinimoNumerico) && inventarioDestino.Stock > stockMinimoNumerico)
                         {
-                            if(inventarioDestino.Stock > stockMinimoNumerico) { 
-
-                                var alerta = db.AlertaReposicions.FirstOrDefault(a => a.ProductoIdAlertaReposicion == producto.IdProducto && a.Activo == true);
-                                if (alerta != null)
-                                 {
-                                     alerta.Activo = false;
-                                     db.SaveChanges();
-                                 }
+                            var alerta = db.AlertaReposicions.FirstOrDefault(a => a.ProductoIdAlertaReposicion == producto.IdProducto && a.Activo == true);
+                            if (alerta != null)
+                            {
+                                alerta.Activo = false;
+                                db.SaveChanges();
                             }
                         }
                     }
                 }
-
                 else if (movimientoInventario.TipoMovimiento.Equals("Transferencia", StringComparison.OrdinalIgnoreCase))
                 {
                     if (inventarioOrigen == null || inventarioOrigen.Stock < movimientoInventario.Cantidad)
@@ -149,14 +185,12 @@ namespace ProyectoWebInventario.Controllers
                         ViewBag.ProductoId = new SelectList(db.Productoes, "IdProducto", "Nombre", movimientoInventario.ProductoId);
                         ViewBag.DesdeUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo", movimientoInventario.DesdeUbicacionId);
                         ViewBag.HaciaUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo", movimientoInventario.HaciaUbicacionId);
-                        ViewBag.UsuarioId = new SelectList(db.Usuarios, "IdUsuario", "NombreUsuario", movimientoInventario.UsuarioId);
+                        ViewBag.NombreUsuario = Session["Usuario"];
                         return View(movimientoInventario);
                     }
-
                     inventarioOrigen.Stock -= movimientoInventario.Cantidad;
                     if (inventarioDestino == null)
                     {
-                        
                         inventarioDestino = new Inventario { ProductoIdInventario = movimientoInventario.ProductoId, UbicacionId = (int)movimientoInventario.HaciaUbicacionId, Stock = movimientoInventario.Cantidad };
                         db.Inventarios.Add(inventarioDestino);
                     }
@@ -166,72 +200,33 @@ namespace ProyectoWebInventario.Controllers
                     }
                 }
 
+                // ===== BITÁCORA =====
                 var reporteBitacora = new Bitacora
                 {
                     FechaRegistro = DateTime.Now,
-                    UsuarioId = 2, 
+                    UsuarioId = movimientoInventario.UsuarioId,
                     Accion = "Movimiento de inventario: " + movimientoInventario.TipoMovimiento,
                     TipoAccion = movimientoInventario.TipoMovimiento,
                     TablaAfectada = "Inventario/MovimientoInventario",
                     Comentario = movimientoInventario.Observacion
                 };
                 db.Bitacoras.Add(reporteBitacora);
+
                 db.MovimientoInventarios.Add(movimientoInventario);
                 db.SaveChanges();
 
-                if (!movimientoInventario.TipoMovimiento.Equals("Entrada", StringComparison.OrdinalIgnoreCase))
-                {
-                    var producto = db.Productoes.Find(movimientoInventario.ProductoId);
-                    // CProductoIdInventario' y hacemos el Sum más seguro
-                    decimal stockActualTotal = db.Inventarios.Where(i => i.ProductoIdInventario == movimientoInventario.ProductoId).Sum(i => (decimal?)i.Stock) ?? 0;
-                    string mensaje = $"Salida/Transferencia registrada: Se retiraron {movimientoInventario.Cantidad} unidades de '{producto.Nombre}'. Stock total restante: {stockActualTotal}.";
-
-
-
-                    //MUESTRA LA ALERTA DE STOCK MINIMO - B
-                    decimal stockMinimoNumerico;
-                    if (decimal.TryParse(producto.StockMinimo, out stockMinimoNumerico))
-                    {
-                        if (stockActualTotal <= stockMinimoNumerico)
-                        {
-                            db.AlertaReposicions.Add(new AlertaReposicion
-                            {
-                                ProductoIdAlertaReposicion = movimientoInventario.ProductoId,
-                                FechaDeGeneracion = DateTime.Now,
-                                NivelActual = Convert.ToInt32(stockActualTotal),
-                                Activo = true
-                            }); 
-                            db.SaveChanges();
-
-                            mensaje += " ¡Atención! El stock ha alcanzado o está por debajo del nivel mínimo.";
-                            TempData["NotificationType"] = "warning";
-                        }
-                        else
-                        {
-                            TempData["NotificationType"] = "success";
-                        }
-                    }
-                    else
-                    {
-                        TempData["NotificationType"] = "success";
-                    }
-                    TempData["NotificationMessage"] = mensaje;
-                }
-
-                // Lógica de redirección inteligente
-                if (TempData["NotificationType"] as string == "warning")
-                {
-                    return RedirectToAction("Index", "MovimientoInventarios");
-                }
                 return RedirectToAction("Index");
             }
 
+            // Si hubo error, recarga los combos y envía el nombre del usuario
             ViewBag.ProductoId = new SelectList(db.Productoes, "IdProducto", "Nombre", movimientoInventario.ProductoId);
             ViewBag.DesdeUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo", movimientoInventario.DesdeUbicacionId);
             ViewBag.HaciaUbicacionId = new SelectList(db.Ubicacions, "IdUbicacion", "Codigo", movimientoInventario.HaciaUbicacionId);
-            ViewBag.UsuarioId = new SelectList(db.Usuarios, "IdUsuario", "NombreUsuario", movimientoInventario.UsuarioId);
+            ViewBag.NombreUsuario = Session["Usuario"];
+
             return View(movimientoInventario);
         }
+
 
         [PermisoAttributes("EditarMovimientoInventarios")]
         public ActionResult Edit(int? id)

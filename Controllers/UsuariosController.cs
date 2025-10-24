@@ -80,6 +80,8 @@ namespace ProyectoWebInventario.Controllers
         [PermisoAttributes("CrearUsuarios")]
         public ActionResult Create()
         {
+            var roles = db.Rols.ToList(); // db.Rols = tabla de roles
+            ViewBag.Roles = new SelectList(roles, "NombreRol", "NombreRol"); // valor = NombreRol, texto = NombreRol
             return View();
         }
 

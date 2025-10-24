@@ -11,59 +11,60 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+<div class="form-horizontal">
 
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NombreUsuario, "Nombre de Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.NombreUsuario, "Nombre de Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.HasPassword, "Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.HasPassword, new { @class = "form-control", type = "password" })
-                @Html.ValidationMessageFor(model => model.HasPassword, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.HasPassword, "Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.HasPassword, new { @class = "form-control", type = "password" })
+            @Html.ValidationMessageFor(model => model.HasPassword, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Rol, "Rol del Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Rol, "Rol del Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Rol, (SelectList)ViewBag.Roles, "Seleccione un rol", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Activo, "Activo", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Activo)
-                    @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
 
-        <!-- Botones -->
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit"
-                       value="Crear Usuario"
-                       class="btn btn-primary btn-rounded btn-elevate"
-                       style="margin-right:10px;" />
-                <a href="@Url.Action("Index")"
-                   class="btn btn-warning text-white btn-rounded btn-elevate">
-                    Volver a la Lista
-                </a>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Activo, "Activo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Activo)
+                @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
+
+    <!-- Botones -->
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit"
+                   value="Crear Usuario"
+                   class="btn btn-primary btn-rounded btn-elevate"
+                   style="margin-right:10px;" />
+            <a href="@Url.Action("Index")"
+               class="btn btn-warning text-white btn-rounded btn-elevate">
+                Volver a la Lista
+            </a>
+        </div>
+    </div>
+</div>
 }
 
 @section Scripts {
