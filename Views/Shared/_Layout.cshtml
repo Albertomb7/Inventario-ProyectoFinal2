@@ -87,7 +87,7 @@
                         @Html.ActionLink("Alertas", "Index", "Alertas")
                     </li>
                 }
-                @if (puedeVerAlertas)
+                @if (puedeVerRoles)
                 {
                     <li class="@(ViewBag.CurrentMenu == "Rols" ? "active" : "")">
                         @Html.ActionLink("Crear y Asignar Rol", "Index", "Rols")

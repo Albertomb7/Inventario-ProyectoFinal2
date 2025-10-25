@@ -1,30 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\",
+  "WorkspaceRootPath": "C:\\Users\\salas\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\marvi\\source\\repos\\albertomb7\\inventario-proyectofinal2\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\salas\\source\\repos\\albertomb7\\inventario-proyectofinal2\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\marvi\\source\\repos\\albertomb7\\inventario-proyectofinal2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|c:\\users\\marvi\\source\\repos\\albertomb7\\inventario-proyectofinal2\\filters\\permisoattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:filters\\permisoattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\controllers\\rolscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\rolscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\views\\movimientoinventarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:views\\movimientoinventarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE0208E5-C19A-4126-87DA-D4BE445883EC}|ProyectoWebInventario.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,78 +20,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\salas\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\salas\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAIwG8AAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-25T06:37:17.402Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowDQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T06:07:47.346Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PermisoAttributes.cs",
-              "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Filters\\PermisoAttributes.cs",
-              "RelativeDocumentMoniker": "Filters\\PermisoAttributes.cs",
-              "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Filters\\PermisoAttributes.cs",
-              "RelativeToolTip": "Filters\\PermisoAttributes.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T05:47:29.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RolsController.cs",
-              "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\RolsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RolsController.cs",
-              "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\RolsController.cs",
-              "RelativeToolTip": "Controllers\\RolsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T06:40:48.392Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\MovimientoInventarios\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\MovimientoInventarios\\Index.cshtml",
-              "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Views\\MovimientoInventarios\\Index.cshtml",
-              "RelativeToolTip": "Views\\MovimientoInventarios\\Index.cshtml",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAAwAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-24T06:16:38.878Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\marvi\\source\\repos\\Albertomb7\\Inventario-ProyectoFinal2\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T06:42:56.952Z",
+              "WhenOpened": "2025-10-25T20:30:07.123Z",
               "EditorCaption": ""
             }
           ]
