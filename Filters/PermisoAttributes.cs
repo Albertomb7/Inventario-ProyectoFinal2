@@ -61,6 +61,12 @@ namespace ProyectoWebInventario.Filters
             }
         }
 
+        public static bool Check(HttpContextBase httpContext, string nombrePermiso)
+        {
+            // Creamos una instancia con el permiso pedido y usamos tu AuthorizeCore
+            return new PermisoAttributes(nombrePermiso).AuthorizeCore(httpContext);
+        }
+
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
             filterContext.Result = new RedirectResult("~/Home/AccesoDenegado");

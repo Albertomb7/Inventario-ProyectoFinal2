@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ProyectoWebInventario.Filters
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,6 +31,17 @@
 
 
 </head>
+
+@{
+    bool puedeVerAlertas = PermisoAttributes.Check(Context, "VerAlertas");
+    bool puedeVerInventario = PermisoAttributes.Check(Context, "VerInventario");
+    bool puedeVerUsuarios = PermisoAttributes.Check(Context, "VerUsuarios");
+    bool puedeVerMovimientos = PermisoAttributes.Check(Context, "VerMovimientoInventarios");
+    bool puedeVerUbicaciones = PermisoAttributes.Check(Context, "VerUbicaciones");
+    bool puedeVerProductos = PermisoAttributes.Check(Context, "VerProductos");
+    bool puedeVerRoles = PermisoAttributes.Check(Context, "VerRols");
+}
+
 <body>
     <div class="dashboard-container">
         <div class="sidebar">
@@ -38,44 +50,66 @@
                 <li class="@(ViewBag.CurrentMenu == "Home" ? "active" : "")">
                     @Html.ActionLink("Tablero", "Index", "Home")
                 </li>
-                <li class="@(ViewBag.CurrentMenu == "Productos" ? "active" : "")">
-                    @Html.ActionLink("Productos", "Index", "Productos")
-                </li>
-                <li class="@(ViewBag.CurrentMenu == "Ubicaciones" ? "active" : "")">
-                    @Html.ActionLink("Ubicaciones", "Index", "Ubicaciones")
-                </li>
-                <li class="@(ViewBag.CurrentMenu == "MovimientoInventarios" ? "active" : "")">
-                    @Html.ActionLink("Movimientos", "Index", "MovimientoInventarios")
-                </li>
-                <li class="@(ViewBag.CurrentMenu == "Usuarios" ? "active" : "")">
-                    @Html.ActionLink("Usuarios", "Index", "Usuarios")
-                </li>
-                <li class="@(ViewBag.CurrentMenu == "Inventario" ? "active" : "")">
-                    @Html.ActionLink("Inventario", "Index", "Inventario")
-                </li>
-                <li class="@(ViewBag.CurrentMenu == "Alertas" ? "active" : "")">
-                    @Html.ActionLink("Alertas", "Index", "Alertas")
-                </li>
-                <li class="@(ViewBag.CurrentMenu == "Rols" ? "active" : "")">
-                    @Html.ActionLink("Crear y Asignar Rol", "Index", "Rols")
-                </li>
-
-                @if (Session["Usuario"] != null)
+                @if (puedeVerProductos)
                 {
-                    <li style="margin-top: 20px; background-color: #dc3545; border-radius: 5px;">
-                        @* Esto crea el formulario POST que llama al AccountController *@
-                        @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                        {
-                            @Html.AntiForgeryToken()
-
-                            @* Este es el enlace que activa el formulario *@
-                            <a href="javascript:document.getElementById('logoutForm').submit()" style="color: white; font-weight: bold;">
-                                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
-                            </a>
-                        }
+                    <li class="@(ViewBag.CurrentMenu == "Productos" ? "active" : "")">
+                        @Html.ActionLink("Productos", "Index", "Productos")
                     </li>
                 }
-            </ul>
+                @if (puedeVerUbicaciones)
+                {
+                    <li class="@(ViewBag.CurrentMenu == "Ubicaciones" ? "active" : "")">
+                        @Html.ActionLink("Ubicaciones", "Index", "Ubicaciones")
+                    </li>
+                }
+                @if (puedeVerMovimientos)
+                {
+                    <li class="@(ViewBag.CurrentMenu == "MovimientoInventarios" ? "active" : "")">
+                        @Html.ActionLink("Movimientos", "Index", "MovimientoInventarios")
+                    </li>
+                }
+
+                @if (puedeVerUsuarios)
+                {
+                    <li class="@(ViewBag.CurrentMenu == "Usuarios" ? "active" : "")">
+                        @Html.ActionLink("Usuarios", "Index", "Usuarios")
+                    </li>
+                }
+                @if (puedeVerInventario)
+                {
+                    <li class="@(ViewBag.CurrentMenu == "Inventario" ? "active" : "")">
+                        @Html.ActionLink("Inventario", "Index", "Inventario")
+                    </li>
+                }
+                @if (puedeVerAlertas)
+                {
+                    <li class="@(ViewBag.CurrentMenu == "Alertas" ? "active" : "")">
+                        @Html.ActionLink("Alertas", "Index", "Alertas")
+                    </li>
+                }
+                @if (puedeVerAlertas)
+                {
+                    <li class="@(ViewBag.CurrentMenu == "Rols" ? "active" : "")">
+                        @Html.ActionLink("Crear y Asignar Rol", "Index", "Rols")
+                    </li>
+                }
+
+                    @if (Session["Usuario"] != null)
+                    {
+                        <li style="margin-top: 20px; background-color: #dc3545; border-radius: 5px;">
+                            @* Esto crea el formulario POST que llama al AccountController *@
+                            @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @* Este es el enlace que activa el formulario *@
+                                <a href="javascript:document.getElementById('logoutForm').submit()" style="color: white; font-weight: bold;">
+                                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                                </a>
+                            }
+                        </li>
+                    }
+                </ul>
         </div>
         <div class="main-content">
 

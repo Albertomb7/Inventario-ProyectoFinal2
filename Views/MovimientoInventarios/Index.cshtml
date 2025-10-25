@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ProyectoWebInventario.Models.MovimientoInventario>
+﻿@using ProyectoWebInventario.Filters;
+@model IEnumerable<ProyectoWebInventario.Models.MovimientoInventario>
 
 @{
     ViewBag.Title = "Movimientos del Inventario";
@@ -6,6 +7,12 @@
     int page = ViewBag.Page ?? 1;
     int totalPages = ViewBag.TotalPages ?? 1;
     string busqueda = ViewBag.Busqueda as string;
+}
+
+@{
+    bool puedeVerMovimientos = PermisoAttributes.Check(Context, "VerMovimientoInventarios");
+    bool puedeEditarMovimientos = PermisoAttributes.Check(Context, "EditarMovimientoInventarios");
+    bool puedeEliminarMovimientos = PermisoAttributes.Check(Context, "EliminarMovimientoInventarios");
 }
 
 <style>
@@ -129,12 +136,17 @@
                 <td>@Html.DisplayFor(modelItem => item.Observacion)</td>
                 <td>
                     <div class="btn-group" role="group">
-                        @Html.ActionLink("Editar", "Edit", new { id = item.IdMovimientoInventario },
-                            new { @class = "btn btn-sm btn-primary me-1" })
-                        @Html.ActionLink("Detalles", "Details", new { id = item.IdMovimientoInventario },
-                            new { @class = "btn btn-sm btn-warning me-1 text-white" })
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdMovimientoInventario },
-                            new { @class = "btn btn-sm btn-danger" })
+                        @if (puedeEditarMovimientos)
+                        {@Html.ActionLink("Editar", "Edit", new { id = item.IdMovimientoInventario },
+new { @class = "btn btn-sm btn-primary me-1" })}
+                        @if (puedeVerMovimientos)
+                        {@Html.ActionLink("Detalles", "Details", new { id = item.IdMovimientoInventario },
+new { @class = "btn btn-sm btn-warning me-1 text-white" })}
+
+                        @if (puedeEliminarMovimientos)
+                        {@Html.ActionLink("Eliminar", "Delete", new { id = item.IdMovimientoInventario },
+new { @class = "btn btn-sm btn-danger" })}
+
                     </div>
                 </td>
 
